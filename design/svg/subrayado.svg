@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 24" preserveAspectRatio="none" width="220" height="24" aria-hidden="true">
+  <!-- Subrayado a mano bajo "Pong" en el hero. Colócalo absoluto: left -4%, bottom -14px, width 108%, height 22px -->
+  <path d="M4 14 C40 6 70 20 104 11 C136 3 170 19 216 8" fill="none" stroke="#FF7A1A" stroke-width="6" stroke-linecap="round"/>
+</svg>

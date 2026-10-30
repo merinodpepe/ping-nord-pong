@@ -1,0 +1,26 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request: {}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run i18n:check
+      - run: npm audit --audit-level=high
+      - name: Tests SQL (migraciones, RLS y RPC en Postgres desechable)
+        run: npm run db:test
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://example.invalid
+      - name: Sin service_role en el bundle del cliente
+        run: |
+          if grep -R "SUPABASE_SERVICE_ROLE_KEY" .next/static 2>/dev/null; then echo "service_role en el bundle"; exit 1; fi

@@ -1,0 +1,46 @@
+/* Ping-Nord-Pong · tokens de diseño (plan 3.1). Tema solo oscuro: forma parte de la identidad. */
+:root {
+  --pf-bg: #0A1020;
+  --pf-surface: #0D1628;
+  --pf-surface-2: #121D33;
+  --pf-line: #1C2A44;
+  --pf-line-strong: #2E4366;
+  --pf-table: #0F2A4A;
+  --pf-table-hi: #174A82;
+  --pf-chalk: #E8EEF7;
+
+  --pf-text: #F2F5FA;
+  --pf-text-2: #C9D3E3;
+  --pf-muted: #9AA8BD;
+  --pf-faint: #7D8BA1;
+
+  --pf-ball: #FF7A1A;
+  --pf-ball-hi: #FF8A33;
+  --pf-red: #E5383B;
+  --pf-red-dark: #9E1F24;
+  --pf-red-text: #FF6B6E;
+  --pf-blue: #2F80ED;
+  --pf-blue-dark: #1D5BB0;
+  --pf-blue-text: #5AA2FF;
+  --pf-win: #3DDC84;
+  --pf-gold: #FFC24B;
+  --pf-silver: #D7DEE8;
+  --pf-bronze: #E39A5F;
+
+  --pf-sheep-wool: #F2B705;
+  --pf-sheep-head: #FFE38A;
+
+  --pf-radius-pill: 999px;
+  --pf-radius-card: 20px;
+  --pf-radius-lg: 28px;
+  --pf-radius-field: 14px;
+
+  --pf-av-0: #FF6B6E; --pf-av-1: #5AA2FF; --pf-av-2: #FFC24B; --pf-av-3: #3DDC84;
+  --pf-av-4: #C18CFF; --pf-av-5: #FF9A5A; --pf-av-6: #7D8BA1;
+}
+
+:focus-visible { outline: 2px solid var(--pf-ball); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,14 @@
+name: pg-dump
+on:
+  schedule: [{ cron: '23 4 * * 0' }]
+  workflow_dispatch: {}
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Volcado semanal (artefacto privado, 14 días)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+          pg_dump "${{ secrets.SUPABASE_DB_URL }}" --no-owner --format=custom -f backup.dump
+      - uses: actions/upload-artifact@v4
+        with: { name: backup, path: backup.dump, retention-days: 14 }

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" role="img" aria-label="Cargando">
+  <title>Cargando</title>
+  <style>
+    @keyframes b { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-34px) } }
+    @keyframes s { 0%, 100% { transform: scaleX(1); opacity: .45 } 50% { transform: scaleX(.55); opacity: .2 } }
+    .ball { animation: b .7s cubic-bezier(.3,0,.7,1) infinite }
+    .shadow { transform-origin: 40px 70px; animation: s .7s cubic-bezier(.3,0,.7,1) infinite }
+    @media (prefers-reduced-motion: reduce) { .ball, .shadow { animation: none } }
+  </style>
+  <line x1="12" y1="66" x2="68" y2="66" stroke="#E8EEF7" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+  <ellipse class="shadow" cx="40" cy="70" rx="10" ry="3" fill="#000"/>
+  <g class="ball"><circle cx="40" cy="52" r="10" fill="#FF7A1A"/><circle cx="36.5" cy="48.5" r="3" fill="#FFD2A8"/></g>
+</svg>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Emblemas: cuervo contra serpiente</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=Manrope:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;family=Caveat:wght@700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#FF8A33}a:hover{color:#FFB070}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1180px; box-sizing: border-box; padding: 48px 56px; background: #0A1020; color: #F2F5FA; font-family: Manrope, system-ui, sans-serif; display: flex; flex-direction: column; gap: 28px">
+
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px">
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; letter-spacing: -1px">Cuervo contra serpiente</h1>
+<p style="margin: 0; font-family: Caveat, cursive; font-weight: 700; font-size: 28px; color: #FFE38A; transform: rotate(-2deg)">quién es quién lo decide la suerte</p>
+</div>
+
+<div style="display: flex; gap: 48px; align-items: flex-start">
+<div style="flex: 0 0 auto; padding: 16px; border-radius: 28px; background: #0D1628; border: 1px solid #1C2A44">
+<dc-import name="Emblema" state="{{ stateStr }}" seed="{{ seed }}" size="440" crow-ini="{{ crowIni }}" snake-ini="{{ snakeIni }}" hint-size="440px,587px"></dc-import>
+</div>
+
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 1.5px; color: #FF8A33; text-transform: uppercase">Estado del cara a cara</p>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 32px">{{ stateName }}</p>
+<p style="margin: 0; color: #C9D3E3">{{ roles }}</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px" role="group" aria-label="Estado">
+<sc-for list="{{ states }}" as="o" hint-placeholder-count="7"><button onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.style }}">{{ o.label }}</button></sc-for>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<button onClick="{{ shuffle }}" style="min-height: 48px; padding: 0 22px; border: 0; border-radius: 999px; background: #FF7A1A; color: #0A1020; font: 800 15px Manrope, sans-serif; cursor: pointer">Colores aleatorios</button>
+<button onClick="{{ swap }}" style="min-height: 48px; padding: 0 22px; border: 1.5px solid #2E4366; border-radius: 999px; background: transparent; color: #F2F5FA; font: 700 15px Manrope, sans-serif; cursor: pointer">Sortear quién es cuervo</button>
+</div>
+
+<div style="padding: 18px 20px; border-radius: 20px; background: #0D1628; border: 1px solid #1C2A44; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 12px; color: #9AA8BD; text-transform: uppercase; letter-spacing: 1px; font-weight: 700">Cómo se elige el estado (diferencia en el cara a cara)</p>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; font-size: 14px">
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px">0 – 1</p><p style="margin: 2px 0 0; color: #C9D3E3">Central</p></div>
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px">2 – 3</p><p style="margin: 2px 0 0; color: #C9D3E3">Gana uno</p></div>
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px">4 – 6</p><p style="margin: 2px 0 0; color: #C9D3E3">Gana bastante más</p></div>
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px">7+ · 70%+</p><p style="margin: 2px 0 0; color: #C9D3E3">Dominio absoluto</p></div>
+</div>
+<p style="margin: 0; color: #9AA8BD; font-size: 13px; line-height: 1.5">El papel de cuervo o serpiente y los dos colores se sortean una vez al crear la rivalidad y no cambian. El icono va en la cabeza del que manda; en el estado central, los dos iguales.</p>
+</div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{ states }}" as="o" hint-placeholder-count="7">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 4px; border-radius: 16px; background: #0D1628">
+<dc-import name="Emblema" state="{{ o.value }}" seed="{{ seed }}" size="150" crow-ini="{{ crowIni }}" snake-ini="{{ snakeIni }}" hint-size="150px,200px"></dc-import>
+<p style="margin: 0; font-size: 12px; font-weight: 700; color: #C9D3E3; text-align: center">{{ o.short }}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { st: 0, seed: 7, crowIsA: true }; }
+  renderVals() {
+    var self = this;
+    var on = 'min-height: 48px; border: 0; border-radius: 14px; background: #FF7A1A; color: #0A1020; font: 800 15px "JetBrains Mono", monospace; cursor: pointer';
+    var off = 'min-height: 48px; border: 1.5px solid #2E4366; border-radius: 14px; background: #0D1628; color: #F2F5FA; font: 700 15px "JetBrains Mono", monospace; cursor: pointer';
+    var list = [3, 2, 1, 0, -1, -2, -3];
+    var shorts = { '3': 'Cuervo: dominio absoluto', '2': 'Cuervo gana bastante', '1': 'Cuervo gana', '0': 'Central', '-1': 'Serpiente gana', '-2': 'Serpiente gana bastante', '-3': 'Serpiente: dominio absoluto' };
+    var crowName = this.state.crowIsA ? 'Ana' : 'Marc', snakeName = this.state.crowIsA ? 'Marc' : 'Ana';
+    return {
+      seed: this.state.seed,
+      stateStr: String(this.state.st),
+      crowIni: crowName.slice(0, 2).toUpperCase(), snakeIni: snakeName.slice(0, 2).toUpperCase(),
+      stateName: shorts[String(this.state.st)],
+      roles: crowName + ' es el cuervo y ' + snakeName + ' la serpiente (ejemplo).',
+      states: list.map(function (v) {
+        var sel = self.state.st === v;
+        return { value: String(v), label: v > 0 ? '+' + v : String(v), short: shorts[String(v)], on: sel, style: sel ? on : off, pick: function () { self.setState({ st: v }); } };
+      }),
+      shuffle: function () { self.setState({ seed: 1 + Math.floor(Math.random() * 1000000) }); },
+      swap: function () { self.setState({ crowIsA: Math.random() < 0.5 }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

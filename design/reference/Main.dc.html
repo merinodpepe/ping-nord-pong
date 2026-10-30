@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ping-Nord-Pong · Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=Manrope:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Caveat:wght@600;700&amp;display=swap">
+<style>
+body{margin:0;background:#0A1020}
+a{color:#FF8A33}a:hover{color:#FFB070}
+@keyframes pfBallX{0%{transform:translateX(0)}100%{transform:translateX(330px)}}
+@keyframes pfBallY{0%,100%{transform:translateY(0)}50%{transform:translateY(-120px)}}
+@keyframes pfShadow{0%{transform:translateX(0)}100%{transform:translateX(330px)}}
+@keyframes pfSwingL{0%,100%{transform:rotate(0deg)}45%{transform:rotate(-24deg)}}
+@keyframes pfSwingR{0%,50%{transform:rotate(0deg)}95%{transform:rotate(24deg)}}
+@keyframes pfHover{0%,100%{transform:translate(0,0)}50%{transform:translate(-4px,8px)}}
+@keyframes pfShudder{0%,100%{transform:translate(0,0)}50%{transform:translate(1px,3px)}}
+.pf-loser{animation:pfShudder 3s ease-in-out infinite}
+@keyframes pfPulse{0%,100%{opacity:1}50%{opacity:.35}}
+.pf-bx{animation:pfBallX 1.1s ease-in-out infinite alternate}
+.pf-by{animation:pfBallY .55s cubic-bezier(.3,0,.7,1) infinite}
+.pf-sh{animation:pfShadow 1.1s ease-in-out infinite alternate}
+.pf-pl{transform-origin:70px 250px;animation:pfSwingL 2.2s ease-in-out infinite}
+.pf-pr{transform-origin:490px 250px;animation:pfSwingR 2.2s ease-in-out infinite}
+.pf-bird{animation:pfHover 3s ease-in-out infinite}
+.pf-live{animation:pfPulse 1.4s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.pf-bx,.pf-by,.pf-sh,.pf-pl,.pf-pr,.pf-bird,.pf-loser,.pf-live{animation:none}}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #0A1020; color: #F2F5FA; font-family: Manrope, system-ui, sans-serif">
+
+<header style="border-bottom: 1px solid #1C2A44">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px" aria-label="Principal">
+<a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F2F5FA">
+<svg width="44" height="44" viewBox="0 0 200 200" aria-hidden="true"><g fill="#F2B705"><circle cx="52" cy="88" r="34"></circle><circle cx="78" cy="52" r="36"></circle><circle cx="122" cy="52" r="36"></circle><circle cx="150" cy="88" r="34"></circle><circle cx="138" cy="122" r="32"></circle><circle cx="62" cy="122" r="32"></circle><circle cx="100" cy="100" r="44"></circle></g><g fill="#FFE38A"><ellipse cx="70" cy="136" rx="13" ry="6.5" transform="rotate(-22 70 136)"></ellipse><ellipse cx="130" cy="136" rx="13" ry="6.5" transform="rotate(22 130 136)"></ellipse></g><ellipse cx="100" cy="158" rx="30" ry="34" fill="#FFE38A" stroke="#0A1020" stroke-width="4"></ellipse><g fill="#F2B705"><circle cx="89" cy="154" r="3.4"></circle><circle cx="111" cy="154" r="3.4"></circle></g><g fill="#0A1020"><rect x="60" y="42" width="36" height="36" rx="9"></rect><rect x="104" y="42" width="36" height="36" rx="9"></rect><rect x="60" y="86" width="36" height="36" rx="9"></rect></g><g fill="none" stroke="#F2B705" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path transform="translate(60 42)" d="M12 27 V9 H19 a5.5 5.5 0 0 1 0 11 H12"></path><path transform="translate(104 42)" d="M9 27 V9 L18 20 L27 9 V27"></path><path transform="translate(60 86)" d="M12 27 V9 H17 a9 9 0 0 1 0 18 Z"></path></g><rect x="104" y="86" width="36" height="36" rx="9" fill="#FFE38A"></rect><g transform="translate(104 86)" fill="none" stroke="#0A1020" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="16" r="8"></circle><path d="M20.7 21.7 L27 28"></path><circle cx="27.5" cy="9.5" r="2.2" fill="#0A1020"></circle></g></svg>
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.5px">Ping<span style="color: #FF7A1A">-</span>Nord<span style="color: #FF7A1A">-</span>Pong</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
+<a href="#ranking" style="padding: 12px 14px; color: #C9D3E3; text-decoration: none; font-weight: 600">Ranking</a>
+<a href="#rivalidades" style="padding: 12px 14px; color: #C9D3E3; text-decoration: none; font-weight: 600">Rivalidades</a>
+<a href="#retos" style="padding: 12px 14px; color: #C9D3E3; text-decoration: none; font-weight: 600">Retos</a>
+<a href="#normativa" style="padding: 12px 14px; color: #C9D3E3; text-decoration: none; font-weight: 600">Normativa</a>
+<a href="#entrar" style="margin-left: 8px; padding: 12px 20px; background: #FF7A1A; color: #0A1020; border-radius: 999px; text-decoration: none; font-weight: 700">Entrar</a>
+</div>
+</nav>
+</header>
+
+<section id="top" style="position: relative; overflow: hidden">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 56px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9AA8BD; letter-spacing: 1.5px; text-transform: uppercase"><span class="pf-live" style="width: 8px; height: 8px; border-radius: 50%; background: #3DDC84; display: inline-block"></span>Campus Nord · UPC · Temporada de otoño</p>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(52px, 8vw, 112px); line-height: 0.9; letter-spacing: -3px">Ping<span style="color: #FF7A1A">-</span><br>Nord<span style="color: #FF7A1A">-</span><br><span style="position: relative; display: inline-block">Pong<svg viewBox="0 0 220 24" preserveAspectRatio="none" style="position: absolute; left: -4%; bottom: -14px; width: 108%; height: 22px" aria-hidden="true"><path d="M4 14 C40 6 70 20 104 11 C136 3 170 19 216 8" fill="none" stroke="#FF7A1A" stroke-width="6" stroke-linecap="round"></path></svg></span></h1>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: 26px; color: #F2F5FA">El Campus Nord ya tiene ranking.</p>
+<p style="margin: 0; max-width: 460px; font-size: 18px; line-height: 1.55; color: #C9D3E3">Apunta tus partidos, que tu rival los confirme y mira cómo se mueve tu ELO. Rivalidades públicas, retos por chat y cero excusas.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#entrar" style="padding: 16px 26px; background: #FF7A1A; color: #0A1020; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 16px">Entrar con email de la uni</a>
+<a href="#ranking" style="padding: 16px 26px; border: 1.5px solid #2E4366; color: #F2F5FA; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 16px">Ver ranking</a>
+</div>
+</div>
+
+<div style="flex: 1 1 460px; min-width: 0">
+<svg viewBox="0 0 560 360" style="width: 100%; height: auto; display: block" role="img" aria-label="Mesa de ping-pong animada con una pelota rebotando entre dos palas">
+<defs>
+<linearGradient id="pfTable" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#174A82"></stop><stop offset="1" stop-color="#0F2A4A"></stop></linearGradient>
+</defs>
+<ellipse cx="280" cy="318" rx="250" ry="22" fill="#000" opacity="0.35"></ellipse>
+<polygon points="70,250 490,250 440,150 120,150" fill="url(#pfTable)" stroke="#E8EEF7" stroke-width="4" stroke-linejoin="round"></polygon>
+<line x1="280" y1="150" x2="280" y2="250" stroke="#E8EEF7" stroke-width="2" opacity="0.7"></line>
+<line x1="95" y1="200" x2="465" y2="200" stroke="#E8EEF7" stroke-width="1.5" opacity="0.35" stroke-dasharray="6 6"></line>
+<rect x="270" y="122" width="20" height="132" fill="#E8EEF7" opacity="0.9" rx="2"></rect>
+<rect x="276" y="126" width="8" height="124" fill="#0A1020" opacity="0.5"></rect>
+<line x1="90" y1="250" x2="84" y2="310" stroke="#2E4366" stroke-width="8" stroke-linecap="round"></line>
+<line x1="470" y1="250" x2="476" y2="310" stroke="#2E4366" stroke-width="8" stroke-linecap="round"></line>
+<g class="pf-sh"><ellipse cx="115" cy="205" rx="12" ry="4" fill="#000" opacity="0.35"></ellipse></g>
+<g class="pf-bx"><g class="pf-by"><circle cx="115" cy="190" r="11" fill="#FF7A1A"></circle><circle cx="111" cy="186" r="3.5" fill="#FFD2A8"></circle></g></g>
+<g class="pf-pl"><rect x="62" y="232" width="12" height="44" rx="5" fill="#8A5A2B"></rect><ellipse cx="68" cy="210" rx="30" ry="34" fill="#E5383B"></ellipse></g>
+<g class="pf-pr"><rect x="486" y="232" width="12" height="44" rx="5" fill="#8A5A2B"></rect><ellipse cx="492" cy="210" rx="30" ry="34" fill="#2F80ED"></ellipse></g>
+</svg>
+<p style="margin: -8px 0 0 auto; width: fit-content; font-family: Caveat, cursive; font-weight: 700; font-size: 28px; color: #FFE38A; transform: rotate(-4deg)">aquí se resuelven las rivalidades ↑</p>
+</div>
+</div>
+</section>
+
+<section style="border-top: 1px solid #1C2A44; border-bottom: 1px solid #1C2A44; background: #0D1628">
+<div style="max-width: 1200px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px">
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 700">[N]</p><p style="margin: 4px 0 0; color: #9AA8BD; font-size: 14px">jugadores registrados</p></div>
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 700">[N]</p><p style="margin: 4px 0 0; color: #9AA8BD; font-size: 14px">partidos confirmados</p></div>
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 700">[N]</p><p style="margin: 4px 0 0; color: #9AA8BD; font-size: 14px">rivalidades activas</p></div>
+<div><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 700">[N]</p><p style="margin: 4px 0 0; color: #9AA8BD; font-size: 14px">retos esta semana</p></div>
+</div>
+</section>
+
+<section id="ranking" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 24px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px">
+<div>
+<p style="margin: 0 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF8A33; letter-spacing: 1.5px; text-transform: uppercase">Ranking ELO</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; letter-spacing: -1px">Quién manda en la mesa</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<div style="display: flex; padding: 4px; background: #121D33; border-radius: 999px; gap: 4px" role="group" aria-label="Modalidad">
+<button onClick="{{ setSingles }}" aria-pressed="{{ singlesOn }}" style="{{ singlesStyle }}">1v1</button>
+<button onClick="{{ setDoubles }}" aria-pressed="{{ doublesOn }}" style="{{ doublesStyle }}">2v2</button>
+</div>
+<div style="display: flex; padding: 4px; background: #121D33; border-radius: 999px; gap: 4px" role="group" aria-label="Filtro">
+<button onClick="{{ setActive }}" aria-pressed="{{ activeOn }}" style="{{ activeStyle }}">Activos</button>
+<button onClick="{{ setAll }}" aria-pressed="{{ allOn }}" style="{{ allStyle }}">Histórico</button>
+</div>
+</div>
+</div>
+
+<div style="overflow-x: auto; border: 1px solid #1C2A44; border-radius: 20px; background: #0D1628">
+<table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px">
+<thead>
+<tr style="text-align: left; color: #9AA8BD; font-size: 12px; text-transform: uppercase; letter-spacing: 1px">
+<th scope="col" style="padding: 16px 20px; font-weight: 600">#</th>
+<th scope="col" style="padding: 16px 20px; font-weight: 600">Jugador</th>
+<th scope="col" style="padding: 16px 20px; font-weight: 600">ELO</th>
+<th scope="col" style="padding: 16px 20px; font-weight: 600">Últ. 7 días</th>
+<th scope="col" style="padding: 16px 20px; font-weight: 600">V – D</th>
+<th scope="col" style="padding: 16px 20px; font-weight: 600">Racha</th>
+<th scope="col" style="padding: 16px 20px; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acción</span></th>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+<tr style="border-top: 1px solid #1C2A44">
+<td style="padding: 14px 20px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px; color: {{ r.rankColor }}">{{ r.rank }}</td>
+<td style="padding: 14px 20px">
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="width: 38px; height: 38px; border-radius: 50%; background: {{ r.color }}; color: #0A1020; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">{{ r.ini }}</span>
+<span style="font-weight: 700">{{ r.alias }}</span>
+<sc-if value="{{ r.prov }}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; padding: 3px 8px; border-radius: 999px; border: 1px solid #2E4366; color: #9AA8BD">provisional</span></sc-if>
+</div>
+</td>
+<td style="padding: 14px 20px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px">{{ r.elo }}</td>
+<td style="padding: 14px 20px; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: {{ r.deltaColor }}">{{ r.delta }}</td>
+<td style="padding: 14px 20px; color: #C9D3E3">{{ r.wl }}</td>
+<td style="padding: 14px 20px; font-family: 'JetBrains Mono', monospace; color: #C9D3E3">{{ r.streak }}</td>
+<td style="padding: 14px 20px; text-align: right"><a href="#retos" style="display: inline-block; padding: 10px 16px; border: 1.5px solid #2E4366; border-radius: 999px; color: #F2F5FA; text-decoration: none; font-weight: 700; font-size: 13px">Retar</a></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; color: #9AA8BD; font-size: 13px">Datos de ejemplo. Provisional = menos de 10 partidos; no entra en el top.</p>
+</section>
+
+<section id="rivalidades" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center; padding: 40px; border-radius: 28px; background: #0D1628; border: 1px solid #1C2A44">
+<div style="flex: 1 1 300px; min-width: 0; display: flex; justify-content: center">
+<dc-import name="Emblema" state="1" seed="7" size="320" crow-ini="AN" snake-ini="MA" hint-size="320px,427px"></dc-import>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF8A33; letter-spacing: 1.5px; text-transform: uppercase">Rivalidad de la semana</p>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -1px">Ana <span style="color: #9AA8BD; font-weight: 500">vs</span> Marc</h2>
+<p style="margin: 0; color: #C9D3E3; line-height: 1.55">Ana es el cuervo y Marc la serpiente (lo sorteó la web). Quien va ganando el cara a cara se impone y lleva su icono en la cabeza; hay siete estados, del empate al dominio absoluto.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<div style="padding: 16px; border-radius: 16px; background: #121D33"><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: #FF6B6E">9 – 6</p><p style="margin: 4px 0 0; font-size: 13px; color: #9AA8BD">cara a cara</p></div>
+<div style="padding: 16px; border-radius: 16px; background: #121D33"><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700">W3</p><p style="margin: 4px 0 0; font-size: 13px; color: #9AA8BD">racha de Ana</p></div>
+<div style="padding: 16px; border-radius: 16px; background: #121D33"><p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700">+41</p><p style="margin: 4px 0 0; font-size: 13px; color: #9AA8BD">dif. de ELO</p></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border-radius: 999px; background: #2A1416; color: #FF9EA0; font-size: 13px; font-weight: 700">Némesis de Marc</span>
+<span style="padding: 6px 12px; border-radius: 999px; background: #121D33; color: #C9D3E3; font-size: 13px; font-weight: 700">15 partidos</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="retos" style="max-width: 1200px; margin: 0 auto; padding: 8px 24px 64px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -1px">Del partido al ELO en tres botes</h2>
+<p style="margin: 0; font-family: Caveat, cursive; font-weight: 700; font-size: 26px; color: #FFE38A; transform: rotate(-2deg)">(sin trampas: el otro confirma)</p>
+</div>
+<svg viewBox="0 0 1200 110" preserveAspectRatio="none" style="width: 100%; height: 90px; display: block" aria-hidden="true">
+<line x1="0" y1="104" x2="1200" y2="104" stroke="#2E4366" stroke-width="2"></line>
+<line x1="400" y1="60" x2="400" y2="104" stroke="#E8EEF7" stroke-width="3" opacity="0.6"></line>
+<line x1="800" y1="60" x2="800" y2="104" stroke="#E8EEF7" stroke-width="3" opacity="0.6"></line>
+<path d="M30 100 Q215 -30 400 100 Q600 -30 800 100 Q985 -30 1170 100" fill="none" stroke="#FF7A1A" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"></path>
+<circle cx="1170" cy="96" r="9" fill="#FF7A1A"></circle>
+</svg>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 40px">
+<div style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: transparent; -webkit-text-stroke: 2px #FF7A1A">1</p><h3 style="margin: 0; font-size: 22px">Juega</h3><p style="margin: 0; color: #C9D3E3; line-height: 1.5">Con quien esté en la mesa. Si quieres quedar antes, puedes retarle desde su perfil y se abre un chat, pero no hace falta.</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 28px"><p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: transparent; -webkit-text-stroke: 2px #FF7A1A">2</p><h3 style="margin: 0; font-size: 22px">Apunta</h3><p style="margin: 0; color: #C9D3E3; line-height: 1.5">Uno de los dos lo registra: a 5, 7, 11 o 21, un set o al mejor de 3, 5 o 7, 1v1 o 2v2, con los puntos de cada set.</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 56px"><p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 64px; line-height: 1; color: transparent; -webkit-text-stroke: 2px #FF7A1A">3</p><h3 style="margin: 0; font-size: 22px">El otro confirma</h3><p style="margin: 0; color: #C9D3E3; line-height: 1.5">Si el resultado es el real, lo acepta y el ELO de los dos se mueve a la vez. Si no, lo rechaza y no cuenta.</p></div>
+</div>
+</section>
+
+<section id="normativa" style="background: #0F2A4A">
+<div style="max-width: 1200px; margin: 0 auto; padding: 56px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 420px; min-width: 0">
+<h2 style="margin: 0 0 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -1px">¿Saque válido? Mira la normativa.</h2>
+<p style="margin: 0; color: #D6E2F2; line-height: 1.55">Las reglas oficiales en versión de bolsillo: saque, cambios, dobles y el famoso let.</p>
+</div>
+<a href="#normativa" style="padding: 16px 26px; background: #F2F5FA; color: #0A1020; border-radius: 999px; text-decoration: none; font-weight: 700">Abrir normativa</a>
+</div>
+</section>
+
+<footer style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; color: #9AA8BD; font-size: 14px">
+<span>Ping-Nord-Pong · Campus Nord UPC <span style="margin-left: 8px; font-size: 12px; color: #7D8BA1">un proyecto de Pepe Flock</span></span>
+<span>Solo guardamos tu email, alias y partidos. <a href="#top">Privacidad</a></span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2240}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { mode: 'single', filter: 'active' }; }
+  renderVals() {
+    var on = 'padding: 10px 18px; min-height: 44px; border: 0; border-radius: 999px; background: #FF7A1A; color: #0A1020; font: 700 14px Manrope, sans-serif; cursor: pointer';
+    var off = 'padding: 10px 18px; min-height: 44px; border: 0; border-radius: 999px; background: transparent; color: #C9D3E3; font: 700 14px Manrope, sans-serif; cursor: pointer';
+    var single = [
+      ['Ana', 'AN', 1284, 18, '41 – 12', 'W3', '#FF6B6E', false],
+      ['Marc', 'MA', 1243, -9, '35 – 17', 'L1', '#5AA2FF', false],
+      ['Topspin_Lu', 'LU', 1219, 24, '28 – 14', 'W5', '#FFC24B', false],
+      ['Nico', 'NI', 1187, 0, '30 – 22', 'W1', '#3DDC84', false],
+      ['Sara.p', 'SA', 1150, -14, '19 – 15', 'L2', '#C18CFF', false],
+      ['Javi_99', 'JA', 1122, 31, '7 – 2', 'W4', '#FF9A5A', true]
+    ];
+    var doubles = [
+      ['Ana + Lu', 'AL', 1231, 12, '14 – 5', 'W2', '#FF6B6E', false],
+      ['Marc + Nico', 'MN', 1198, -6, '12 – 8', 'L1', '#5AA2FF', false],
+      ['Sara + Javi', 'SJ', 1105, 9, '6 – 4', 'W1', '#C18CFF', true]
+    ];
+    var src = this.state.mode === 'single' ? single : doubles;
+    if (this.state.filter === 'all') src = src.concat([['Pau_retired', 'PA', 1201, 0, '50 – 31', '—', '#7D8BA1', false]]).sort(function (a, b) { return b[2] - a[2]; });
+    var medal = ['#FFC24B', '#D7DEE8', '#E39A5F'];
+    var rows = src.map(function (p, i) {
+      return { rank: i + 1, rankColor: medal[i] || '#9AA8BD', alias: p[0], ini: p[1], elo: p[2],
+        delta: p[3] > 0 ? '+' + p[3] : (p[3] === 0 ? '±0' : String(p[3])),
+        deltaColor: p[3] > 0 ? '#3DDC84' : (p[3] < 0 ? '#FF6B6E' : '#9AA8BD'),
+        wl: p[4], streak: p[5], color: p[6], prov: p[7] };
+    });
+    var self = this;
+    return {
+      rows: rows,
+      singlesOn: this.state.mode === 'single', doublesOn: this.state.mode !== 'single',
+      activeOn: this.state.filter === 'active', allOn: this.state.filter !== 'active',
+      singlesStyle: this.state.mode === 'single' ? on : off,
+      doublesStyle: this.state.mode !== 'single' ? on : off,
+      activeStyle: this.state.filter === 'active' ? on : off,
+      allStyle: this.state.filter !== 'active' ? on : off,
+      setSingles: function () { self.setState({ mode: 'single' }); },
+      setDoubles: function () { self.setState({ mode: 'double' }); },
+      setActive: function () { self.setState({ filter: 'active' }); },
+      setAll: function () { self.setState({ filter: 'all' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
