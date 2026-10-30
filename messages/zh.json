@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "title": "Ping-Nord-Pong · Campus Nord 乒乓球排名",
+    "description": "巴塞罗那 Campus Nord 的公开 ELO 乒乓球排名。记录比赛，让对手确认，看着你的 ELO 变化。"
+  },
+  "nav": {
+    "skip": "跳到正文", "home": "Ping-Nord-Pong 首页", "main": "主导航",
+    "ranking": "排名", "rivalries": "宿敌", "challenges": "挑战", "rules": "规则",
+    "enter": "登录", "finishSignup": "完成注册", "pending": "待办", "account": "你的账号（{alias}）", "language": "语言"
+  },
+  "common": { "loading": "加载中", "copyLink": "复制链接", "copied": "已复制！" },
+  "footer": {
+    "privacy": "隐私", "terms": "条款", "cookies": "Cookie", "rules": "规则",
+    "disclaimer": "学生项目，并非 UPC 官方网站。",
+    "by": "一个项目，来自", "dataNote": "我们只保存你的邮箱、昵称和比赛。"
+  },
+  "home": {
+    "kicker": "Campus Nord · UPC · 秋季赛季",
+    "title": "Campus Nord 终于有排名了。",
+    "lead": "记录你的比赛，让对手确认，看着你的 ELO 变化。公开的宿敌榜、带聊天的挑战，没有借口。",
+    "ctaEnter": "用邮箱登录", "ctaRecord": "记录一场比赛", "ctaRanking": "查看排名",
+    "note": "宿敌之争在这里见分晓 ↑", "tableAlt": "乒乓球台，一个球在两只球拍之间来回弹跳",
+    "statsLabel": "数据", "statPlayers": "注册玩家", "statMatches": "已确认比赛", "statRivalries": "活跃宿敌", "statWeek": "本周比赛",
+    "rankLabel": "ELO 排名", "rankTitle": "谁在球台上称王", "rankAll": "查看完整排名",
+    "emptyRankTitle": "还没有人走上球台。你要当第一个吗？", "emptyRankBody": "有了已确认的比赛，高手就会出现在这里。",
+    "weekLabel": "本周宿敌", "vs": "对", "emblemLabel": "乌鸦（{crow}）对蛇（{snake}）",
+    "weekBody": "{crow} 是乌鸦，{snake} 是蛇（由网站抽签决定）。交手战绩领先的一方占据画面，并把自己的徽章戴在头上；共有七种状态，从平局到绝对压制。",
+    "weekMeta": "共 {total, plural, other {# 场比赛}} · 本周 {week, plural, other {# 场}}",
+    "weekCta": "查看宿敌",
+    "emptyWeekTitle": "本周还没有宿敌", "emptyWeekBody": "同样两个人打满 5 场比赛，就会诞生一对宿敌。开始热身吧。",
+    "stepsTitle": "三下弹跳，从比赛到 ELO", "stepsSub": "（不作弊：对方确认）",
+    "step1Title": "打球", "step1Body": "和球台边的任何人打。如果想提前约，可以在对方主页发起挑战，会打开聊天，但不是必须的。",
+    "step2Title": "记录", "step2Body": "其中一人登记：打到 5、7、11 或 21 分，一局或三、五、七局，1v1 或 2v2，并填上每局比分。",
+    "step3Title": "对方确认", "step3Body": "如果比分属实，对方接受，两人的 ELO 同时变化。否则拒绝，这场不算。",
+    "rulesTitle": "发球合法吗？看看规则。", "rulesBody": "官方规则口袋版：发球、换发、双打和著名的重发球。", "rulesCta": "打开规则"
+  },
+  "ranking": {
+    "label": "ELO 排名", "title": "谁在球台上称王", "caption": "玩家排名", "mode": "模式", "scope": "范围",
+    "active": "活跃", "history": "历史", "search": "按昵称搜索", "searchBtn": "搜索",
+    "player": "玩家", "last7": "近 7 天", "wl": "胜–负", "streak": "连胜/连败", "action": "操作", "provisional": "暂定", "challenge": "挑战",
+    "emptyTitle": "这个榜单上还没有人", "emptyBody": "这个模式还没有已确认的比赛。", "emptySearch": "没有人叫这个名字。确定拼对了吗？",
+    "footnote": "暂定 = 不足 10 场比赛，不计入前三名和奖牌。活跃 = 近 30 天内打过球。"
+  },
+  "profile": {
+    "provisional": "暂定", "inactive": "不活跃", "nemesisOf": "天敌：{alias}", "victim": "最爱的对手：{alias}", "challenge": "挑战",
+    "stats": "统计", "wl": "胜–负 1v1", "streak": "连胜/连败", "rivals": "不同对手", "games": "比赛",
+    "chartTitle": "ELO 变化（1v1）", "chartEmpty": "还没有已确认的比赛：第一场之后图表就会出现。",
+    "chartLabel": "ELO 从 {from} 到 {to}，共 {n, plural, other {# 场比赛}}",
+    "rivalriesTitle": "宿敌", "noRivalries": "还没有宿敌。需要和同一个人打满 5 场。",
+    "roleCrow": "乌鸦", "roleSnake": "蛇", "lastMatches": "最近比赛"
+  },
+  "match": {
+    "none": "还没有已确认的比赛。", "vs": "对", "deletedPlayer": "已删除的玩家", "format": "{points} 分制 · {bestOf} 局",
+    "won": "胜", "lost": "负", "why": "为什么 ELO 这样变化？",
+    "whyBody": "K = {k} · 重复对手权重 w = {w} · 赛制权重 m = {m}。从 {before} 变为 {after}。"
+  },
+  "rivalry": {
+    "back": "宿敌", "emblemLabel": "乌鸦（{crow}）对蛇（{snake}）：{leader} 以 {a}–{b} 领先", "emblemLabelTie": "乌鸦（{crow}）对蛇（{snake}）：平局",
+    "headToHead": "交手 {total} 场", "streak": "{alias} 的连胜：{n}", "eloGap": "ELO 差距 {n}", "roles": "{crow} 乌鸦 · {snake} 蛇",
+    "byFormat": "按赛制", "toPoints": "{n} 分制", "lastMatches": "最近比赛", "rematch": "{alias}，去要求复赛"
+  },
+  "rivalries": {
+    "label": "交手记录", "title": "宿敌", "lead": "两个人，五场或更多比赛。每对宿敌都有自己的乌鸦和蛇，只抽签一次。",
+    "vs": "对", "crow": "乌鸦", "emptyTitle": "还没有宿敌", "emptyBody": "同样两个人需要 5 场已确认的比赛。"
+  },
+  "auth": {
+    "label": "登录", "title": "用邮箱登录", "lead": "不用密码：我们把链接发到你想用的邮箱。任何邮箱都可以。",
+    "email": "你的邮箱", "emailPlaceholder": "you@email.com", "send": "发给我链接", "sending": "发送中…",
+    "sentTitle": "请查看收件箱", "sentBody": "如果邮箱有效，登录链接已在路上。也看看垃圾邮件。",
+    "neutral": "无论账号是否存在，我们都显示同样的提示。", "linkError": "链接已过期或已被使用。请重新获取。", "finish": "完成注册"
+  },
+  "onboarding": {
+    "label": "欢迎", "title": "选择你的昵称", "lead": "别人只能看到昵称：你的邮箱永远不公开。",
+    "alias": "昵称", "aliasHelp": "3 到 20 个字符：字母、数字、点、连字符和下划线。",
+    "age": "我已年满 14 岁。", "terms": "我接受<terms>条款</terms>和<privacy>隐私政策</privacy>。", "submit": "上球台"
+  },
+  "record": {
+    "label": "新比赛", "title": "记录比赛", "limited": "你的账号受到限制：可以确认比赛，但暂时不能记录新的比赛。",
+    "rulesReminder": "规则提醒", "rule1": "每局打到 11 分，领先 2 分获胜；每 2 分换发球。", "rule2": "只有对手确认，结果才算数。", "rule3": "48 小时内未确认，比赛作废。", "rulesFull": "查看完整规则",
+    "mode": "模式", "rival": "对手", "partner": "你的搭档（昵称）", "rivalAlias": "对手昵称", "rivalN": "对手 {n}（昵称）", "playerHint": "请输入存在且互不相同的昵称。",
+    "pointsPerSet": "每局分数", "toN": "{n} 分", "sets": "局数", "oneSet": "1 局", "bestOf": "{n} 局", "winByTwo": "必须领先两分",
+    "score": "比分", "setN": "第 {n} 局", "scoreOf": "{who} 在第 {n} 局的得分", "setsHint": "填写已打的局：先赢 {need} 局者获胜。",
+    "winner": "{who} 以局分 {a}–{b} 获胜。", "weight": "赛制权重 m = {m}", "weightHelp": "短比赛对 ELO 的影响更小。",
+    "submit": "发给 {alias} 确认", "expiry": "48 小时内未确认，比赛作废。",
+    "sentTitle": "已发给 {alias}", "sentBody": "对方确认后 ELO 才会变化。可以把链接发到 WhatsApp，或当面告诉对方。",
+    "validation": {
+      "set_count": "局数不足或过多。", "set_range": "分数必须是 0 到 99 之间的整数。", "set_invalid": "有一局的比分无效（请检查领先两分的规则）。",
+      "set_after_end": "有人已经赢下比赛后还多出了局。", "no_winner": "没有人达到获胜所需的局数。"
+    }
+  },
+  "pending": {
+    "label": "确认", "title": "待办", "toConfirm": "待你确认", "sent": "你发出的", "closed": "已结束", "vs": "对", "deleted": "已删除的玩家",
+    "format": "{points} 分制 · {bestOf} 局", "askedBy": "{alias} 登记了这场比赛", "waiting": "等待对手确认", "timeLeft": "{h} 小时 {m} 分钟后作废", "expiredNow": "已作废",
+    "confirm": "没错，确认", "reject": "拒绝", "rejectWhy": "为什么拒绝？", "back": "返回",
+    "reason_wrong_result": "比分不对", "reason_not_played": "我们没打过", "reason_other": "其他原因",
+    "rejectedCounter": "已拒绝。你可以用真实比分发送唯一一次反提案。", "counter": "发送反提案", "rejectedDone": "已拒绝。这场不算。",
+    "emptyConfirmTitle": "没有需要确认的", "emptyConfirmBody": "有人登记与你的比赛时，会出现在这里。", "emptySent": "没有等待回复的比赛。", "recordOne": "去记录一场。",
+    "statusExpired": "未确认已作废。不算数。", "statusRejected": "已拒绝：{reason}"
+  },
+  "challenges": {
+    "label": "约球", "title": "挑战", "lead": "挑战会和对方打开聊天，商量时间和地点。这不是必须的：不挑战也可以直接记录比赛。",
+    "emptyTitle": "没有进行中的挑战", "emptyBody": "从排名里选个人，向他发起挑战。", "pickRival": "查看排名", "past": "以往", "deleted": "已删除的账号",
+    "status_open": "进行中", "status_accepted": "已接受", "status_declined": "已拒绝", "status_cancelled": "已取消", "status_done": "已打完", "toAnswer": "轮到你回复",
+    "newTitle": "新挑战", "rival": "对手昵称", "when": "日期和时间（可选）", "place": "地点（可选）", "placeHint": "楼里的球台…", "mode": "模式", "create": "发送挑战",
+    "noDate": "未定日期", "accept": "接受", "decline": "拒绝", "cancel": "取消挑战", "block": "屏蔽", "blockConfirm": "屏蔽会关闭与此人的挑战，并阻止对方挑战你、给你发消息或与你记录比赛。确定吗？",
+    "recordResult": "记录结果", "chat": "挑战聊天", "chatEmpty": "还没有消息。先打个招呼。", "message": "消息", "messagePlaceholder": "输入消息…", "send": "发送",
+    "chatRules": "纯文本，不含链接。{n}/500", "chatClosed": "此聊天已关闭。", "flagged": "消息已隐藏：点击显示"
+  },
+  "report": {
+    "open": "举报", "title": "举报", "reason": "原因", "choose": "选择原因", "details": "详情（可选）", "send": "提交举报", "cancel": "取消", "close": "关闭",
+    "reason_fake_result": "虚假比分", "reason_harassment": "骚扰或辱骂", "reason_spam": "垃圾信息", "reason_impersonation": "冒充他人", "reason_offensive_alias": "冒犯性昵称", "reason_other": "其他",
+    "doneTitle": "举报已提交", "doneBody": "团队成员会查看。感谢你的反馈。"
+  },
+  "settings": {
+    "label": "你的账号", "title": "设置", "alias": "昵称", "color": "头像颜色", "colorN": "颜色 {n}", "language": "语言", "save": "保存", "saved": "已保存。",
+    "newTerms": "我们更新了条款。", "readTerms": "查看", "acceptTerms": "接受新版本", "limited": "你的账号暂时受限：可以确认比赛，但不能记录或发起挑战。", "banned": "你的账号已被封禁。",
+    "notifications": "通知", "noNotifications": "没有通知。", "markRead": "全部标为已读", "noEmails": "我们不发通知邮件：通知显示在这里和导航栏中。",
+    "yourData": "你的数据", "export": "下载我的数据（JSON）", "signOut": "退出登录", "signOutAll": "在所有设备上退出",
+    "deleteTitle": "删除我的账号", "deleteBody": "你的邮箱、个人资料和消息会立即删除。你已确认的比赛会保留为“已删除的玩家”，以免破坏对手的历史记录。",
+    "deleteCheck": "我明白此操作无法撤销", "deleteBtn": "删除我的账号", "deleteConfirm": "确定永久删除你的账号吗？"
+  },
+  "notifications": {
+    "match_pending": "你有一场比赛待确认", "match_confirmed": "你的比赛已被确认", "match_rejected": "你的比赛被拒绝",
+    "challenge_new": "有人向你发起了挑战", "challenge_accepted": "你的挑战被接受了", "account_limited": "你的账号已被限制", "account_banned": "你的账号已被封禁",
+    "match_voided": "你的一场比赛已被作废", "alias_changed": "你的昵称已被更改"
+  },
+  "admin": {
+    "label": "管理", "title": "面板", "health": "运行状况", "ago": "上次 ping 在 {h} 小时前", "ok": "正常", "stale": "延迟",
+    "reports": "未处理的举报", "noReports": "没有未处理的举报。", "flags": "自动标记", "noFlags": "没有标记。", "tools": "工具", "audit": "审计日志",
+    "reason": "原因（必填）", "reasonAll": "操作原因（必填）", "resolve": "已处理", "dismiss": "驳回", "reviewed": "已审核",
+    "voidMatch": "作废比赛", "voidBtn": "作废并重算 ELO", "account": "限制或封禁账号", "limit": "限制 N 天", "ban": "封禁", "unban": "恢复", "days": "天数", "apply": "应用",
+    "forceAlias": "强制更改昵称", "newAlias": "新昵称", "done": "完成"
+  },
+  "rules": {
+    "label": "规则", "title": "口袋版规则", "lead": "ITTF 规则摘要，免得再为发球争吵。",
+    "official": [
+      { "h": "每局 11 分，领先 2 分获胜", "p": "先拿到 11 分且领先两分者赢下该局。10 平后继续打，直到领先两分。" },
+      { "h": "每 2 分换发球", "p": "从 10 平开始，每一分都换发球。" },
+      { "h": "合格的发球", "p": "球从张开的手掌中向上抛出，至少升高 16 厘米。" },
+      { "h": "双打", "p": "发球必须从右半区斜对角发到对方右半区，双方轮流击球。" },
+      { "h": "重发球（Let）", "p": "发球擦网后仍然落入对方台面，这一分重打。" }
+    ],
+    "houseTitle": "Ping-Nord-Pong 本站规则",
+    "house": [
+      "允许的赛制：5、7、11 或 21 分；一局或三、五、七局；1v1 或 2v2。",
+      "没有对方确认，比赛不算数。48 小时内无人确认则作废。",
+      "公平竞赛：不编造比分，也不串通比赛来刷 ELO。"
+    ],
+    "source": "官方来源：", "reviewed": "审阅于 {date}"
+  },
+  "legal": {
+    "label": "法律", "version": "版本 {v}", "draft": "由项目撰写的草稿。网站向公众开放前，必须由具备法律知识的人审阅；这不是法律意见。", "prevails": "各语言版本如有出入，以西班牙语版本为准。",
+    "terms": { "title": "条款与条件", "sections": [
+      { "h": "这是什么", "p": ["Ping-Nord-Pong 是学生项目，非官方，与 UPC 无隶属关系。它是免费的，我们不保证随时可用。"] },
+      { "h": "使用条件", "p": ["年满 14 岁，并拥有可以收信的邮箱。每人一个账号。"] },
+      { "h": "行为准则", "p": ["不得登记虚假比分，也不得串通比赛刷 ELO。", "不得创建多个账号，不得在聊天或昵称中骚扰、辱骂他人，不得冒充他人。"] },
+      { "h": "管理", "p": ["我们可以作废比赛、重算 ELO、更改冒犯性昵称，以及限制或关闭账号；都会在网站内通知你，并提供申诉渠道：{email}。"] },
+      { "h": "公开内容", "p": ["使用本服务即表示你的昵称、ELO、统计数据和已确认的比赛对任何人可见。"] },
+      { "h": "变更与适用法律", "p": ["条款变更时，我们会在网站内通知并请你接受新版本。适用西班牙法律。"] }
+    ] },
+    "privacy": { "title": "隐私政策", "sections": [
+      { "h": "责任方", "p": ["Pepe Flock（学生项目）。联系方式：{email}。"] },
+      { "h": "我们保存什么、为什么", "p": ["你的邮箱（仅用于登录，从不公开）、昵称和头像颜色、ELO、比赛、局分和日期、挑战和消息、举报和屏蔽，以及语言。", "我们不保存真实姓名、照片、电话、位置，也不使用第三方统计。IP 只会出现在服务商的技术日志中，保留期很短。"] },
+      { "h": "法律依据", "p": ["履行你注册时接受的服务（账号、排名和比赛），以及出于安全和管理的正当利益。"] },
+      { "h": "哪些是公开的", "p": ["昵称、ELO、统计、已确认的比赛和宿敌。挑战和消息只有相关的两个人可见。"] },
+      { "h": "数据处理方", "p": ["Supabase（数据库和登录，欧盟区域）和 Vercel（托管）。向欧洲经济区以外的任何传输均依据标准合同条款或欧美框架。"] },
+      { "h": "保存期限", "p": ["聊天消息：90 天。待确认、被拒绝或已作废的比赛：30 天。通知和限流记录：30 天。审计日志：1 年。连续 2 年不活跃的账号会被自动删除。"] },
+      { "h": "你的权利", "p": ["查阅、更正、删除、反对、限制处理和数据可携带。你可以在“设置”中下载数据和删除账号，或写信至 {email}。你也可以向西班牙数据保护机构（AEPD）投诉。", "最低年龄：14 岁。"] }
+    ] },
+    "cookies": { "title": "Cookie", "sections": [
+      { "h": "仅技术性 Cookie", "p": ["我们只使用必要的 Cookie：会话 Cookie（保持登录）和语言偏好。"] },
+      { "h": "没有统计，没有广告", "p": ["我们不使用统计或广告 Cookie，所以没有同意横幅。如果将来加入统计，会采用不使用 Cookie 的方案，或在征求同意时让拒绝和接受一样容易。"] }
+    ] }
+  },
+  "errors": {
+    "generic": "出了点问题，请重试。", "notFoundTitle": "这里没有球台", "notFoundBody": "你要找的页面不存在，或者被风吹走了。", "backHome": "回到首页",
+    "email_invalid": "这个邮箱看起来无效。", "turnstile": "无法验证你是真人。请刷新后重试。", "rate_limited": "尝试次数过多，请稍等。",
+    "rate_pending": "你已有 3 场比赛在等待确认，请等它们被确认。", "rate_same_rival": "每天最多与同一对手打 5 场。", "rate_open_challenges": "你已有 5 个进行中的挑战。",
+    "invalid_score": "这个比分无效。", "cannot_confirm_own": "你不能确认自己登记的比赛。", "forbidden": "你没有权限这样做。", "not_pending": "这场比赛已不在待确认状态。",
+    "expired": "这场比赛已作废。", "blocked": "你不能对此人进行该操作。", "limited": "你的账号暂时受限。", "banned": "你的账号已被封禁。",
+    "alias_taken": "这个昵称已存在。", "alias_reserved": "这个昵称是保留的。", "alias_offensive": "这个昵称不被允许。", "alias_format": "昵称必须是 3 到 20 个字符：字母、数字、点、连字符或下划线。",
+    "terms_version": "条款有新版本，请刷新页面。", "terms_required": "你必须接受条款并确认年龄。", "already_onboarded": "你已经选过昵称了。",
+    "chat_closed": "此聊天已关闭。", "challenge_exists": "你与此人已有进行中的挑战。", "counter_not_allowed": "已不能再发送反提案。",
+    "not_authenticated": "请先登录。", "not_found": "找不到该内容。", "reason_required": "请填写原因。", "bad_message": "消息长度必须在 1 到 500 个字符之间。",
+    "invalid_players": "请检查玩家：必须互不相同且真实存在。", "confirm_required": "请勾选以确认。"
+  }
+}

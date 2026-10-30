@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "title": "Ping-Nord-Pong · El rànquing de ping-pong del Campus Nord",
+    "description": "Rànquing ELO públic de ping-pong del Campus Nord (Barcelona). Apunta els teus partits, que el rival els confirmi i mira com es mou el teu ELO."
+  },
+  "nav": {
+    "skip": "Saltar al contingut", "home": "Ping-Nord-Pong, inici", "main": "Navegació principal",
+    "ranking": "Rànquing", "rivalries": "Rivalitats", "challenges": "Reptes", "rules": "Normativa",
+    "enter": "Entrar", "finishSignup": "Acabar el registre", "pending": "Pendents", "account": "El teu compte ({alias})", "language": "Idioma"
+  },
+  "common": { "loading": "Carregant", "copyLink": "Copiar l'enllaç", "copied": "Copiat!" },
+  "footer": {
+    "privacy": "Privadesa", "terms": "Termes", "cookies": "Galetes", "rules": "Normativa",
+    "disclaimer": "Projecte d'estudiants, no oficial de la UPC.",
+    "by": "un projecte de", "dataNote": "Només guardem el teu email, àlies i partits."
+  },
+  "home": {
+    "kicker": "Campus Nord · UPC · Temporada de tardor",
+    "title": "El Campus Nord ja té rànquing.",
+    "lead": "Apunta els teus partits, que el rival els confirmi i mira com es mou el teu ELO. Rivalitats públiques, reptes amb xat i zero excuses.",
+    "ctaEnter": "Entrar amb el teu email", "ctaRecord": "Apuntar un partit", "ctaRanking": "Veure el rànquing",
+    "note": "aquí es resolen les rivalitats ↑", "tableAlt": "Taula de ping-pong amb una pilota rebotant entre dues pales",
+    "statsLabel": "Xifres", "statPlayers": "jugadors registrats", "statMatches": "partits confirmats", "statRivalries": "rivalitats actives", "statWeek": "partits aquesta setmana",
+    "rankLabel": "Rànquing ELO", "rankTitle": "Qui mana a la taula", "rankAll": "Veure tot el rànquing",
+    "emptyRankTitle": "Encara ningú ha trepitjat la taula. Seràs el primer?", "emptyRankBody": "Quan hi hagi partits confirmats, aquí sortiran els qui més manen.",
+    "weekLabel": "Rivalitat de la setmana", "vs": "vs", "emblemLabel": "Corb ({crow}) contra serp ({snake})",
+    "weekBody": "{crow} és el corb i {snake} la serp (ho ha sortejat la web). Qui va guanyant el cara a cara s'imposa i porta la seva icona al cap; hi ha set estats, de l'empat al domini absolut.",
+    "weekMeta": "{total, plural, one {# partit} other {# partits}} en total · {week, plural, one {# aquesta setmana} other {# aquesta setmana}}",
+    "weekCta": "Veure la rivalitat",
+    "emptyWeekTitle": "Encara no hi ha rivalitat aquesta setmana", "emptyWeekBody": "Una rivalitat neix en arribar a 5 partits entre les mateixes dues persones. Aneu escalfant.",
+    "stepsTitle": "Del partit a l'ELO en tres botes", "stepsSub": "(sense trampes: l'altre confirma)",
+    "step1Title": "Juga", "step1Body": "Amb qui hi hagi a la taula. Si vols quedar abans, pots reptar-lo des del seu perfil i s'obre un xat, però no cal.",
+    "step2Title": "Apunta", "step2Body": "Un dels dos ho registra: a 5, 7, 11 o 21, un set o al millor de 3, 5 o 7, 1v1 o 2v2, amb els punts de cada set.",
+    "step3Title": "L'altre confirma", "step3Body": "Si el resultat és el real, l'accepta i l'ELO dels dos es mou alhora. Si no, el rebutja i no compta.",
+    "rulesTitle": "Servei vàlid? Mira la normativa.", "rulesBody": "Les regles oficials en versió de butxaca: servei, canvis, dobles i el famós let.", "rulesCta": "Obrir la normativa"
+  },
+  "ranking": {
+    "label": "Rànquing ELO", "title": "Qui mana a la taula", "caption": "Rànquing de jugadors", "mode": "Modalitat", "scope": "Abast",
+    "active": "Actius", "history": "Històric", "search": "Cercar per àlies", "searchBtn": "Cercar",
+    "player": "Jugador", "last7": "Últ. 7 dies", "wl": "V–D", "streak": "Ratxa", "action": "Acció", "provisional": "provisional", "challenge": "Reptar",
+    "emptyTitle": "Ningú en aquesta llista", "emptyBody": "Encara no hi ha partits confirmats en aquesta modalitat.", "emptySearch": "Ningú es diu així. Segur que ho has escrit bé?",
+    "footnote": "Provisional = menys de 10 partits; no entra al top ni a les medalles. Actiu = ha jugat en els últims 30 dies."
+  },
+  "profile": {
+    "provisional": "provisional", "inactive": "inactiu", "nemesisOf": "Nèmesi: {alias}", "victim": "Víctima favorita: {alias}", "challenge": "Reptar",
+    "stats": "Estadístiques", "wl": "V–D 1v1", "streak": "Ratxa", "rivals": "Rivals diferents", "games": "Partits",
+    "chartTitle": "Evolució de l'ELO (1v1)", "chartEmpty": "Encara sense partits confirmats: el gràfic apareixerà amb el primer.",
+    "chartLabel": "ELO de {from} a {to} en {n, plural, one {# partit} other {# partits}}",
+    "rivalriesTitle": "Rivalitats", "noRivalries": "Encara sense rivalitats. Calen 5 partits contra la mateixa persona.",
+    "roleCrow": "Corb", "roleSnake": "Serp", "lastMatches": "Últims partits"
+  },
+  "match": {
+    "none": "Encara no hi ha partits confirmats.", "vs": "vs", "deletedPlayer": "Jugador eliminat", "format": "a {points} · al millor de {bestOf}",
+    "won": "Va guanyar", "lost": "Va perdre", "why": "Per què aquest canvi d'ELO?",
+    "whyBody": "K = {k} · pes per repetir rival w = {w} · pes del format m = {m}. Va passar de {before} a {after}."
+  },
+  "rivalry": {
+    "back": "Rivalitats", "emblemLabel": "Corb ({crow}) contra serp ({snake}): {leader} domina {a}–{b}", "emblemLabelTie": "Corb ({crow}) contra serp ({snake}): empat",
+    "headToHead": "{total} cara a cara", "streak": "Ratxa de {alias}: {n}", "eloGap": "dif. d'ELO {n}", "roles": "{crow} corb · {snake} serp",
+    "byFormat": "Per format", "toPoints": "a {n}", "lastMatches": "Últims partits", "rematch": "{alias}, demana la revenja"
+  },
+  "rivalries": {
+    "label": "Cara a cara", "title": "Rivalitats", "lead": "Dues persones, cinc partits o més. Cada rivalitat té el seu corb i la seva serp, sortejats una sola vegada.",
+    "vs": "vs", "crow": "Corb", "emptyTitle": "Cap rivalitat encara", "emptyBody": "Calen 5 partits confirmats entre les mateixes dues persones."
+  },
+  "auth": {
+    "label": "Accés", "title": "Entra amb el teu email", "lead": "Sense contrasenyes: t'enviem un enllaç a l'email que vulguis. Serveix qualsevol email.",
+    "email": "El teu email", "emailPlaceholder": "tu@email.com", "send": "Envia'm l'enllaç", "sending": "Enviant…",
+    "sentTitle": "Revisa la safata d'entrada", "sentBody": "Si l'email és vàlid, t'arribarà un enllaç per entrar. Mira també el correu brossa.",
+    "neutral": "Sempre mostrem aquest mateix missatge, existeixi o no el compte.", "linkError": "L'enllaç ha caducat o ja s'ha fet servir. Demana'n un de nou.", "finish": "Acabar el registre"
+  },
+  "onboarding": {
+    "label": "Benvinguda", "title": "Tria el teu àlies", "lead": "És l'únic que veuran els altres: el teu email mai és públic.",
+    "alias": "Àlies", "aliasHelp": "De 3 a 20 caràcters: lletres, números, punt, guionet i guió baix.",
+    "age": "Tinc 14 anys o més.", "terms": "Accepto els <terms>termes</terms> i la <privacy>política de privadesa</privacy>.", "submit": "Entrar a la taula"
+  },
+  "record": {
+    "label": "Nou partit", "title": "Apuntar partit", "limited": "El teu compte està limitat: pots confirmar partits, però de moment no apuntar-ne de nous.",
+    "rulesReminder": "Recordatori de normes", "rule1": "Sets a 11 guanyant per 2; el servei canvia cada 2 punts.", "rule2": "El resultat només compta si el rival el confirma.", "rule3": "Sense confirmació en 48 h, el partit caduca.", "rulesFull": "Veure la normativa completa",
+    "mode": "Modalitat", "rival": "Rival", "partner": "El teu company (àlies)", "rivalAlias": "Àlies del rival", "rivalN": "Rival {n} (àlies)", "playerHint": "Escriu àlies que existeixin i que siguin tots diferents.",
+    "pointsPerSet": "Punts per set", "toN": "a {n}", "sets": "Sets", "oneSet": "1 set", "bestOf": "Bo{n}", "winByTwo": "Cal guanyar per dos punts",
+    "score": "Resultat", "setN": "Set {n}", "scoreOf": "Punts de {who} al set {n}", "setsHint": "Omple els sets jugats: guanya qui arribi a {need}.",
+    "winner": "Guanya {who} per {a}–{b} en sets.", "weight": "Pes del format m = {m}", "weightHelp": "Un partit curt mou menys l'ELO.",
+    "submit": "Enviar a {alias} per confirmar", "expiry": "Sense la seva confirmació en 48 h, el partit caduca.",
+    "sentTitle": "Enviat a {alias}", "sentBody": "L'ELO es mou quan confirmi. Passa-li l'enllaç per WhatsApp o digues-ho en persona.",
+    "validation": {
+      "set_count": "Falten sets o en sobren.", "set_range": "Els punts han de ser nombres enters entre 0 i 99.", "set_invalid": "Algun dels sets no és un resultat vàlid (revisa guanyar per dos).",
+      "set_after_end": "Hi ha sets després que algú ja guanyés el partit.", "no_winner": "Ningú arriba als sets necessaris per guanyar."
+    }
+  },
+  "pending": {
+    "label": "Confirmacions", "title": "Pendents", "toConfirm": "Per confirmar", "sent": "Enviats per tu", "closed": "Tancats", "vs": "vs", "deleted": "Jugador eliminat",
+    "format": "a {points} · Bo{bestOf}", "askedBy": "{alias} l'ha apuntat", "waiting": "Esperant el teu rival", "timeLeft": "caduca en {h} h {m} min", "expiredNow": "caducat",
+    "confirm": "És correcte, confirmar", "reject": "Rebutjar", "rejectWhy": "Per què el rebutges?", "back": "Tornar",
+    "reason_wrong_result": "El resultat és incorrecte", "reason_not_played": "No vam jugar", "reason_other": "Un altre motiu",
+    "rejectedCounter": "Rebutjat. Pots enviar una única contraproposta amb el resultat real.", "counter": "Enviar contraproposta", "rejectedDone": "Rebutjat. No compta.",
+    "emptyConfirmTitle": "Res per confirmar", "emptyConfirmBody": "Quan algú t'apunti un partit, sortirà aquí.", "emptySent": "No tens partits esperant resposta.", "recordOne": "Apunta'n un.",
+    "statusExpired": "Va caducar sense confirmació. No compta.", "statusRejected": "Rebutjat: {reason}"
+  },
+  "challenges": {
+    "label": "Quedar per jugar", "title": "Reptes", "lead": "Un repte obre un xat amb l'altra persona per quadrar dia i lloc. No és obligatori: també pots apuntar un partit sense repte.",
+    "emptyTitle": "Sense reptes oberts", "emptyBody": "Tria algú del rànquing i llança-li'n un.", "pickRival": "Veure el rànquing", "past": "Anteriors", "deleted": "Compte eliminat",
+    "status_open": "Obert", "status_accepted": "Acceptat", "status_declined": "Rebutjat", "status_cancelled": "Cancel·lat", "status_done": "Jugat", "toAnswer": "Et toca respondre",
+    "newTitle": "Nou repte", "rival": "Àlies del rival", "when": "Dia i hora (opcional)", "place": "Lloc (opcional)", "placeHint": "La taula de l'edifici…", "mode": "Modalitat", "create": "Enviar repte",
+    "noDate": "Sense data", "accept": "Acceptar", "decline": "Rebutjar", "cancel": "Cancel·lar repte", "block": "Bloquejar", "blockConfirm": "Bloquejar tanca els reptes amb aquesta persona i li impedeix reptar-te, escriure't o apuntar partits amb tu. Segur?",
+    "recordResult": "Apuntar el resultat", "chat": "Xat del repte", "chatEmpty": "Encara no hi ha missatges. Trenca el gel.", "message": "Missatge", "messagePlaceholder": "Escriu un missatge…", "send": "Enviar",
+    "chatRules": "Text pla, sense enllaços. {n}/500", "chatClosed": "Aquest xat està tancat.", "flagged": "Missatge ocult: mostrar"
+  },
+  "report": {
+    "open": "Reportar", "title": "Reportar", "reason": "Motiu", "choose": "Tria un motiu", "details": "Detalls (opcional)", "send": "Enviar reporte", "cancel": "Cancel·lar", "close": "Tancar",
+    "reason_fake_result": "Resultat fals", "reason_harassment": "Assetjament o insults", "reason_spam": "Brossa", "reason_impersonation": "Suplantació", "reason_offensive_alias": "Àlies ofensiu", "reason_other": "Un altre",
+    "doneTitle": "Reporte enviat", "doneBody": "El revisarà algú de l'equip. Gràcies per avisar."
+  },
+  "settings": {
+    "label": "El teu compte", "title": "Ajustos", "alias": "Àlies", "color": "Color de l'avatar", "colorN": "Color {n}", "language": "Idioma", "save": "Desar", "saved": "Desat.",
+    "newTerms": "Hem actualitzat els termes.", "readTerms": "Llegeix-los", "acceptTerms": "Acceptar la nova versió", "limited": "El teu compte està limitat temporalment: pots confirmar partits, però no apuntar ni reptar.", "banned": "El teu compte està bloquejat.",
+    "notifications": "Avisos", "noNotifications": "Sense avisos.", "markRead": "Marcar com a llegits", "noEmails": "No enviem emails d'avís: els avisos són aquí i a la barra de navegació.",
+    "yourData": "Les teves dades", "export": "Descarregar les meves dades (JSON)", "signOut": "Tancar sessió", "signOutAll": "Tancar sessió a tots els dispositius",
+    "deleteTitle": "Esborrar el meu compte", "deleteBody": "S'esborren el teu email, el perfil i els missatges a l'instant. Els teus partits confirmats es queden com a «Jugador eliminat» per no trencar la història dels teus rivals.",
+    "deleteCheck": "Entenc que no es pot desfer", "deleteBtn": "Esborrar el meu compte", "deleteConfirm": "Esborrar el compte definitivament?"
+  },
+  "notifications": {
+    "match_pending": "Tens un partit per confirmar", "match_confirmed": "El teu partit s'ha confirmat", "match_rejected": "El teu partit s'ha rebutjat",
+    "challenge_new": "T'han llançat un repte", "challenge_accepted": "Han acceptat el teu repte", "account_limited": "El teu compte s'ha limitat", "account_banned": "El teu compte s'ha bloquejat",
+    "match_voided": "Un partit teu s'ha anul·lat", "alias_changed": "S'ha canviat el teu àlies"
+  },
+  "admin": {
+    "label": "Moderació", "title": "Panell", "health": "Salut", "ago": "últim ping fa {h} h", "ok": "al dia", "stale": "endarrerit",
+    "reports": "Reportes oberts", "noReports": "Sense reportes oberts.", "flags": "Marques automàtiques", "noFlags": "Sense marques.", "tools": "Eines", "audit": "Registre d'auditoria",
+    "reason": "Motiu (obligatori)", "reasonAll": "Motiu de l'acció (obligatori)", "resolve": "Resoldre", "dismiss": "Descartar", "reviewed": "Revisat",
+    "voidMatch": "Anul·lar partit", "voidBtn": "Anul·lar i recalcular ELO", "account": "Limitar o bloquejar compte", "limit": "Limitar N dies", "ban": "Bloquejar", "unban": "Reactivar", "days": "Dies", "apply": "Aplicar",
+    "forceAlias": "Forçar canvi d'àlies", "newAlias": "Nou àlies", "done": "Fet"
+  },
+  "rules": {
+    "label": "Normativa", "title": "Les regles, en versió de butxaca", "lead": "Resum de les regles ITTF perquè ningú discuteixi el servei.",
+    "official": [
+      { "h": "Sets a 11, guanyant per 2", "p": "Guanya el set qui arriba abans a 11 punts amb dos d'avantatge. Si hi ha 10-10, se segueix fins a treure aquesta diferència." },
+      { "h": "El servei canvia cada 2 punts", "p": "I des del 10-10, a cada punt." },
+      { "h": "Servei net", "p": "La pilota es llança des del palmell obert de la mà i puja almenys 16 cm." },
+      { "h": "Dobles", "p": "El servei va en diagonal, de la meitat dreta a la meitat dreta, i els jugadors colpegen alternativament." },
+      { "h": "Let", "p": "Si el servei toca la xarxa i entra, es repeteix el punt." }
+    ],
+    "houseTitle": "Regles de la casa Ping-Nord-Pong",
+    "house": [
+      "Formats permesos: a 5, 7, 11 o 21 punts; un set o al millor de 3, 5 o 7; en 1v1 o 2v2.",
+      "Cap partit compta sense la confirmació de l'equip contrari. Si en 48 hores ningú confirma, caduca.",
+      "Joc net: res de resultats inventats ni partits pactats per pujar l'ELO."
+    ],
+    "source": "Font oficial:", "reviewed": "revisat el {date}"
+  },
+  "legal": {
+    "label": "Legal", "version": "Versió {v}", "draft": "Esborrany redactat pel projecte. Abans d'obrir la web al públic l'ha de revisar una persona amb coneixements legals; no és assessorament legal.", "prevails": "En cas de discrepància entre idiomes, preval la versió en espanyol.",
+    "terms": { "title": "Termes i condicions", "sections": [
+      { "h": "Què és això", "p": ["Ping-Nord-Pong és un projecte d'estudiants, no oficial i sense afiliació amb la UPC. És gratuït i no garantim que sigui sempre disponible."] },
+      { "h": "Requisits", "p": ["Tenir almenys 14 anys i un email al qual tinguis accés. Un compte per persona."] },
+      { "h": "Normes de conducta", "p": ["No apuntar resultats falsos ni pactar partits per inflar l'ELO.", "No crear comptes múltiples, no assetjar ni insultar al xat o a l'àlies, i no suplantar altres persones."] },
+      { "h": "Moderació", "p": ["Podem anul·lar partits, recalcular l'ELO, canviar àlies ofensius i limitar o tancar comptes, sempre avisant dins la web i amb una via per recórrer a {email}."] },
+      { "h": "Contingut públic", "p": ["En fer servir el servei, el teu àlies, ELO, estadístiques i partits confirmats són visibles per a tothom."] },
+      { "h": "Canvis i llei aplicable", "p": ["Si canvien els termes, t'avisem a la web i et demanem acceptar la nova versió. S'aplica la llei espanyola."] }
+    ] },
+    "privacy": { "title": "Política de privadesa", "sections": [
+      { "h": "Responsable", "p": ["Pepe Flock (projecte d'estudiants). Contacte: {email}."] },
+      { "h": "Què guardem i per a què", "p": ["El teu email (només per accedir, mai públic), àlies i color d'avatar, ELO, partits, sets i dates, reptes i missatges, reportes i bloqueigs, i idioma.", "No guardem nom real, foto, telèfon, ubicació ni analítica de tercers. La IP només apareix als registres tècnics dels proveïdors, amb retenció curta."] },
+      { "h": "Bases jurídiques", "p": ["Execució del servei que acceptes en registrar-te (compte, rànquing i partits) i interès legítim en la seguretat i la moderació."] },
+      { "h": "Què és públic", "p": ["Àlies, ELO, estadístiques, partits confirmats i rivalitats. Els reptes i els missatges només els veuen les dues persones implicades."] },
+      { "h": "Encarregats del tractament", "p": ["Supabase (base de dades i accés, regió UE) i Vercel (allotjament). Les possibles transferències fora de l'EEE s'emparen en clàusules contractuals tipus o en el marc UE-EUA."] },
+      { "h": "Conservació", "p": ["Missatges de xat: 90 dies. Partits pendents, rebutjats o caducats: 30 dies. Avisos i registres de límits: 30 dies. Registre d'auditoria: 1 any. Comptes inactius durant 2 anys: s'esborren automàticament."] },
+      { "h": "Els teus drets", "p": ["Accés, rectificació, supressió, oposició, limitació i portabilitat. Pots descarregar les teves dades i esborrar el compte des d'Ajustos, o escriure'ns a {email}. També pots reclamar davant l'AEPD.", "Edat mínima: 14 anys."] }
+    ] },
+    "cookies": { "title": "Galetes", "sections": [
+      { "h": "Només galetes tècniques", "p": ["Fem servir únicament galetes necessàries: la de sessió (per mantenir-te dins) i la de preferència d'idioma."] },
+      { "h": "Sense analítica ni publicitat", "p": ["No fem servir galetes d'analítica ni de publicitat, per això no hi ha bàner de consentiment. Si algun dia s'afegeix analítica, serà sense galetes o et demanarem permís amb la mateixa facilitat per rebutjar que per acceptar."] }
+    ] }
+  },
+  "errors": {
+    "generic": "Alguna cosa ha fallat. Torna-ho a provar.", "notFoundTitle": "Aquí no hi ha taula", "notFoundBody": "La pàgina que busques no existeix o se l'ha endut el vent.", "backHome": "Tornar a l'inici",
+    "email_invalid": "Aquest email no sembla vàlid.", "turnstile": "No hem pogut comprovar que ets una persona. Recarrega i torna-ho a provar.", "rate_limited": "Massa intents. Espera una estona.",
+    "rate_pending": "Ja tens 3 partits esperant confirmació. Espera que els confirmin.", "rate_same_rival": "Màxim 5 partits al dia contra el mateix rival.", "rate_open_challenges": "Ja tens 5 reptes oberts.",
+    "invalid_score": "Aquest resultat no és vàlid.", "cannot_confirm_own": "No pots confirmar un partit que has apuntat tu.", "forbidden": "No tens permís per fer això.", "not_pending": "Aquest partit ja no està pendent.",
+    "expired": "Aquest partit ha caducat.", "blocked": "No pots fer això amb aquesta persona.", "limited": "El teu compte està limitat temporalment.", "banned": "El teu compte està bloquejat.",
+    "alias_taken": "Aquest àlies ja existeix.", "alias_reserved": "Aquest àlies està reservat.", "alias_offensive": "Aquest àlies no està permès.", "alias_format": "L'àlies ha de tenir de 3 a 20 caràcters: lletres, números, punt, guionet o guió baix.",
+    "terms_version": "Hi ha una versió nova dels termes. Recarrega la pàgina.", "terms_required": "Has d'acceptar els termes i confirmar l'edat.", "already_onboarded": "Ja has triat àlies.",
+    "chat_closed": "Aquest xat està tancat.", "challenge_exists": "Ja tens un repte obert amb aquesta persona.", "counter_not_allowed": "Ja no es pot enviar contraproposta.",
+    "not_authenticated": "Has d'entrar primer.", "not_found": "No ho trobem.", "reason_required": "Escriu el motiu.", "bad_message": "El missatge ha de tenir entre 1 i 500 caràcters.",
+    "invalid_players": "Revisa els jugadors: han de ser diferents i existir.", "confirm_required": "Marca la casella per confirmar."
+  }
+}

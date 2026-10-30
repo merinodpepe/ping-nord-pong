@@ -1,0 +1,37 @@
+import { useTranslations } from 'next-intl';
+
+/** Mesa del hero (design/svg/mesa-hero.svg), inline para poder animarla. */
+export function HeroTable() {
+  const t = useTranslations('home');
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-label={t('tableAlt')} style={{ width: '100%', height: 'auto', maxWidth: 560 }}>
+      <style>{`
+        @keyframes pfBallX { 0% { transform: translateX(0) } 100% { transform: translateX(330px) } }
+        @keyframes pfBallY { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-120px) } }
+        @keyframes pfSwingL { 0%, 100% { transform: rotate(0deg) } 45% { transform: rotate(-24deg) } }
+        @keyframes pfSwingR { 0%, 50% { transform: rotate(0deg) } 95% { transform: rotate(24deg) } }
+        .bx { animation: pfBallX 1.1s ease-in-out infinite alternate }
+        .by { animation: pfBallY .55s cubic-bezier(.3,0,.7,1) infinite }
+        .sh { animation: pfBallX 1.1s ease-in-out infinite alternate }
+        .pl { transform-origin: 70px 250px; animation: pfSwingL 2.2s ease-in-out infinite }
+        .pr { transform-origin: 490px 250px; animation: pfSwingR 2.2s ease-in-out infinite }
+        @media (prefers-reduced-motion: reduce) { .bx, .by, .sh, .pl, .pr { animation: none } }
+      `}</style>
+      <defs>
+        <linearGradient id="pfTable" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#174A82" /><stop offset="1" stopColor="#0F2A4A" /></linearGradient>
+      </defs>
+      <ellipse cx="280" cy="318" rx="250" ry="22" fill="#000" opacity="0.35" />
+      <polygon points="70,250 490,250 440,150 120,150" fill="url(#pfTable)" stroke="#E8EEF7" strokeWidth="4" strokeLinejoin="round" />
+      <line x1="280" y1="150" x2="280" y2="250" stroke="#E8EEF7" strokeWidth="2" opacity="0.7" />
+      <line x1="95" y1="200" x2="465" y2="200" stroke="#E8EEF7" strokeWidth="1.5" opacity="0.35" strokeDasharray="6 6" />
+      <rect x="270" y="122" width="20" height="132" fill="#E8EEF7" opacity="0.9" rx="2" />
+      <rect x="276" y="126" width="8" height="124" fill="#0A1020" opacity="0.5" />
+      <line x1="90" y1="250" x2="84" y2="310" stroke="#2E4366" strokeWidth="8" strokeLinecap="round" />
+      <line x1="470" y1="250" x2="476" y2="310" stroke="#2E4366" strokeWidth="8" strokeLinecap="round" />
+      <g className="sh"><ellipse cx="115" cy="205" rx="12" ry="4" fill="#000" opacity="0.35" /></g>
+      <g className="bx"><g className="by"><circle cx="115" cy="190" r="11" fill="#FF7A1A" /><circle cx="111" cy="186" r="3.5" fill="#FFD2A8" /></g></g>
+      <g className="pl"><rect x="62" y="232" width="12" height="44" rx="5" fill="#8A5A2B" /><ellipse cx="68" cy="210" rx="30" ry="34" fill="#E5383B" /></g>
+      <g className="pr"><rect x="486" y="232" width="12" height="44" rx="5" fill="#8A5A2B" /><ellipse cx="492" cy="210" rx="30" ry="34" fill="#2F80ED" /></g>
+    </svg>
+  );
+}

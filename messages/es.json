@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "title": "Ping-Nord-Pong · El ranking de ping-pong del Campus Nord",
+    "description": "Ranking ELO público de ping-pong del Campus Nord (Barcelona). Apunta tus partidos, que tu rival los confirme y mira cómo se mueve tu ELO."
+  },
+  "nav": {
+    "skip": "Saltar al contenido", "home": "Ping-Nord-Pong, inicio", "main": "Navegación principal",
+    "ranking": "Ranking", "rivalries": "Rivalidades", "challenges": "Retos", "rules": "Normativa",
+    "enter": "Entrar", "finishSignup": "Terminar registro", "pending": "Pendientes", "account": "Tu cuenta ({alias})", "language": "Idioma"
+  },
+  "common": {
+    "loading": "Cargando", "copyLink": "Copiar enlace", "copied": "¡Copiado!"
+  },
+  "footer": {
+    "privacy": "Privacidad", "terms": "Términos", "cookies": "Cookies", "rules": "Normativa",
+    "disclaimer": "Proyecto de estudiantes, no oficial de la UPC.",
+    "by": "un proyecto de", "dataNote": "Solo guardamos tu email, alias y partidos."
+  },
+  "home": {
+    "kicker": "Campus Nord · UPC · Temporada de otoño",
+    "title": "El Campus Nord ya tiene ranking.",
+    "lead": "Apunta tus partidos, que tu rival los confirme y mira cómo se mueve tu ELO. Rivalidades públicas, retos por chat y cero excusas.",
+    "ctaEnter": "Entrar con tu email", "ctaRecord": "Apuntar un partido", "ctaRanking": "Ver ranking",
+    "note": "aquí se resuelven las rivalidades ↑", "tableAlt": "Mesa de ping-pong con una pelota rebotando entre dos palas",
+    "statsLabel": "Cifras", "statPlayers": "jugadores registrados", "statMatches": "partidos confirmados", "statRivalries": "rivalidades activas", "statWeek": "partidos esta semana",
+    "rankLabel": "Ranking ELO", "rankTitle": "Quién manda en la mesa", "rankAll": "Ver todo el ranking",
+    "emptyRankTitle": "Todavía nadie ha pisado la mesa. ¿Serás el primero?", "emptyRankBody": "Cuando haya partidos confirmados, aquí saldrán los que más mandan.",
+    "weekLabel": "Rivalidad de la semana", "vs": "vs", "emblemLabel": "Cuervo ({crow}) contra serpiente ({snake})",
+    "weekBody": "{crow} es el cuervo y {snake} la serpiente (lo sorteó la web). Quien va ganando el cara a cara se impone y lleva su icono en la cabeza; hay siete estados, del empate al dominio absoluto.",
+    "weekMeta": "{total, plural, one {# partido} other {# partidos}} en total · {week, plural, one {# esta semana} other {# esta semana}}",
+    "weekCta": "Ver la rivalidad",
+    "emptyWeekTitle": "Aún no hay rivalidad esta semana", "emptyWeekBody": "Una rivalidad nace al llegar a 5 partidos entre las mismas dos personas. Id calentando.",
+    "stepsTitle": "Del partido al ELO en tres botes", "stepsSub": "(sin trampas: el otro confirma)",
+    "step1Title": "Juega", "step1Body": "Con quien esté en la mesa. Si quieres quedar antes, puedes retarle desde su perfil y se abre un chat, pero no hace falta.",
+    "step2Title": "Apunta", "step2Body": "Uno de los dos lo registra: a 5, 7, 11 o 21, un set o al mejor de 3, 5 o 7, 1v1 o 2v2, con los puntos de cada set.",
+    "step3Title": "El otro confirma", "step3Body": "Si el resultado es el real, lo acepta y el ELO de los dos se mueve a la vez. Si no, lo rechaza y no cuenta.",
+    "rulesTitle": "¿Saque válido? Mira la normativa.", "rulesBody": "Las reglas oficiales en versión de bolsillo: saque, cambios, dobles y el famoso let.", "rulesCta": "Abrir normativa"
+  },
+  "ranking": {
+    "label": "Ranking ELO", "title": "Quién manda en la mesa", "caption": "Ranking de jugadores", "mode": "Modalidad", "scope": "Alcance",
+    "active": "Activos", "history": "Histórico", "search": "Buscar por alias", "searchBtn": "Buscar",
+    "player": "Jugador", "last7": "Últ. 7 días", "wl": "V–D", "streak": "Racha", "action": "Acción", "provisional": "provisional", "challenge": "Retar",
+    "emptyTitle": "Nadie en esta lista", "emptyBody": "Todavía no hay partidos confirmados en esta modalidad.", "emptySearch": "Nadie se llama así. ¿Seguro que lo has escrito bien?",
+    "footnote": "Provisional = menos de 10 partidos; no entra en el top ni en las medallas. Activo = ha jugado en los últimos 30 días."
+  },
+  "profile": {
+    "provisional": "provisional", "inactive": "inactivo", "nemesisOf": "Némesis: {alias}", "victim": "Víctima favorita: {alias}", "challenge": "Retar",
+    "stats": "Estadísticas", "wl": "V–D 1v1", "streak": "Racha", "rivals": "Rivales distintos", "games": "Partidos",
+    "chartTitle": "Evolución del ELO (1v1)", "chartEmpty": "Sin partidos confirmados todavía: el gráfico aparecerá con el primero.",
+    "chartLabel": "ELO de {from} a {to} en {n, plural, one {# partido} other {# partidos}}",
+    "rivalriesTitle": "Rivalidades", "noRivalries": "Aún sin rivalidades. Se necesitan 5 partidos contra la misma persona.",
+    "roleCrow": "Cuervo", "roleSnake": "Serpiente", "lastMatches": "Últimos partidos"
+  },
+  "match": {
+    "none": "Todavía no hay partidos confirmados.", "vs": "vs", "deletedPlayer": "Jugador eliminado", "format": "a {points} · mejor de {bestOf}",
+    "won": "Ganó", "lost": "Perdió", "why": "¿Por qué ese cambio de ELO?",
+    "whyBody": "K = {k} · peso por repetir rival w = {w} · peso del formato m = {m}. Pasó de {before} a {after}."
+  },
+  "rivalry": {
+    "back": "Rivalidades", "emblemLabel": "Cuervo ({crow}) contra serpiente ({snake}): {leader} domina {a}–{b}", "emblemLabelTie": "Cuervo ({crow}) contra serpiente ({snake}): empate",
+    "headToHead": "{total} cara a cara", "streak": "Racha de {alias}: {n}", "eloGap": "dif. de ELO {n}", "roles": "{crow} cuervo · {snake} serpiente",
+    "byFormat": "Por formato", "toPoints": "a {n}", "lastMatches": "Últimos partidos", "rematch": "{alias}, pide la revancha"
+  },
+  "rivalries": {
+    "label": "Cara a cara", "title": "Rivalidades", "lead": "Dos personas, cinco partidos o más. Cada rivalidad tiene su cuervo y su serpiente, sorteados una sola vez.",
+    "vs": "vs", "crow": "Cuervo", "emptyTitle": "Ninguna rivalidad todavía", "emptyBody": "Hacen falta 5 partidos confirmados entre las mismas dos personas."
+  },
+  "auth": {
+    "label": "Acceso", "title": "Entra con tu email", "lead": "Sin contraseñas: te mandamos un enlace al email que quieras. Sirve cualquier email.",
+    "email": "Tu email", "emailPlaceholder": "tu@email.com", "send": "Enviarme el enlace", "sending": "Enviando…",
+    "sentTitle": "Revisa tu bandeja de entrada", "sentBody": "Si el email es válido, te llegará un enlace para entrar. Mira también en spam.",
+    "neutral": "Siempre mostramos este mismo mensaje, exista o no la cuenta.", "linkError": "El enlace ha caducado o ya se usó. Pide uno nuevo.", "finish": "Terminar registro"
+  },
+  "onboarding": {
+    "label": "Bienvenida", "title": "Elige tu alias", "lead": "Es lo único que verá el resto: tu email nunca es público.",
+    "alias": "Alias", "aliasHelp": "3 a 20 caracteres: letras, números, punto, guion y guion bajo.",
+    "age": "Tengo 14 años o más.", "terms": "Acepto los <terms>términos</terms> y la <privacy>política de privacidad</privacy>.", "submit": "Entrar a la mesa"
+  },
+  "record": {
+    "label": "Nuevo partido", "title": "Apuntar partido", "limited": "Tu cuenta está limitada: puedes confirmar partidos, pero no apuntar nuevos por ahora.",
+    "rulesReminder": "Recordatorio de normas", "rule1": "Sets a 11 ganando por 2; el saque cambia cada 2 puntos.", "rule2": "El resultado solo cuenta si tu rival lo confirma.", "rule3": "Sin confirmación en 48 h, el partido caduca.", "rulesFull": "Ver la normativa completa",
+    "mode": "Modalidad", "rival": "Rival", "partner": "Tu compañero (alias)", "rivalAlias": "Alias del rival", "rivalN": "Rival {n} (alias)", "playerHint": "Escribe alias que existan y que sean todos distintos.",
+    "pointsPerSet": "Puntos por set", "toN": "a {n}", "sets": "Sets", "oneSet": "1 set", "bestOf": "Bo{n}", "winByTwo": "Hay que ganar por dos puntos",
+    "score": "Resultado", "setN": "Set {n}", "scoreOf": "Puntos de {who} en el set {n}", "setsHint": "Rellena los sets jugados: gana quien llegue a {need}.",
+    "winner": "Gana {who} por {a}–{b} en sets.", "weight": "Peso del formato m = {m}", "weightHelp": "Un partido corto mueve menos el ELO.",
+    "submit": "Enviar a {alias} para confirmar", "expiry": "Sin su confirmación en 48 h, el partido caduca.",
+    "sentTitle": "Enviado a {alias}", "sentBody": "El ELO se mueve cuando confirme. Pásale el enlace por WhatsApp o díselo en persona.",
+    "validation": {
+      "set_count": "Faltan sets o sobran.", "set_range": "Los puntos deben ser números enteros entre 0 y 99.", "set_invalid": "Alguno de los sets no es un resultado válido (revisa el ganar por dos).",
+      "set_after_end": "Hay sets después de que alguien ya ganara el partido.", "no_winner": "Nadie llega a los sets necesarios para ganar."
+    }
+  },
+  "pending": {
+    "label": "Confirmaciones", "title": "Pendientes", "toConfirm": "Por confirmar", "sent": "Enviados por ti", "closed": "Cerrados", "vs": "vs", "deleted": "Jugador eliminado",
+    "format": "a {points} · Bo{bestOf}", "askedBy": "{alias} lo ha apuntado", "waiting": "Esperando a tu rival", "timeLeft": "caduca en {h} h {m} min", "expiredNow": "caducado",
+    "confirm": "Es correcto, confirmar", "reject": "Rechazar", "rejectWhy": "¿Por qué lo rechazas?", "back": "Volver",
+    "reason_wrong_result": "El resultado es incorrecto", "reason_not_played": "No jugamos", "reason_other": "Otro motivo",
+    "rejectedCounter": "Rechazado. Puedes enviar una única contrapropuesta con el resultado real.", "counter": "Enviar contrapropuesta", "rejectedDone": "Rechazado. No cuenta.",
+    "emptyConfirmTitle": "Nada que confirmar", "emptyConfirmBody": "Cuando alguien te apunte un partido, saldrá aquí.", "emptySent": "No tienes partidos esperando respuesta.", "recordOne": "Apunta uno.",
+    "statusExpired": "Caducó sin confirmación. No cuenta.", "statusRejected": "Rechazado: {reason}"
+  },
+  "challenges": {
+    "label": "Quedar a jugar", "title": "Retos", "lead": "Un reto abre un chat con la otra persona para cuadrar día y sitio. No es obligatorio: también puedes apuntar un partido sin reto.",
+    "emptyTitle": "Sin retos abiertos", "emptyBody": "Elige a alguien del ranking y lánzale uno.", "pickRival": "Ver el ranking", "past": "Anteriores", "deleted": "Cuenta eliminada",
+    "status_open": "Abierto", "status_accepted": "Aceptado", "status_declined": "Rechazado", "status_cancelled": "Cancelado", "status_done": "Jugado", "toAnswer": "Te toca responder",
+    "newTitle": "Nuevo reto", "rival": "Alias del rival", "when": "Día y hora (opcional)", "place": "Lugar (opcional)", "placeHint": "Mesa del edificio…", "mode": "Modalidad", "create": "Enviar reto",
+    "noDate": "Sin fecha", "accept": "Aceptar", "decline": "Rechazar", "cancel": "Cancelar reto", "block": "Bloquear", "blockConfirm": "Bloquear cierra los retos con esta persona y le impide retarte, escribirte o apuntar partidos contigo. ¿Seguro?",
+    "recordResult": "Apuntar el resultado", "chat": "Chat del reto", "chatEmpty": "Aún no hay mensajes. Rompe el hielo.", "message": "Mensaje", "messagePlaceholder": "Escribe un mensaje…", "send": "Enviar",
+    "chatRules": "Texto plano, sin enlaces. {n}/500", "chatClosed": "Este chat está cerrado.", "flagged": "Mensaje oculto: mostrar"
+  },
+  "report": {
+    "open": "Reportar", "title": "Reportar", "reason": "Motivo", "choose": "Elige un motivo", "details": "Detalles (opcional)", "send": "Enviar reporte", "cancel": "Cancelar", "close": "Cerrar",
+    "reason_fake_result": "Resultado falso", "reason_harassment": "Acoso o insultos", "reason_spam": "Spam", "reason_impersonation": "Suplantación", "reason_offensive_alias": "Alias ofensivo", "reason_other": "Otro",
+    "doneTitle": "Reporte enviado", "doneBody": "Lo revisará alguien del equipo. Gracias por avisar."
+  },
+  "settings": {
+    "label": "Tu cuenta", "title": "Ajustes", "alias": "Alias", "color": "Color del avatar", "colorN": "Color {n}", "language": "Idioma", "save": "Guardar", "saved": "Guardado.",
+    "newTerms": "Hemos actualizado los términos.", "readTerms": "Léelos", "acceptTerms": "Aceptar la nueva versión", "limited": "Tu cuenta está limitada temporalmente: puedes confirmar partidos, pero no apuntar ni retar.", "banned": "Tu cuenta está bloqueada.",
+    "notifications": "Avisos", "noNotifications": "Sin avisos.", "markRead": "Marcar como leídos", "noEmails": "No enviamos emails de aviso: los avisos están aquí y en la barra de navegación.",
+    "yourData": "Tus datos", "export": "Descargar mis datos (JSON)", "signOut": "Cerrar sesión", "signOutAll": "Cerrar sesión en todos los dispositivos",
+    "deleteTitle": "Borrar mi cuenta", "deleteBody": "Se borran tu email, tu perfil y tus mensajes al momento. Tus partidos confirmados se quedan como «Jugador eliminado» para no romper la historia de tus rivales.",
+    "deleteCheck": "Entiendo que no se puede deshacer", "deleteBtn": "Borrar mi cuenta", "deleteConfirm": "¿Borrar tu cuenta definitivamente?"
+  },
+  "notifications": {
+    "match_pending": "Tienes un partido por confirmar", "match_confirmed": "Tu partido fue confirmado", "match_rejected": "Tu partido fue rechazado",
+    "challenge_new": "Te han lanzado un reto", "challenge_accepted": "Han aceptado tu reto", "account_limited": "Tu cuenta se ha limitado", "account_banned": "Tu cuenta se ha bloqueado",
+    "match_voided": "Un partido tuyo se ha anulado", "alias_changed": "Se ha cambiado tu alias"
+  },
+  "admin": {
+    "label": "Moderación", "title": "Panel", "health": "Salud", "ago": "último ping hace {h} h", "ok": "al día", "stale": "retrasado",
+    "reports": "Reportes abiertos", "noReports": "Sin reportes abiertos.", "flags": "Marcas automáticas", "noFlags": "Sin marcas.", "tools": "Herramientas", "audit": "Registro de auditoría",
+    "reason": "Motivo (obligatorio)", "reasonAll": "Motivo de la acción (obligatorio)", "resolve": "Resolver", "dismiss": "Descartar", "reviewed": "Revisado",
+    "voidMatch": "Anular partido", "voidBtn": "Anular y recalcular ELO", "account": "Limitar o bloquear cuenta", "limit": "Limitar N días", "ban": "Banear", "unban": "Reactivar", "days": "Días", "apply": "Aplicar",
+    "forceAlias": "Forzar cambio de alias", "newAlias": "Nuevo alias", "done": "Hecho"
+  },
+  "rules": {
+    "label": "Normativa", "title": "Las reglas, en versión de bolsillo", "lead": "Resumen de las reglas ITTF para que nadie discuta el saque.",
+    "official": [
+      { "h": "Sets a 11, ganando por 2", "p": "Gana el set quien llega antes a 11 puntos con dos de ventaja. Si hay 10-10, se sigue hasta sacar esa diferencia." },
+      { "h": "El saque cambia cada 2 puntos", "p": "Y desde el 10-10, en cada punto." },
+      { "h": "Saque limpio", "p": "La pelota se lanza desde la palma abierta de la mano y sube al menos 16 cm." },
+      { "h": "Dobles", "p": "El saque va en diagonal, de la mitad derecha a la mitad derecha, y los jugadores golpean de forma alterna." },
+      { "h": "Let", "p": "Si el saque toca la red y entra, se repite el punto." }
+    ],
+    "houseTitle": "Reglas de la casa Ping-Nord-Pong",
+    "house": [
+      "Formatos permitidos: a 5, 7, 11 o 21 puntos; un set o al mejor de 3, 5 o 7; en 1v1 o 2v2.",
+      "Ningún partido cuenta sin la confirmación del equipo contrario. Si en 48 horas nadie confirma, caduca.",
+      "Juego limpio: nada de resultados inventados ni partidos pactados para subir el ELO."
+    ],
+    "source": "Fuente oficial:", "reviewed": "revisado el {date}"
+  },
+  "legal": {
+    "label": "Legal", "version": "Versión {v}", "draft": "Borrador redactado por el proyecto. Antes de abrir la web al público debe revisarlo una persona con conocimientos legales; no es asesoramiento legal.", "prevails": "En caso de discrepancia entre idiomas, prevalece la versión en español.",
+    "terms": { "title": "Términos y condiciones", "sections": [
+      { "h": "Qué es esto", "p": ["Ping-Nord-Pong es un proyecto de estudiantes, no oficial y sin afiliación con la UPC. Es gratuito y no garantizamos que esté siempre disponible."] },
+      { "h": "Requisitos", "p": ["Tener al menos 14 años y un email al que tengas acceso. Una cuenta por persona."] },
+      { "h": "Normas de conducta", "p": ["No apuntar resultados falsos ni pactar partidos para inflar el ELO.", "No crear cuentas múltiples, no acosar ni insultar en el chat o en el alias, y no suplantar a otras personas."] },
+      { "h": "Moderación", "p": ["Podemos anular partidos, recalcular el ELO, cambiar alias ofensivos y limitar o cerrar cuentas, siempre avisando dentro de la web y con una vía para recurrir en {email}."] },
+      { "h": "Contenido público", "p": ["Al usar el servicio, tu alias, tu ELO, tus estadísticas y tus partidos confirmados son visibles para cualquiera."] },
+      { "h": "Cambios y ley aplicable", "p": ["Si cambian los términos, te avisamos en la web y te pedimos aceptar la nueva versión. Se aplica la ley española."] }
+    ] },
+    "privacy": { "title": "Política de privacidad", "sections": [
+      { "h": "Responsable", "p": ["Pepe Flock (proyecto de estudiantes). Contacto: {email}."] },
+      { "h": "Qué guardamos y para qué", "p": ["Tu email (solo para el acceso, nunca público), alias y color de avatar, ELO, partidos, sets y fechas, retos y mensajes, reportes y bloqueos, e idioma.", "No guardamos nombre real, foto, teléfono, ubicación ni analítica de terceros. La IP solo aparece en los registros técnicos de los proveedores, con retención corta."] },
+      { "h": "Bases jurídicas", "p": ["Ejecución del servicio que aceptas al registrarte (cuenta, ranking y partidos) e interés legítimo en la seguridad y la moderación."] },
+      { "h": "Qué es público", "p": ["Alias, ELO, estadísticas, partidos confirmados y rivalidades. Los retos y los mensajes solo los ven las dos personas implicadas."] },
+      { "h": "Encargados del tratamiento", "p": ["Supabase (base de datos y acceso, región UE) y Vercel (alojamiento). Las posibles transferencias fuera del EEE se amparan en cláusulas contractuales tipo o en el marco UE-EE. UU."] },
+      { "h": "Conservación", "p": ["Mensajes de chat: 90 días. Partidos pendientes, rechazados o caducados: 30 días. Avisos y registros de límites: 30 días. Registro de auditoría: 1 año. Cuentas inactivas durante 2 años: se borran automáticamente."] },
+      { "h": "Tus derechos", "p": ["Acceso, rectificación, supresión, oposición, limitación y portabilidad. Puedes descargar tus datos y borrar tu cuenta desde Ajustes, o escribirnos a {email}. También puedes reclamar ante la AEPD.", "Edad mínima: 14 años."] }
+    ] },
+    "cookies": { "title": "Cookies", "sections": [
+      { "h": "Solo cookies técnicas", "p": ["Usamos únicamente cookies necesarias: la de sesión (para mantenerte dentro) y la de preferencia de idioma."] },
+      { "h": "Sin analítica ni publicidad", "p": ["No usamos cookies de analítica ni de publicidad, por eso no hay banner de consentimiento. Si algún día se añade analítica, será sin cookies o te pediremos permiso con la misma facilidad para rechazar que para aceptar."] }
+    ] }
+  },
+  "errors": {
+    "generic": "Algo ha fallado. Inténtalo de nuevo.", "notFoundTitle": "Aquí no hay mesa", "notFoundBody": "La página que buscas no existe o se la llevó el viento.", "backHome": "Volver al inicio",
+    "email_invalid": "Ese email no parece válido.", "turnstile": "No hemos podido comprobar que eres una persona. Recarga e inténtalo otra vez.", "rate_limited": "Demasiados intentos. Espera un rato.",
+    "rate_pending": "Ya tienes 3 partidos esperando confirmación. Espera a que los confirmen.", "rate_same_rival": "Máximo 5 partidos al día contra el mismo rival.", "rate_open_challenges": "Ya tienes 5 retos abiertos.",
+    "invalid_score": "Ese resultado no es válido.", "cannot_confirm_own": "No puedes confirmar un partido que has apuntado tú.", "forbidden": "No tienes permiso para eso.", "not_pending": "Este partido ya no está pendiente.",
+    "expired": "Este partido ha caducado.", "blocked": "No puedes hacer eso con esa persona.", "limited": "Tu cuenta está limitada temporalmente.", "banned": "Tu cuenta está bloqueada.",
+    "alias_taken": "Ese alias ya existe.", "alias_reserved": "Ese alias está reservado.", "alias_offensive": "Ese alias no está permitido.", "alias_format": "El alias debe tener 3 a 20 caracteres: letras, números, punto, guion o guion bajo.",
+    "terms_version": "Hay una versión nueva de los términos. Recarga la página.", "terms_required": "Tienes que aceptar los términos y confirmar tu edad.", "already_onboarded": "Ya has elegido alias.",
+    "chat_closed": "Este chat está cerrado.", "challenge_exists": "Ya tienes un reto abierto con esa persona.", "counter_not_allowed": "Ya no se puede enviar contrapropuesta.",
+    "not_authenticated": "Tienes que entrar primero.", "not_found": "No encontramos eso.", "reason_required": "Escribe el motivo.", "bad_message": "El mensaje debe tener entre 1 y 500 caracteres.",
+    "invalid_players": "Revisa los jugadores: deben ser distintos y existir.", "confirm_required": "Marca la casilla para confirmar."
+  }
+}

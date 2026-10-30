@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "title": "Ping-Nord-Pong · The Campus Nord table tennis ranking",
+    "description": "Public ELO table tennis ranking for Campus Nord (Barcelona). Log your matches, get your opponent to confirm them and watch your ELO move."
+  },
+  "nav": {
+    "skip": "Skip to content", "home": "Ping-Nord-Pong, home", "main": "Main navigation",
+    "ranking": "Ranking", "rivalries": "Rivalries", "challenges": "Challenges", "rules": "Rules",
+    "enter": "Sign in", "finishSignup": "Finish signup", "pending": "Pending", "account": "Your account ({alias})", "language": "Language"
+  },
+  "common": { "loading": "Loading", "copyLink": "Copy link", "copied": "Copied!" },
+  "footer": {
+    "privacy": "Privacy", "terms": "Terms", "cookies": "Cookies", "rules": "Rules",
+    "disclaimer": "A student project, not an official UPC site.",
+    "by": "a project by", "dataNote": "We only store your email, alias and matches."
+  },
+  "home": {
+    "kicker": "Campus Nord · UPC · Autumn season",
+    "title": "Campus Nord finally has a ranking.",
+    "lead": "Log your matches, let your opponent confirm them and watch your ELO move. Public rivalries, challenges with chat and zero excuses.",
+    "ctaEnter": "Sign in with your email", "ctaRecord": "Log a match", "ctaRanking": "See the ranking",
+    "note": "this is where rivalries get settled ↑", "tableAlt": "Table tennis table with a ball bouncing between two paddles",
+    "statsLabel": "Numbers", "statPlayers": "registered players", "statMatches": "confirmed matches", "statRivalries": "active rivalries", "statWeek": "matches this week",
+    "rankLabel": "ELO ranking", "rankTitle": "Who rules the table", "rankAll": "See the full ranking",
+    "emptyRankTitle": "Nobody has stepped up to the table yet. Will you be the first?", "emptyRankBody": "Once there are confirmed matches, the top players will show up here.",
+    "weekLabel": "Rivalry of the week", "vs": "vs", "emblemLabel": "Crow ({crow}) against snake ({snake})",
+    "weekBody": "{crow} is the crow and {snake} the snake (the site drew lots). Whoever leads the head-to-head takes over the scene and wears their badge on the head; there are seven states, from a tie to total domination.",
+    "weekMeta": "{total, plural, one {# match} other {# matches}} in total · {week, plural, one {# this week} other {# this week}}",
+    "weekCta": "See the rivalry",
+    "emptyWeekTitle": "No rivalry this week yet", "emptyWeekBody": "A rivalry is born at 5 matches between the same two people. Start warming up.",
+    "stepsTitle": "From match to ELO in three bounces", "stepsSub": "(no cheating: the other side confirms)",
+    "step1Title": "Play", "step1Body": "With whoever is at the table. If you want to arrange it first, challenge them from their profile and a chat opens, but you don't have to.",
+    "step2Title": "Log it", "step2Body": "One of you records it: to 5, 7, 11 or 21, one set or best of 3, 5 or 7, 1v1 or 2v2, with the points of every set.",
+    "step3Title": "The other confirms", "step3Body": "If the result is right they accept it and both ELOs move at once. If not, they reject it and it doesn't count.",
+    "rulesTitle": "Was that serve legal? Check the rules.", "rulesBody": "The official rules in pocket size: serve, changes, doubles and the famous let.", "rulesCta": "Open the rules"
+  },
+  "ranking": {
+    "label": "ELO ranking", "title": "Who rules the table", "caption": "Player ranking", "mode": "Mode", "scope": "Scope",
+    "active": "Active", "history": "All-time", "search": "Search by alias", "searchBtn": "Search",
+    "player": "Player", "last7": "Last 7 days", "wl": "W–L", "streak": "Streak", "action": "Action", "provisional": "provisional", "challenge": "Challenge",
+    "emptyTitle": "Nobody on this list", "emptyBody": "There are no confirmed matches in this mode yet.", "emptySearch": "Nobody goes by that name. Sure you spelled it right?",
+    "footnote": "Provisional = fewer than 10 matches; they don't count for the top 3 or medals. Active = played in the last 30 days."
+  },
+  "profile": {
+    "provisional": "provisional", "inactive": "inactive", "nemesisOf": "Nemesis: {alias}", "victim": "Favourite victim: {alias}", "challenge": "Challenge",
+    "stats": "Statistics", "wl": "W–L 1v1", "streak": "Streak", "rivals": "Different opponents", "games": "Matches",
+    "chartTitle": "ELO over time (1v1)", "chartEmpty": "No confirmed matches yet: the chart shows up with the first one.",
+    "chartLabel": "ELO from {from} to {to} over {n, plural, one {# match} other {# matches}}",
+    "rivalriesTitle": "Rivalries", "noRivalries": "No rivalries yet. You need 5 matches against the same person.",
+    "roleCrow": "Crow", "roleSnake": "Snake", "lastMatches": "Latest matches"
+  },
+  "match": {
+    "none": "No confirmed matches yet.", "vs": "vs", "deletedPlayer": "Deleted player", "format": "to {points} · best of {bestOf}",
+    "won": "Won", "lost": "Lost", "why": "Why that ELO change?",
+    "whyBody": "K = {k} · repeat-opponent weight w = {w} · format weight m = {m}. Went from {before} to {after}."
+  },
+  "rivalry": {
+    "back": "Rivalries", "emblemLabel": "Crow ({crow}) against snake ({snake}): {leader} leads {a}–{b}", "emblemLabelTie": "Crow ({crow}) against snake ({snake}): tied",
+    "headToHead": "{total} head-to-head", "streak": "{alias}'s streak: {n}", "eloGap": "ELO gap {n}", "roles": "{crow} crow · {snake} snake",
+    "byFormat": "By format", "toPoints": "to {n}", "lastMatches": "Latest matches", "rematch": "{alias}, ask for the rematch"
+  },
+  "rivalries": {
+    "label": "Head to head", "title": "Rivalries", "lead": "Two people, five matches or more. Every rivalry gets its own crow and snake, drawn once.",
+    "vs": "vs", "crow": "Crow", "emptyTitle": "No rivalries yet", "emptyBody": "It takes 5 confirmed matches between the same two people."
+  },
+  "auth": {
+    "label": "Access", "title": "Sign in with your email", "lead": "No passwords: we send a link to whichever email you like. Any email works.",
+    "email": "Your email", "emailPlaceholder": "you@email.com", "send": "Send me the link", "sending": "Sending…",
+    "sentTitle": "Check your inbox", "sentBody": "If the email is valid, a sign-in link is on its way. Check spam too.",
+    "neutral": "We always show this same message, whether the account exists or not.", "linkError": "The link has expired or was already used. Ask for a new one.", "finish": "Finish signup"
+  },
+  "onboarding": {
+    "label": "Welcome", "title": "Pick your alias", "lead": "It's all anyone else will see: your email is never public.",
+    "alias": "Alias", "aliasHelp": "3 to 20 characters: letters, numbers, dot, hyphen and underscore.",
+    "age": "I am 14 or older.", "terms": "I accept the <terms>terms</terms> and the <privacy>privacy policy</privacy>.", "submit": "Step up to the table"
+  },
+  "record": {
+    "label": "New match", "title": "Log a match", "limited": "Your account is limited: you can confirm matches, but not log new ones for now.",
+    "rulesReminder": "Rules reminder", "rule1": "Sets to 11, win by 2; serve changes every 2 points.", "rule2": "The result only counts if your opponent confirms it.", "rule3": "Without confirmation in 48 h, the match expires.", "rulesFull": "See the full rules",
+    "mode": "Mode", "rival": "Opponent", "partner": "Your partner (alias)", "rivalAlias": "Opponent's alias", "rivalN": "Opponent {n} (alias)", "playerHint": "Type aliases that exist and are all different.",
+    "pointsPerSet": "Points per set", "toN": "to {n}", "sets": "Sets", "oneSet": "1 set", "bestOf": "Bo{n}", "winByTwo": "Must win by two points",
+    "score": "Score", "setN": "Set {n}", "scoreOf": "{who}'s points in set {n}", "setsHint": "Fill in the sets played: whoever reaches {need} wins.",
+    "winner": "{who} wins {a}–{b} in sets.", "weight": "Format weight m = {m}", "weightHelp": "A short match moves the ELO less.",
+    "submit": "Send to {alias} to confirm", "expiry": "Without their confirmation in 48 h, the match expires.",
+    "sentTitle": "Sent to {alias}", "sentBody": "The ELO moves once they confirm. Send them the link on WhatsApp or tell them in person.",
+    "validation": {
+      "set_count": "Missing or extra sets.", "set_range": "Points must be whole numbers between 0 and 99.", "set_invalid": "One of the sets isn't a valid score (check win-by-two).",
+      "set_after_end": "There are sets after someone already won the match.", "no_winner": "Nobody reached the sets needed to win."
+    }
+  },
+  "pending": {
+    "label": "Confirmations", "title": "Pending", "toConfirm": "To confirm", "sent": "Sent by you", "closed": "Closed", "vs": "vs", "deleted": "Deleted player",
+    "format": "to {points} · Bo{bestOf}", "askedBy": "{alias} logged this", "waiting": "Waiting for your opponent", "timeLeft": "expires in {h} h {m} min", "expiredNow": "expired",
+    "confirm": "That's right, confirm", "reject": "Reject", "rejectWhy": "Why are you rejecting it?", "back": "Back",
+    "reason_wrong_result": "The result is wrong", "reason_not_played": "We didn't play", "reason_other": "Other reason",
+    "rejectedCounter": "Rejected. You can send one single counter-proposal with the real score.", "counter": "Send counter-proposal", "rejectedDone": "Rejected. It doesn't count.",
+    "emptyConfirmTitle": "Nothing to confirm", "emptyConfirmBody": "When someone logs a match with you, it shows up here.", "emptySent": "You have no matches waiting for an answer.", "recordOne": "Log one.",
+    "statusExpired": "Expired without confirmation. It doesn't count.", "statusRejected": "Rejected: {reason}"
+  },
+  "challenges": {
+    "label": "Arrange a game", "title": "Challenges", "lead": "A challenge opens a chat with the other person to sort out day and place. It's optional: you can also log a match without one.",
+    "emptyTitle": "No open challenges", "emptyBody": "Pick someone from the ranking and throw one their way.", "pickRival": "See the ranking", "past": "Earlier", "deleted": "Deleted account",
+    "status_open": "Open", "status_accepted": "Accepted", "status_declined": "Declined", "status_cancelled": "Cancelled", "status_done": "Played", "toAnswer": "Your turn to answer",
+    "newTitle": "New challenge", "rival": "Opponent's alias", "when": "Day and time (optional)", "place": "Place (optional)", "placeHint": "The table in the building…", "mode": "Mode", "create": "Send challenge",
+    "noDate": "No date", "accept": "Accept", "decline": "Decline", "cancel": "Cancel challenge", "block": "Block", "blockConfirm": "Blocking closes your challenges with this person and stops them from challenging you, writing to you or logging matches with you. Sure?",
+    "recordResult": "Log the result", "chat": "Challenge chat", "chatEmpty": "No messages yet. Break the ice.", "message": "Message", "messagePlaceholder": "Write a message…", "send": "Send",
+    "chatRules": "Plain text, no links. {n}/500", "chatClosed": "This chat is closed.", "flagged": "Message hidden: show"
+  },
+  "report": {
+    "open": "Report", "title": "Report", "reason": "Reason", "choose": "Choose a reason", "details": "Details (optional)", "send": "Send report", "cancel": "Cancel", "close": "Close",
+    "reason_fake_result": "Fake result", "reason_harassment": "Harassment or insults", "reason_spam": "Spam", "reason_impersonation": "Impersonation", "reason_offensive_alias": "Offensive alias", "reason_other": "Other",
+    "doneTitle": "Report sent", "doneBody": "Someone on the team will look at it. Thanks for letting us know."
+  },
+  "settings": {
+    "label": "Your account", "title": "Settings", "alias": "Alias", "color": "Avatar colour", "colorN": "Colour {n}", "language": "Language", "save": "Save", "saved": "Saved.",
+    "newTerms": "We've updated the terms.", "readTerms": "Read them", "acceptTerms": "Accept the new version", "limited": "Your account is temporarily limited: you can confirm matches, but not log or challenge.", "banned": "Your account is blocked.",
+    "notifications": "Notices", "noNotifications": "No notices.", "markRead": "Mark all as read", "noEmails": "We don't send notification emails: notices live here and in the navigation bar.",
+    "yourData": "Your data", "export": "Download my data (JSON)", "signOut": "Sign out", "signOutAll": "Sign out on all devices",
+    "deleteTitle": "Delete my account", "deleteBody": "Your email, profile and messages are deleted immediately. Your confirmed matches stay as \"Deleted player\" so your opponents' history isn't broken.",
+    "deleteCheck": "I understand this can't be undone", "deleteBtn": "Delete my account", "deleteConfirm": "Delete your account for good?"
+  },
+  "notifications": {
+    "match_pending": "You have a match to confirm", "match_confirmed": "Your match was confirmed", "match_rejected": "Your match was rejected",
+    "challenge_new": "Someone challenged you", "challenge_accepted": "Your challenge was accepted", "account_limited": "Your account has been limited", "account_banned": "Your account has been blocked",
+    "match_voided": "One of your matches was voided", "alias_changed": "Your alias was changed"
+  },
+  "admin": {
+    "label": "Moderation", "title": "Panel", "health": "Health", "ago": "last ping {h} h ago", "ok": "up to date", "stale": "late",
+    "reports": "Open reports", "noReports": "No open reports.", "flags": "Automatic flags", "noFlags": "No flags.", "tools": "Tools", "audit": "Audit log",
+    "reason": "Reason (required)", "reasonAll": "Reason for the action (required)", "resolve": "Resolve", "dismiss": "Dismiss", "reviewed": "Reviewed",
+    "voidMatch": "Void match", "voidBtn": "Void and recompute ELO", "account": "Limit or ban account", "limit": "Limit for N days", "ban": "Ban", "unban": "Reactivate", "days": "Days", "apply": "Apply",
+    "forceAlias": "Force alias change", "newAlias": "New alias", "done": "Done"
+  },
+  "rules": {
+    "label": "Rules", "title": "The rules, pocket edition", "lead": "A summary of the ITTF rules so nobody argues about the serve.",
+    "official": [
+      { "h": "Sets to 11, win by 2", "p": "Whoever reaches 11 points first with a two-point lead wins the set. At 10-10 play continues until someone is two ahead." },
+      { "h": "Serve changes every 2 points", "p": "And from 10-10, after every point." },
+      { "h": "A clean serve", "p": "The ball is tossed up from the open palm and rises at least 16 cm." },
+      { "h": "Doubles", "p": "The serve goes diagonally, from the right half to the right half, and players hit alternately." },
+      { "h": "Let", "p": "If the serve touches the net and still lands in, the point is replayed." }
+    ],
+    "houseTitle": "Ping-Nord-Pong house rules",
+    "house": [
+      "Allowed formats: to 5, 7, 11 or 21 points; one set or best of 3, 5 or 7; in 1v1 or 2v2.",
+      "No match counts without the other side's confirmation. If nobody confirms within 48 hours, it expires.",
+      "Fair play: no made-up results and no matches arranged to inflate ELO."
+    ],
+    "source": "Official source:", "reviewed": "reviewed on {date}"
+  },
+  "legal": {
+    "label": "Legal", "version": "Version {v}", "draft": "Draft written by the project. A person with legal knowledge should review it before the site opens to the public; this is not legal advice.", "prevails": "In case of discrepancy between languages, the Spanish version prevails.",
+    "terms": { "title": "Terms and conditions", "sections": [
+      { "h": "What this is", "p": ["Ping-Nord-Pong is a student project, unofficial and not affiliated with UPC. It is free and we don't guarantee it will always be available."] },
+      { "h": "Requirements", "p": ["Be at least 14 years old and have an email you can access. One account per person."] },
+      { "h": "Code of conduct", "p": ["Don't log false results or arrange matches to inflate ELO.", "Don't create multiple accounts, don't harass or insult in chat or in an alias, and don't impersonate others."] },
+      { "h": "Moderation", "p": ["We may void matches, recompute ELO, change offensive aliases and limit or close accounts, always with a notice on the site and a way to appeal at {email}."] },
+      { "h": "Public content", "p": ["By using the service, your alias, ELO, statistics and confirmed matches are visible to anyone."] },
+      { "h": "Changes and governing law", "p": ["If the terms change we'll tell you on the site and ask you to accept the new version. Spanish law applies."] }
+    ] },
+    "privacy": { "title": "Privacy policy", "sections": [
+      { "h": "Controller", "p": ["Pepe Flock (student project). Contact: {email}."] },
+      { "h": "What we store and why", "p": ["Your email (only for sign-in, never public), alias and avatar colour, ELO, matches, sets and dates, challenges and messages, reports and blocks, and language.", "We don't store real name, photo, phone, location or third-party analytics. IP addresses only appear in providers' technical logs, with short retention."] },
+      { "h": "Legal bases", "p": ["Performance of the service you accept when signing up (account, ranking and matches) and legitimate interest in security and moderation."] },
+      { "h": "What is public", "p": ["Alias, ELO, statistics, confirmed matches and rivalries. Challenges and messages are only visible to the two people involved."] },
+      { "h": "Processors", "p": ["Supabase (database and sign-in, EU region) and Vercel (hosting). Any transfers outside the EEA rely on standard contractual clauses or the EU-US framework."] },
+      { "h": "Retention", "p": ["Chat messages: 90 days. Pending, rejected or expired matches: 30 days. Notices and rate-limit records: 30 days. Audit log: 1 year. Accounts inactive for 2 years are deleted automatically."] },
+      { "h": "Your rights", "p": ["Access, rectification, erasure, objection, restriction and portability. You can download your data and delete your account in Settings, or write to {email}. You may also complain to the Spanish data authority (AEPD).", "Minimum age: 14."] }
+    ] },
+    "cookies": { "title": "Cookies", "sections": [
+      { "h": "Technical cookies only", "p": ["We only use necessary cookies: the session cookie (to keep you signed in) and the language preference."] },
+      { "h": "No analytics or advertising", "p": ["We use no analytics or advertising cookies, which is why there is no consent banner. If analytics are ever added, they will be cookie-free, or we'll ask you with refusing as easy as accepting."] }
+    ] }
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.", "notFoundTitle": "No table here", "notFoundBody": "The page you're looking for doesn't exist or got blown away.", "backHome": "Back to the start",
+    "email_invalid": "That email doesn't look valid.", "turnstile": "We couldn't check that you're a person. Reload and try again.", "rate_limited": "Too many attempts. Wait a while.",
+    "rate_pending": "You already have 3 matches waiting for confirmation. Wait for them to be confirmed.", "rate_same_rival": "Maximum 5 matches a day against the same opponent.", "rate_open_challenges": "You already have 5 open challenges.",
+    "invalid_score": "That score isn't valid.", "cannot_confirm_own": "You can't confirm a match you logged yourself.", "forbidden": "You don't have permission to do that.", "not_pending": "This match is no longer pending.",
+    "expired": "This match has expired.", "blocked": "You can't do that with this person.", "limited": "Your account is temporarily limited.", "banned": "Your account is blocked.",
+    "alias_taken": "That alias already exists.", "alias_reserved": "That alias is reserved.", "alias_offensive": "That alias isn't allowed.", "alias_format": "The alias must be 3 to 20 characters: letters, numbers, dot, hyphen or underscore.",
+    "terms_version": "There's a new version of the terms. Reload the page.", "terms_required": "You must accept the terms and confirm your age.", "already_onboarded": "You've already chosen an alias.",
+    "chat_closed": "This chat is closed.", "challenge_exists": "You already have an open challenge with that person.", "counter_not_allowed": "A counter-proposal can no longer be sent.",
+    "not_authenticated": "You need to sign in first.", "not_found": "We couldn't find that.", "reason_required": "Write the reason.", "bad_message": "The message must be between 1 and 500 characters.",
+    "invalid_players": "Check the players: they must be different and exist.", "confirm_required": "Tick the box to confirm."
+  }
+}

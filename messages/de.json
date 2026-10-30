@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "title": "Ping-Nord-Pong · Das Tischtennis-Ranking vom Campus Nord",
+    "description": "Öffentliches ELO-Tischtennis-Ranking des Campus Nord (Barcelona). Trag deine Spiele ein, lass sie von deinem Gegner bestätigen und sieh, wie sich dein ELO bewegt."
+  },
+  "nav": {
+    "skip": "Zum Inhalt springen", "home": "Ping-Nord-Pong, Startseite", "main": "Hauptnavigation",
+    "ranking": "Ranking", "rivalries": "Rivalitäten", "challenges": "Herausforderungen", "rules": "Regeln",
+    "enter": "Anmelden", "finishSignup": "Registrierung abschließen", "pending": "Offen", "account": "Dein Konto ({alias})", "language": "Sprache"
+  },
+  "common": { "loading": "Lädt", "copyLink": "Link kopieren", "copied": "Kopiert!" },
+  "footer": {
+    "privacy": "Datenschutz", "terms": "Nutzungsbedingungen", "cookies": "Cookies", "rules": "Regeln",
+    "disclaimer": "Studentisches Projekt, keine offizielle Seite der UPC.",
+    "by": "ein Projekt von", "dataNote": "Wir speichern nur deine E-Mail, deinen Alias und deine Spiele."
+  },
+  "home": {
+    "kicker": "Campus Nord · UPC · Herbstsaison",
+    "title": "Der Campus Nord hat endlich ein Ranking.",
+    "lead": "Trag deine Spiele ein, lass sie von deinem Gegner bestätigen und sieh, wie sich dein ELO bewegt. Öffentliche Rivalitäten, Herausforderungen mit Chat und keine Ausreden.",
+    "ctaEnter": "Mit deiner E-Mail anmelden", "ctaRecord": "Spiel eintragen", "ctaRanking": "Ranking ansehen",
+    "note": "hier werden Rivalitäten entschieden ↑", "tableAlt": "Tischtennisplatte mit einem Ball, der zwischen zwei Schlägern hin- und herspringt",
+    "statsLabel": "Zahlen", "statPlayers": "registrierte Spieler", "statMatches": "bestätigte Spiele", "statRivalries": "aktive Rivalitäten", "statWeek": "Spiele diese Woche",
+    "rankLabel": "ELO-Ranking", "rankTitle": "Wer die Platte beherrscht", "rankAll": "Ganzes Ranking ansehen",
+    "emptyRankTitle": "Noch hat niemand die Platte betreten. Wirst du der Erste sein?", "emptyRankBody": "Sobald es bestätigte Spiele gibt, erscheinen hier die Besten.",
+    "weekLabel": "Rivalität der Woche", "vs": "gegen", "emblemLabel": "Rabe ({crow}) gegen Schlange ({snake})",
+    "weekBody": "{crow} ist der Rabe und {snake} die Schlange (die Seite hat gelost). Wer den direkten Vergleich anführt, bestimmt die Szene und trägt sein Abzeichen am Kopf; es gibt sieben Zustände, vom Unentschieden bis zur totalen Dominanz.",
+    "weekMeta": "{total, plural, one {# Spiel} other {# Spiele}} insgesamt · {week, plural, one {# diese Woche} other {# diese Woche}}",
+    "weekCta": "Rivalität ansehen",
+    "emptyWeekTitle": "Diese Woche noch keine Rivalität", "emptyWeekBody": "Eine Rivalität entsteht ab 5 Spielen zwischen denselben zwei Personen. Wärmt euch schon mal auf.",
+    "stepsTitle": "Vom Spiel zum ELO in drei Sprüngen", "stepsSub": "(ohne Tricks: der andere bestätigt)",
+    "step1Title": "Spielen", "step1Body": "Mit wem auch immer an der Platte steht. Wenn du vorher verabreden willst, fordere ihn über sein Profil heraus und ein Chat öffnet sich, nötig ist das aber nicht.",
+    "step2Title": "Eintragen", "step2Body": "Einer von euch trägt es ein: bis 5, 7, 11 oder 21, ein Satz oder Best of 3, 5 oder 7, 1v1 oder 2v2, mit den Punkten jedes Satzes.",
+    "step3Title": "Der andere bestätigt", "step3Body": "Stimmt das Ergebnis, nimmt er es an und beide ELO-Werte ändern sich gleichzeitig. Wenn nicht, lehnt er ab und es zählt nicht.",
+    "rulesTitle": "Aufschlag gültig? Schau in die Regeln.", "rulesBody": "Die offiziellen Regeln im Taschenformat: Aufschlag, Wechsel, Doppel und das berühmte Let.", "rulesCta": "Regeln öffnen"
+  },
+  "ranking": {
+    "label": "ELO-Ranking", "title": "Wer die Platte beherrscht", "caption": "Spielerranking", "mode": "Modus", "scope": "Umfang",
+    "active": "Aktiv", "history": "Gesamt", "search": "Nach Alias suchen", "searchBtn": "Suchen",
+    "player": "Spieler", "last7": "Letzte 7 Tage", "wl": "S–N", "streak": "Serie", "action": "Aktion", "provisional": "vorläufig", "challenge": "Herausfordern",
+    "emptyTitle": "Niemand auf dieser Liste", "emptyBody": "In diesem Modus gibt es noch keine bestätigten Spiele.", "emptySearch": "So heißt niemand. Sicher, dass du es richtig geschrieben hast?",
+    "footnote": "Vorläufig = weniger als 10 Spiele; zählt nicht für die Top 3 und die Medaillen. Aktiv = in den letzten 30 Tagen gespielt."
+  },
+  "profile": {
+    "provisional": "vorläufig", "inactive": "inaktiv", "nemesisOf": "Erzfeind: {alias}", "victim": "Lieblingsopfer: {alias}", "challenge": "Herausfordern",
+    "stats": "Statistiken", "wl": "S–N 1v1", "streak": "Serie", "rivals": "Verschiedene Gegner", "games": "Spiele",
+    "chartTitle": "ELO-Verlauf (1v1)", "chartEmpty": "Noch keine bestätigten Spiele: Das Diagramm erscheint mit dem ersten.",
+    "chartLabel": "ELO von {from} auf {to} in {n, plural, one {# Spiel} other {# Spielen}}",
+    "rivalriesTitle": "Rivalitäten", "noRivalries": "Noch keine Rivalitäten. Es braucht 5 Spiele gegen dieselbe Person.",
+    "roleCrow": "Rabe", "roleSnake": "Schlange", "lastMatches": "Letzte Spiele"
+  },
+  "match": {
+    "none": "Noch keine bestätigten Spiele.", "vs": "gegen", "deletedPlayer": "Gelöschter Spieler", "format": "bis {points} · Best of {bestOf}",
+    "won": "Gewonnen", "lost": "Verloren", "why": "Warum diese ELO-Änderung?",
+    "whyBody": "K = {k} · Gewicht für wiederholte Gegner w = {w} · Formatgewicht m = {m}. Von {before} auf {after}."
+  },
+  "rivalry": {
+    "back": "Rivalitäten", "emblemLabel": "Rabe ({crow}) gegen Schlange ({snake}): {leader} führt {a}–{b}", "emblemLabelTie": "Rabe ({crow}) gegen Schlange ({snake}): Unentschieden",
+    "headToHead": "{total} direkte Duelle", "streak": "Serie von {alias}: {n}", "eloGap": "ELO-Abstand {n}", "roles": "{crow} Rabe · {snake} Schlange",
+    "byFormat": "Nach Format", "toPoints": "bis {n}", "lastMatches": "Letzte Spiele", "rematch": "{alias}, fordere das Rückspiel"
+  },
+  "rivalries": {
+    "label": "Direkter Vergleich", "title": "Rivalitäten", "lead": "Zwei Personen, fünf Spiele oder mehr. Jede Rivalität hat ihren Raben und ihre Schlange, einmalig ausgelost.",
+    "vs": "gegen", "crow": "Rabe", "emptyTitle": "Noch keine Rivalitäten", "emptyBody": "Es braucht 5 bestätigte Spiele zwischen denselben zwei Personen."
+  },
+  "auth": {
+    "label": "Zugang", "title": "Mit deiner E-Mail anmelden", "lead": "Ohne Passwörter: Wir schicken einen Link an die E-Mail deiner Wahl. Jede E-Mail funktioniert.",
+    "email": "Deine E-Mail", "emailPlaceholder": "du@email.com", "send": "Link schicken", "sending": "Wird gesendet…",
+    "sentTitle": "Schau in dein Postfach", "sentBody": "Wenn die E-Mail gültig ist, ist ein Anmeldelink unterwegs. Prüf auch den Spam-Ordner.",
+    "neutral": "Wir zeigen immer dieselbe Meldung, egal ob das Konto existiert.", "linkError": "Der Link ist abgelaufen oder wurde schon benutzt. Fordere einen neuen an.", "finish": "Registrierung abschließen"
+  },
+  "onboarding": {
+    "label": "Willkommen", "title": "Wähle deinen Alias", "lead": "Das ist alles, was andere sehen: Deine E-Mail ist nie öffentlich.",
+    "alias": "Alias", "aliasHelp": "3 bis 20 Zeichen: Buchstaben, Zahlen, Punkt, Bindestrich und Unterstrich.",
+    "age": "Ich bin mindestens 14 Jahre alt.", "terms": "Ich akzeptiere die <terms>Nutzungsbedingungen</terms> und die <privacy>Datenschutzerklärung</privacy>.", "submit": "Ab an die Platte"
+  },
+  "record": {
+    "label": "Neues Spiel", "title": "Spiel eintragen", "limited": "Dein Konto ist eingeschränkt: Du kannst Spiele bestätigen, aber vorerst keine neuen eintragen.",
+    "rulesReminder": "Regelerinnerung", "rule1": "Sätze bis 11 mit 2 Punkten Vorsprung; der Aufschlag wechselt alle 2 Punkte.", "rule2": "Das Ergebnis zählt nur, wenn dein Gegner es bestätigt.", "rule3": "Ohne Bestätigung nach 48 h verfällt das Spiel.", "rulesFull": "Alle Regeln ansehen",
+    "mode": "Modus", "rival": "Gegner", "partner": "Dein Partner (Alias)", "rivalAlias": "Alias des Gegners", "rivalN": "Gegner {n} (Alias)", "playerHint": "Gib existierende Aliase ein, alle verschieden.",
+    "pointsPerSet": "Punkte pro Satz", "toN": "bis {n}", "sets": "Sätze", "oneSet": "1 Satz", "bestOf": "Bo{n}", "winByTwo": "Mit zwei Punkten Vorsprung gewinnen",
+    "score": "Ergebnis", "setN": "Satz {n}", "scoreOf": "Punkte von {who} in Satz {n}", "setsHint": "Trag die gespielten Sätze ein: Wer {need} erreicht, gewinnt.",
+    "winner": "{who} gewinnt {a}–{b} nach Sätzen.", "weight": "Formatgewicht m = {m}", "weightHelp": "Ein kurzes Spiel verändert das ELO weniger.",
+    "submit": "An {alias} zur Bestätigung senden", "expiry": "Ohne Bestätigung nach 48 h verfällt das Spiel.",
+    "sentTitle": "An {alias} gesendet", "sentBody": "Das ELO ändert sich, sobald bestätigt wird. Schick den Link per WhatsApp oder sag es persönlich.",
+    "validation": {
+      "set_count": "Es fehlen Sätze oder es sind zu viele.", "set_range": "Punkte müssen ganze Zahlen zwischen 0 und 99 sein.", "set_invalid": "Einer der Sätze ist kein gültiges Ergebnis (prüf den Vorsprung von zwei).",
+      "set_after_end": "Es gibt Sätze, nachdem schon jemand das Spiel gewonnen hat.", "no_winner": "Niemand erreicht die nötigen Sätze zum Sieg."
+    }
+  },
+  "pending": {
+    "label": "Bestätigungen", "title": "Offen", "toConfirm": "Zu bestätigen", "sent": "Von dir gesendet", "closed": "Abgeschlossen", "vs": "gegen", "deleted": "Gelöschter Spieler",
+    "format": "bis {points} · Bo{bestOf}", "askedBy": "{alias} hat es eingetragen", "waiting": "Warte auf deinen Gegner", "timeLeft": "läuft in {h} h {m} min ab", "expiredNow": "abgelaufen",
+    "confirm": "Stimmt, bestätigen", "reject": "Ablehnen", "rejectWhy": "Warum lehnst du ab?", "back": "Zurück",
+    "reason_wrong_result": "Das Ergebnis ist falsch", "reason_not_played": "Wir haben nicht gespielt", "reason_other": "Anderer Grund",
+    "rejectedCounter": "Abgelehnt. Du kannst einen einzigen Gegenvorschlag mit dem echten Ergebnis senden.", "counter": "Gegenvorschlag senden", "rejectedDone": "Abgelehnt. Es zählt nicht.",
+    "emptyConfirmTitle": "Nichts zu bestätigen", "emptyConfirmBody": "Wenn jemand ein Spiel mit dir einträgt, erscheint es hier.", "emptySent": "Du hast keine Spiele, die auf Antwort warten.", "recordOne": "Trag eins ein.",
+    "statusExpired": "Ohne Bestätigung abgelaufen. Es zählt nicht.", "statusRejected": "Abgelehnt: {reason}"
+  },
+  "challenges": {
+    "label": "Zum Spielen verabreden", "title": "Herausforderungen", "lead": "Eine Herausforderung öffnet einen Chat mit der anderen Person, um Tag und Ort abzustimmen. Sie ist optional: Du kannst auch ohne sie ein Spiel eintragen.",
+    "emptyTitle": "Keine offenen Herausforderungen", "emptyBody": "Such dir jemanden aus dem Ranking und wirf eine hin.", "pickRival": "Ranking ansehen", "past": "Frühere", "deleted": "Gelöschtes Konto",
+    "status_open": "Offen", "status_accepted": "Angenommen", "status_declined": "Abgelehnt", "status_cancelled": "Abgebrochen", "status_done": "Gespielt", "toAnswer": "Du musst antworten",
+    "newTitle": "Neue Herausforderung", "rival": "Alias des Gegners", "when": "Tag und Uhrzeit (optional)", "place": "Ort (optional)", "placeHint": "Die Platte im Gebäude…", "mode": "Modus", "create": "Herausforderung senden",
+    "noDate": "Kein Datum", "accept": "Annehmen", "decline": "Ablehnen", "cancel": "Herausforderung abbrechen", "block": "Blockieren", "blockConfirm": "Blockieren beendet die Herausforderungen mit dieser Person und verhindert, dass sie dich herausfordert, dir schreibt oder Spiele mit dir einträgt. Sicher?",
+    "recordResult": "Ergebnis eintragen", "chat": "Chat der Herausforderung", "chatEmpty": "Noch keine Nachrichten. Brich das Eis.", "message": "Nachricht", "messagePlaceholder": "Nachricht schreiben…", "send": "Senden",
+    "chatRules": "Nur Text, keine Links. {n}/500", "chatClosed": "Dieser Chat ist geschlossen.", "flagged": "Nachricht ausgeblendet: anzeigen"
+  },
+  "report": {
+    "open": "Melden", "title": "Melden", "reason": "Grund", "choose": "Grund wählen", "details": "Details (optional)", "send": "Meldung senden", "cancel": "Abbrechen", "close": "Schließen",
+    "reason_fake_result": "Gefälschtes Ergebnis", "reason_harassment": "Belästigung oder Beleidigung", "reason_spam": "Spam", "reason_impersonation": "Identitätsmissbrauch", "reason_offensive_alias": "Anstößiger Alias", "reason_other": "Sonstiges",
+    "doneTitle": "Meldung gesendet", "doneBody": "Jemand aus dem Team schaut es sich an. Danke für den Hinweis."
+  },
+  "settings": {
+    "label": "Dein Konto", "title": "Einstellungen", "alias": "Alias", "color": "Avatarfarbe", "colorN": "Farbe {n}", "language": "Sprache", "save": "Speichern", "saved": "Gespeichert.",
+    "newTerms": "Wir haben die Nutzungsbedingungen aktualisiert.", "readTerms": "Lesen", "acceptTerms": "Neue Version akzeptieren", "limited": "Dein Konto ist vorübergehend eingeschränkt: Du kannst Spiele bestätigen, aber weder eintragen noch herausfordern.", "banned": "Dein Konto ist gesperrt.",
+    "notifications": "Hinweise", "noNotifications": "Keine Hinweise.", "markRead": "Alle als gelesen markieren", "noEmails": "Wir schicken keine Hinweis-E-Mails: Die Hinweise findest du hier und in der Navigationsleiste.",
+    "yourData": "Deine Daten", "export": "Meine Daten herunterladen (JSON)", "signOut": "Abmelden", "signOutAll": "Auf allen Geräten abmelden",
+    "deleteTitle": "Mein Konto löschen", "deleteBody": "Deine E-Mail, dein Profil und deine Nachrichten werden sofort gelöscht. Deine bestätigten Spiele bleiben als „Gelöschter Spieler“ erhalten, damit die Historie deiner Gegner nicht zerstört wird.",
+    "deleteCheck": "Mir ist klar, dass das nicht rückgängig zu machen ist", "deleteBtn": "Mein Konto löschen", "deleteConfirm": "Dein Konto endgültig löschen?"
+  },
+  "notifications": {
+    "match_pending": "Du hast ein Spiel zu bestätigen", "match_confirmed": "Dein Spiel wurde bestätigt", "match_rejected": "Dein Spiel wurde abgelehnt",
+    "challenge_new": "Jemand hat dich herausgefordert", "challenge_accepted": "Deine Herausforderung wurde angenommen", "account_limited": "Dein Konto wurde eingeschränkt", "account_banned": "Dein Konto wurde gesperrt",
+    "match_voided": "Eines deiner Spiele wurde annulliert", "alias_changed": "Dein Alias wurde geändert"
+  },
+  "admin": {
+    "label": "Moderation", "title": "Übersicht", "health": "Zustand", "ago": "letzter Ping vor {h} h", "ok": "aktuell", "stale": "verspätet",
+    "reports": "Offene Meldungen", "noReports": "Keine offenen Meldungen.", "flags": "Automatische Markierungen", "noFlags": "Keine Markierungen.", "tools": "Werkzeuge", "audit": "Audit-Protokoll",
+    "reason": "Grund (Pflicht)", "reasonAll": "Grund der Aktion (Pflicht)", "resolve": "Erledigen", "dismiss": "Verwerfen", "reviewed": "Geprüft",
+    "voidMatch": "Spiel annullieren", "voidBtn": "Annullieren und ELO neu berechnen", "account": "Konto einschränken oder sperren", "limit": "N Tage einschränken", "ban": "Sperren", "unban": "Reaktivieren", "days": "Tage", "apply": "Anwenden",
+    "forceAlias": "Alias-Änderung erzwingen", "newAlias": "Neuer Alias", "done": "Erledigt"
+  },
+  "rules": {
+    "label": "Regeln", "title": "Die Regeln im Taschenformat", "lead": "Kurzfassung der ITTF-Regeln, damit niemand mehr über den Aufschlag streitet.",
+    "official": [
+      { "h": "Sätze bis 11, mit 2 Punkten Vorsprung", "p": "Den Satz gewinnt, wer zuerst 11 Punkte mit zwei Punkten Vorsprung erreicht. Bei 10:10 wird weitergespielt, bis dieser Vorsprung da ist." },
+      { "h": "Der Aufschlag wechselt alle 2 Punkte", "p": "Und ab 10:10 nach jedem Punkt." },
+      { "h": "Sauberer Aufschlag", "p": "Der Ball wird von der flachen, offenen Hand hochgeworfen und steigt mindestens 16 cm." },
+      { "h": "Doppel", "p": "Der Aufschlag geht diagonal von der rechten Hälfte in die rechte Hälfte, und die Spieler schlagen abwechselnd." },
+      { "h": "Let", "p": "Berührt der Aufschlag das Netz und landet trotzdem im Feld, wird der Punkt wiederholt." }
+    ],
+    "houseTitle": "Hausregeln von Ping-Nord-Pong",
+    "house": [
+      "Erlaubte Formate: bis 5, 7, 11 oder 21 Punkte; ein Satz oder Best of 3, 5 oder 7; im 1v1 oder 2v2.",
+      "Kein Spiel zählt ohne die Bestätigung des Gegners. Bestätigt niemand innerhalb von 48 Stunden, verfällt es.",
+      "Fair Play: keine erfundenen Ergebnisse und keine abgesprochenen Spiele, um das ELO aufzublasen."
+    ],
+    "source": "Offizielle Quelle:", "reviewed": "geprüft am {date}"
+  },
+  "legal": {
+    "label": "Rechtliches", "version": "Version {v}", "draft": "Vom Projekt verfasster Entwurf. Bevor die Seite öffentlich geht, muss ihn eine Person mit juristischen Kenntnissen prüfen; keine Rechtsberatung.", "prevails": "Bei Abweichungen zwischen den Sprachfassungen gilt die spanische Fassung.",
+    "terms": { "title": "Nutzungsbedingungen", "sections": [
+      { "h": "Worum es geht", "p": ["Ping-Nord-Pong ist ein studentisches Projekt, inoffiziell und ohne Verbindung zur UPC. Es ist kostenlos, und wir garantieren keine ständige Verfügbarkeit."] },
+      { "h": "Voraussetzungen", "p": ["Mindestens 14 Jahre alt sein und eine E-Mail-Adresse haben, auf die du Zugriff hast. Ein Konto pro Person."] },
+      { "h": "Verhaltensregeln", "p": ["Keine falschen Ergebnisse eintragen und keine Spiele absprechen, um das ELO aufzublasen.", "Keine Mehrfachkonten, keine Belästigung oder Beleidigung im Chat oder im Alias und keine Nachahmung anderer Personen."] },
+      { "h": "Moderation", "p": ["Wir können Spiele annullieren, das ELO neu berechnen, anstößige Aliase ändern und Konten einschränken oder schließen, stets mit Hinweis auf der Seite und einer Möglichkeit zum Einspruch unter {email}."] },
+      { "h": "Öffentliche Inhalte", "p": ["Mit der Nutzung des Dienstes sind dein Alias, dein ELO, deine Statistiken und deine bestätigten Spiele für jeden sichtbar."] },
+      { "h": "Änderungen und anwendbares Recht", "p": ["Ändern sich die Bedingungen, informieren wir dich auf der Seite und bitten dich, die neue Version zu akzeptieren. Es gilt spanisches Recht."] }
+    ] },
+    "privacy": { "title": "Datenschutzerklärung", "sections": [
+      { "h": "Verantwortlicher", "p": ["Pepe Flock (studentisches Projekt). Kontakt: {email}."] },
+      { "h": "Was wir speichern und wofür", "p": ["Deine E-Mail (nur für die Anmeldung, nie öffentlich), Alias und Avatarfarbe, ELO, Spiele, Sätze und Daten, Herausforderungen und Nachrichten, Meldungen und Blockierungen sowie die Sprache.", "Wir speichern keinen echten Namen, kein Foto, keine Telefonnummer, keinen Standort und keine Analyse durch Dritte. IP-Adressen erscheinen nur in den technischen Protokollen der Anbieter, mit kurzer Aufbewahrung."] },
+      { "h": "Rechtsgrundlagen", "p": ["Erfüllung des Dienstes, den du bei der Registrierung akzeptierst (Konto, Ranking und Spiele), und berechtigtes Interesse an Sicherheit und Moderation."] },
+      { "h": "Was öffentlich ist", "p": ["Alias, ELO, Statistiken, bestätigte Spiele und Rivalitäten. Herausforderungen und Nachrichten sehen nur die beiden beteiligten Personen."] },
+      { "h": "Auftragsverarbeiter", "p": ["Supabase (Datenbank und Anmeldung, EU-Region) und Vercel (Hosting). Mögliche Übermittlungen außerhalb des EWR stützen sich auf Standardvertragsklauseln oder den EU-US-Rahmen."] },
+      { "h": "Aufbewahrung", "p": ["Chat-Nachrichten: 90 Tage. Offene, abgelehnte oder abgelaufene Spiele: 30 Tage. Hinweise und Limit-Protokolle: 30 Tage. Audit-Protokoll: 1 Jahr. Seit 2 Jahren inaktive Konten werden automatisch gelöscht."] },
+      { "h": "Deine Rechte", "p": ["Auskunft, Berichtigung, Löschung, Widerspruch, Einschränkung und Übertragbarkeit. Du kannst deine Daten herunterladen und dein Konto in den Einstellungen löschen oder uns unter {email} schreiben. Du kannst dich auch bei der spanischen Datenschutzbehörde (AEPD) beschweren.", "Mindestalter: 14 Jahre."] }
+    ] },
+    "cookies": { "title": "Cookies", "sections": [
+      { "h": "Nur technische Cookies", "p": ["Wir verwenden nur notwendige Cookies: das Sitzungs-Cookie (damit du angemeldet bleibst) und die Spracheinstellung."] },
+      { "h": "Keine Analyse, keine Werbung", "p": ["Wir verwenden keine Analyse- oder Werbe-Cookies, deshalb gibt es kein Einwilligungsbanner. Sollte eines Tages Analyse hinzukommen, dann ohne Cookies oder wir fragen dich, wobei Ablehnen so einfach ist wie Zustimmen."] }
+    ] }
+  },
+  "errors": {
+    "generic": "Etwas ist schiefgelaufen. Versuch es noch einmal.", "notFoundTitle": "Hier steht keine Platte", "notFoundBody": "Die gesuchte Seite gibt es nicht oder der Wind hat sie weggeweht.", "backHome": "Zurück zum Start",
+    "email_invalid": "Diese E-Mail sieht nicht gültig aus.", "turnstile": "Wir konnten nicht prüfen, ob du ein Mensch bist. Lade neu und versuch es erneut.", "rate_limited": "Zu viele Versuche. Warte einen Moment.",
+    "rate_pending": "Du hast schon 3 Spiele, die auf Bestätigung warten. Warte, bis sie bestätigt sind.", "rate_same_rival": "Höchstens 5 Spiele pro Tag gegen denselben Gegner.", "rate_open_challenges": "Du hast schon 5 offene Herausforderungen.",
+    "invalid_score": "Dieses Ergebnis ist nicht gültig.", "cannot_confirm_own": "Du kannst kein Spiel bestätigen, das du selbst eingetragen hast.", "forbidden": "Dafür fehlt dir die Berechtigung.", "not_pending": "Dieses Spiel ist nicht mehr offen.",
+    "expired": "Dieses Spiel ist abgelaufen.", "blocked": "Das ist mit dieser Person nicht möglich.", "limited": "Dein Konto ist vorübergehend eingeschränkt.", "banned": "Dein Konto ist gesperrt.",
+    "alias_taken": "Diesen Alias gibt es schon.", "alias_reserved": "Dieser Alias ist reserviert.", "alias_offensive": "Dieser Alias ist nicht erlaubt.", "alias_format": "Der Alias muss 3 bis 20 Zeichen haben: Buchstaben, Zahlen, Punkt, Bindestrich oder Unterstrich.",
+    "terms_version": "Es gibt eine neue Version der Bedingungen. Lade die Seite neu.", "terms_required": "Du musst die Bedingungen akzeptieren und dein Alter bestätigen.", "already_onboarded": "Du hast schon einen Alias gewählt.",
+    "chat_closed": "Dieser Chat ist geschlossen.", "challenge_exists": "Du hast schon eine offene Herausforderung mit dieser Person.", "counter_not_allowed": "Ein Gegenvorschlag ist nicht mehr möglich.",
+    "not_authenticated": "Du musst dich zuerst anmelden.", "not_found": "Das haben wir nicht gefunden.", "reason_required": "Gib den Grund an.", "bad_message": "Die Nachricht muss zwischen 1 und 500 Zeichen lang sein.",
+    "invalid_players": "Prüf die Spieler: Sie müssen verschieden sein und existieren.", "confirm_required": "Setz den Haken zur Bestätigung."
+  }
+}
