@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'schedule'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Commit mensual para que GitHub no desactive el workflow (regla de 60 días)
         run: |
           last=$(git log -1 --format=%ct)
