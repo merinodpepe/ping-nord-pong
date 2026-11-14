@@ -4,6 +4,7 @@ import { Empty } from '@/components/Empty';
 import { HeroTable } from '@/components/HeroTable';
 import { RankingTable } from '@/components/RankingTable';
 import { RivalryEmblem } from '@/components/RivalryEmblem';
+import { formatHandle, handleSlug } from '@/lib/alias';
 import { getHome } from '@/lib/data';
 import { initials } from '@/lib/avatar';
 import { getSession } from '@/lib/session';
@@ -93,14 +94,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             <div>
               <h2 className="pf-display" style={{ fontSize: 'clamp(28px,4vw,44px)' }}>
-                <Link href={`/jugador/${w.alias_low}`}>{w.alias_low}</Link> <span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{t('vs')}</span> <Link href={`/jugador/${w.alias_high}`}>{w.alias_high}</Link>
+                <Link href={`/jugador/${handleSlug(w.alias_low, w.tag_low)}`}>{formatHandle(w.alias_low, w.tag_low)}</Link> <span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{t('vs')}</span> <Link href={`/jugador/${handleSlug(w.alias_high, w.tag_high)}`}>{formatHandle(w.alias_high, w.tag_high)}</Link>
               </h2>
               <p style={{ color: 'var(--pf-muted)', margin: '12px 0 20px', maxWidth: '52ch' }}>{t('weekBody', { crow: crowAlias, snake: snakeAlias })}</p>
               <p className="pf-mono" style={{ fontSize: 44, fontWeight: 700 }}>
                 <span style={{ color: 'var(--pf-red-text)' }}>{w.wins_low}</span><span style={{ color: '#4A5B78' }}> – </span><span style={{ color: 'var(--pf-blue-text)' }}>{w.wins_high}</span>
               </p>
               <p style={{ color: 'var(--pf-muted)', marginBottom: 20 }}>{t('weekMeta', { total: w.total, week: w.matches_7d })}</p>
-              <Link href={`/rivalidad/${w.alias_low}/${w.alias_high}`} className="pf-btn pf-btn-primary">{t('weekCta')}</Link>
+              <Link href={`/rivalidad/${handleSlug(w.alias_low, w.tag_low)}/${handleSlug(w.alias_high, w.tag_high)}`} className="pf-btn pf-btn-primary">{t('weekCta')}</Link>
             </div>
           </div>
         ) : (

@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { Empty } from '@/components/Empty';
 import { EmblemMini } from '@/components/EmblemMini';
+import { formatHandle, handleSlug } from '@/lib/alias';
 import { getRivalries } from '@/lib/data';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -23,9 +24,9 @@ export default async function RivalriesPage({ params }: { params: Promise<{ loca
         <ul style={{ display: 'grid', gap: 12, gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
           {list.map((r) => (
             <li key={r.player_low + r.player_high}>
-              <Link href={`/rivalidad/${r.alias_low}/${r.alias_high}`} className="pf-card" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, textDecoration: 'none', minHeight: 72 }}>
+              <Link href={`/rivalidad/${handleSlug(r.alias_low, r.tag_low)}/${handleSlug(r.alias_high, r.tag_high)}`} className="pf-card" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, textDecoration: 'none', minHeight: 72 }}>
                 <EmblemMini role="crow" seed={r.seed} label={t('crow')} />
-                <span style={{ fontWeight: 700 }}>{r.alias_low} <span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{t('vs')}</span> {r.alias_high}</span>
+                <span style={{ fontWeight: 700 }}>{formatHandle(r.alias_low, r.tag_low)} <span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{t('vs')}</span> {formatHandle(r.alias_high, r.tag_high)}</span>
                 <span className="pf-mono" style={{ marginLeft: 'auto', fontWeight: 700 }}>{r.wins_low}–{r.wins_high}</span>
               </Link>
             </li>
