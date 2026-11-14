@@ -8,29 +8,43 @@ permissions:
 jobs:
   ping:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
+      # Este es el paso que realmente evita la pausa de Supabase. Reintenta ante cortes puntuales de red / 5xx
+      # y solo falla (y avisa por email) si Supabase sigue sin responder tras todos los reintentos.
       - name: Ping Supabase (escritura real)
+        env:
+          SB_URL: ${{ secrets.SUPABASE_URL }}
+          SB_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           set -e
-          code=$(curl -s -o /tmp/out -w '%{http_code}' -X POST \
-            "${{ secrets.SUPABASE_URL }}/rest/v1/rpc/keepalive_ping" \
-            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+          if [ -z "$SB_URL" ] || [ -z "$SB_KEY" ]; then
+            echo "::error::Faltan los secretos SUPABASE_URL o SUPABASE_ANON_KEY"; exit 1
+          fi
+          code=$(curl -sS -o /tmp/out -w '%{http_code}' -X POST \
+            --retry 6 --retry-delay 20 --connect-timeout 15 --max-time 40 \
+            "$SB_URL/rest/v1/rpc/keepalive_ping" \
+            -H "apikey: $SB_KEY" \
             -H "Content-Type: application/json" \
             -d '{"p_source":"github"}')
           cat /tmp/out; echo
-          test "$code" = "200"      # si falla, el workflow falla y GitHub te avisa por email
+          test "$code" = "200"
 
-      - name: Comprobar que el ping de Vercel sigue vivo (falla si tiene > 3 días)
+      # El ping de Vercel es redundante (el de GitHub ya basta para mantener el proyecto activo), así que
+      # si está atrasado solo deja un aviso en el resumen del run: nunca rompe el workflow ni manda email.
+      - name: Comprobar el ping de Vercel (solo aviso)
+        continue-on-error: true
         run: |
-          set -e
-          age=$(curl -s -X POST \
+          age=$(curl -sS --retry 3 --retry-delay 10 --max-time 30 -X POST \
             "${{ secrets.SUPABASE_URL }}/rest/v1/rpc/keepalive_vercel_age_hours" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Content-Type: application/json" -d '{}')
+            -H "Content-Type: application/json" -d '{}' || true)
           echo "Último ping de Vercel hace ${age} h"
-          test "${age%.*}" -lt 72
+          if ! [[ "${age}" =~ ^[0-9]+$ ]]; then
+            echo "::warning title=Ping de Vercel::No se pudo leer la edad del ping de Vercel (${age})"
+          elif [ "${age}" -ge 72 ]; then
+            echo "::warning title=Ping de Vercel atrasado::Hace ${age} h del último ping de Vercel. Revisa Settings > Cron Jobs y CRON_SECRET."
+          fi
 
   keep-repo-active:
     runs-on: ubuntu-latest
@@ -47,5 +61,5 @@ jobs:
             git config user.email "keepalive-bot@users.noreply.github.com"
             git add .github/keepalive.txt
             git commit -m "chore: keepalive [skip ci]"
-            git push
+            git push || echo "::warning::No se pudo hacer push del commit mensual"
           fi
