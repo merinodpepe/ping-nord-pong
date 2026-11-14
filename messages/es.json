@@ -158,8 +158,8 @@
     "neutral": "Siempre mostramos este mismo mensaje, exista o no la cuenta.",
     "linkError": "El enlace ha caducado o ya se usó. Pide uno nuevo.",
     "finish": "Terminar registro",
-    "confirmTitle": "Un paso más",
-    "confirmBody": "Pulsa el botón para entrar. Hacemos este paso para que los escáneres del correo no gasten tu enlace.",
+    "confirmTitle": "Entrando…",
+    "confirmBody": "Un momento, te estamos dejando entrar. Si no pasa nada, pulsa el botón.",
     "confirmButton": "Entrar"
   },
   "onboarding": {

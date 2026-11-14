@@ -158,8 +158,8 @@
     "neutral": "Sempre mostrem aquest mateix missatge, existeixi o no el compte.",
     "linkError": "L'enllaç ha caducat o ja s'ha fet servir. Demana'n un de nou.",
     "finish": "Acabar el registre",
-    "confirmTitle": "Un pas més",
-    "confirmBody": "Prem el botó per entrar. Fem aquest pas perquè els escàners del correu no gastin el teu enllaç.",
+    "confirmTitle": "Entrant…",
+    "confirmBody": "Un moment, t’estem deixant entrar. Si no passa res, prem el botó.",
     "confirmButton": "Entrar"
   },
   "onboarding": {

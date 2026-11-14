@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { redirect } from '@/i18n/navigation';
 import { confirmLogin } from '@/app/actions';
+import { AutoSubmit } from '@/components/AutoSubmit';
 
 export const metadata = { robots: { index: false } };
 
@@ -18,6 +19,7 @@ export default async function ConfirmPage({ params, searchParams }: { params: Pr
         <input type="hidden" name="token_hash" value={sp.token_hash} />
         <input type="hidden" name="type" value={sp.type} />
         <input type="hidden" name="next" value={sp.next ?? '/'} />
+        <AutoSubmit />
         <button className="pf-btn pf-btn-primary" type="submit">{t('confirmButton')}</button>
       </form>
     </div>

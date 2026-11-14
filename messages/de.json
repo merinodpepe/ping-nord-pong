@@ -158,8 +158,8 @@
     "neutral": "Wir zeigen immer dieselbe Meldung, egal ob das Konto existiert.",
     "linkError": "Der Link ist abgelaufen oder wurde schon benutzt. Fordere einen neuen an.",
     "finish": "Registrierung abschließen",
-    "confirmTitle": "Noch ein Schritt",
-    "confirmBody": "Tippe auf die Schaltfläche, um dich anzumelden. So verbrauchen Link-Scanner deinen Link nicht.",
+    "confirmTitle": "Du wirst angemeldet…",
+    "confirmBody": "Einen Moment. Wenn nichts passiert, tippe auf den Button.",
     "confirmButton": "Anmelden"
   },
   "onboarding": {

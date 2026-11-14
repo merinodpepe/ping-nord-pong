@@ -158,8 +158,8 @@
     "neutral": "无论账号是否存在，我们都显示同样的提示。",
     "linkError": "链接已过期或已被使用。请重新获取。",
     "finish": "完成注册",
-    "confirmTitle": "还差一步",
-    "confirmBody": "点击按钮即可登录。这一步可避免邮件链接扫描器提前用掉你的链接。",
+    "confirmTitle": "正在登录…",
+    "confirmBody": "请稍候。如果没有反应，请点击按钮。",
     "confirmButton": "登录"
   },
   "onboarding": {

@@ -158,8 +158,8 @@
     "neutral": "We always show this same message, whether the account exists or not.",
     "linkError": "The link has expired or was already used. Ask for a new one.",
     "finish": "Finish signup",
-    "confirmTitle": "One more step",
-    "confirmBody": "Tap the button to sign in. This step stops email link scanners from using up your link.",
+    "confirmTitle": "Signing you in…",
+    "confirmBody": "One moment. If nothing happens, press the button.",
     "confirmButton": "Sign in"
   },
   "onboarding": {
