@@ -4,13 +4,15 @@ import { useFormatter, useLocale, useTranslations } from 'next-intl';
 import { createMatch } from '@/app/actions';
 import { weightM } from '@/lib/elo';
 import { BEST_OF, POINTS_TARGETS, validateSets, type SetScore } from '@/lib/match-validation';
+import type { PlayerOption } from '@/lib/alias';
 import { CopyLink } from './CopyLink';
 import { FormError } from './FormMessage';
+import { PlayerPicker } from './PlayerPicker';
 
 type Player = { id: string; alias: string };
-type Props = { me: Player; players: Player[]; initialRival?: string; challengeId?: string; counterOf?: string };
+type Props = { me: Player; initialRival?: PlayerOption | null; challengeId?: string; counterOf?: string };
 
-export function RecordMatchForm({ me, players, initialRival, challengeId, counterOf }: Props) {
+export function RecordMatchForm({ me, initialRival, challengeId, counterOf }: Props) {
   const t = useTranslations('record');
   const tv = useTranslations('record.validation');
   const f = useFormatter();
@@ -19,14 +21,13 @@ export function RecordMatchForm({ me, players, initialRival, challengeId, counte
   const [points, setPoints] = useState<(typeof POINTS_TARGETS)[number]>(11);
   const [bestOf, setBestOf] = useState<(typeof BEST_OF)[number]>(1);
   const [winByTwo, setWinByTwo] = useState(true);
-  const [rivals, setRivals] = useState<string[]>([initialRival ?? '', '']);
-  const [partner, setPartner] = useState('');
+  const [rivals, setRivals] = useState<(PlayerOption | null)[]>([initialRival ?? null, null]);
+  const [partner, setPartner] = useState<PlayerOption | null>(null);
   const [sets, setSets] = useState<string[][]>(Array.from({ length: 7 }, () => ['', '']));
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState<string | null>(null);
   const [pending, start] = useTransition();
 
-  const find = (alias: string) => players.find((p) => p.alias.toLowerCase() === alias.trim().toLowerCase());
   const filled: SetScore[] = useMemo(
     () => sets.slice(0, bestOf).filter((s) => s[0] !== '' || s[1] !== '').map((s) => [Number(s[0]), Number(s[1])] as const),
     [sets, bestOf],
@@ -35,10 +36,13 @@ export function RecordMatchForm({ me, players, initialRival, challengeId, counte
   const m = weightM({ pointsTarget: points, bestOf });
   const need = Math.ceil(bestOf / 2);
   const size = mode === '1v1' ? 1 : 2;
-  const rivalPlayers = rivals.slice(0, size).map(find);
-  const partnerP = find(partner);
+  const rivalPlayers = rivals.slice(0, size);
+  const partnerP = partner;
+  const chosen = [partner?.id, ...rivals.map((r) => r?.id)].filter(Boolean) as string[];
   const playersOk = rivalPlayers.every(Boolean) && (mode === '1v1' || partnerP) && new Set([me.id, partnerP?.id, ...rivalPlayers.map((r) => r?.id)].filter(Boolean)).size === size * 2;
-  const rivalLabel = rivalPlayers.filter(Boolean).map((r) => r!.alias).join(' + ') || t('rival');
+  const rivalLabel = rivalPlayers.filter(Boolean).map((r) => `${r!.alias}#${r!.tag}`).join(' + ') || t('rival');
+
+  const setRival = (i: number, p: PlayerOption | null) => setRivals((r) => r.map((x, j) => (j === i ? p : x)));
 
   function submit() {
     setError(null);
@@ -80,18 +84,12 @@ export function RecordMatchForm({ me, players, initialRival, challengeId, counte
 
       <div style={{ display: 'grid', gap: 12 }}>
         <span className="pf-label">{t('rival')}</span>
-        <datalist id="players">{players.filter((p) => p.id !== me.id).map((p) => <option key={p.id} value={p.alias} />)}</datalist>
         {mode === '2v2' ? (
-          <label style={{ display: 'grid', gap: 6, fontWeight: 600 }}>
-            {t('partner')}
-            <input className="pf-field" list="players" value={partner} onChange={(e) => setPartner(e.target.value)} autoComplete="off" autoCapitalize="none" required />
-          </label>
+          <PlayerPicker label={t('partner')} value={partner} onChange={setPartner} exclude={[me.id, ...rivals.map((r) => r?.id ?? '')].filter(Boolean)} required />
         ) : null}
         {Array.from({ length: size }, (_, i) => (
-          <label key={i} style={{ display: 'grid', gap: 6, fontWeight: 600 }}>
-            {size === 1 ? t('rivalAlias') : t('rivalN', { n: i + 1 })}
-            <input className="pf-field" list="players" value={rivals[i] ?? ''} onChange={(e) => setRivals((r) => r.map((x, j) => (j === i ? e.target.value : x)))} autoComplete="off" autoCapitalize="none" required />
-          </label>
+          <PlayerPicker key={i} label={size === 1 ? t('rivalAlias') : t('rivalN', { n: i + 1 })} value={rivals[i] ?? null}
+            onChange={(p) => setRival(i, p)} exclude={[me.id, ...chosen.filter((id) => id !== rivals[i]?.id)]} required />
         ))}
         {!playersOk && (rivals[0] || partner) ? <p style={{ color: 'var(--pf-muted)', fontSize: 13 }}>{t('playerHint')}</p> : null}
       </div>

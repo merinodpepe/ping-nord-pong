@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { RecordMatchForm } from '@/components/RecordMatchForm';
-import { allPlayers } from '@/lib/players';
+import { getProfileByAlias } from '@/lib/data';
 import { requireProfile } from '@/lib/guard';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -15,7 +15,7 @@ export default async function RecordPage({ params, searchParams }: { params: Pro
   const sp = await searchParams;
   const me = await requireProfile('/apuntar');
   const t = await getTranslations('record');
-  const players = await allPlayers();
+  const rival = sp.rival ? await getProfileByAlias(sp.rival) : null;
   const limited = me.status === 'limited';
   return (
     <div className="pf-container" style={{ paddingTop: 40, maxWidth: 560 }}>
@@ -32,7 +32,7 @@ export default async function RecordPage({ params, searchParams }: { params: Pro
             </ul>
             <Link href="/normativa" style={{ color: 'var(--pf-ball-hi)', display: 'inline-block', marginTop: 8 }}>{t('rulesFull')}</Link>
           </details>
-          <RecordMatchForm me={{ id: me.id, alias: me.alias }} players={players} initialRival={sp.rival} challengeId={sp.challenge} counterOf={sp.counter} />
+          <RecordMatchForm me={{ id: me.id, alias: me.alias }} initialRival={rival && rival.id !== me.id ? { id: rival.id, alias: rival.alias, tag: rival.tag, color: rival.avatar_color } : null} challengeId={sp.challenge} counterOf={sp.counter} />
         </>
       )}
     </div>

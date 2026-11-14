@@ -7,6 +7,7 @@ import { redirect } from '@/i18n/navigation';
 import { errorKey, type ActionResult } from '@/lib/errors';
 import { SITE_URL, TERMS_VERSION } from '@/lib/env';
 import { hashKey } from '@/lib/hash';
+import { escapeLike, parseHandle, type PlayerOption } from '@/lib/alias';
 import { aliasSchema, createMatchSchema } from '@/lib/match-validation';
 import { supabaseAdmin, supabaseServer } from '@/lib/supabase/server';
 import { verifyTurnstile } from '@/lib/turnstile';
@@ -27,8 +28,14 @@ export async function requestMagicLink(_: unknown, form: FormData): Promise<Acti
   if (!(await verifyTurnstile(String(form.get('cf-turnstile-response') ?? ''), ip))) return { ok: false, error: 'turnstile' };
   const locale = await getLocale();
 
-  // 5 por hora y email; límite más amplio por IP
+  // Un solo email por persona: si ya se envió uno hace menos de 2 min (doble clic, doble envío, reintento),
+  // no se manda otro y se responde igual de bien. Así nunca llegan dos emails por una misma petición.
   const admin = process.env.SUPABASE_SERVICE_ROLE_KEY ? supabaseAdmin() : null;
+  if (admin) {
+    const first = await admin.rpc('throttle_hit', { p_key: hashKey('dup', email.data), p_max: 1, p_window: '2 minutes' });
+    if (first.data === false) return { ok: true };
+  }
+  // 5 por hora y email; límite más amplio por IP
   if (admin) {
     const a = await admin.rpc('throttle_hit', { p_key: hashKey('email', email.data), p_max: 5, p_window: '1 hour' });
     const b = await admin.rpc('throttle_hit', { p_key: hashKey('ip', ip), p_max: 20, p_window: '1 hour' });
@@ -42,7 +49,7 @@ export async function requestMagicLink(_: unknown, form: FormData): Promise<Acti
     options: { shouldCreateUser: true, emailRedirectTo: `${SITE_URL}/auth/confirm?next=${encodeURIComponent(next.startsWith('/') ? next : '/')}&locale=${locale}`, data: { locale } },
   });
   // Respuesta neutra: no se revela si la cuenta existe ni errores de envío concretos
-  if (error && /rate/i.test(error.message)) return { ok: false, error: 'rate_limited' };
+  if (error && /rate|only request this after|seconds/i.test(error.message)) return { ok: false, error: 'rate_limited' };
   return { ok: true };
 }
 
@@ -139,9 +146,16 @@ export async function rejectMatch(id: string, reason: 'wrong_result' | 'not_play
 
 // ---------- retos y chat ----------
 export async function createChallenge(_: unknown, form: FormData): Promise<ActionResult<{ id: string }>> {
-  const to = String(form.get('to') ?? '');
   const sb = await supabaseServer();
-  const { data: target } = await sb.from('public_profiles').select('id').ilike('alias', to.replace(/[%_\\]/g, '')).maybeSingle();
+  // Lo normal es el id elegido en el buscador; `alias#tag` escrito a mano también vale.
+  const toId = uuid.safeParse(String(form.get('to_id') ?? ''));
+  let target: { id: string } | null = null;
+  if (toId.success) {
+    target = (await sb.from('public_profiles').select('id').eq('id', toId.data).maybeSingle()).data;
+  } else {
+    const { alias, tag } = parseHandle(String(form.get('to') ?? ''));
+    if (alias && tag) target = (await sb.from('public_profiles').select('id').ilike('alias', escapeLike(alias)).eq('tag', tag).maybeSingle()).data;
+  }
   if (!target) return { ok: false, error: 'not_found' };
   const when = String(form.get('when') ?? '');
   const mode = form.get('mode') === '2v2' ? '2v2' : '1v1';
@@ -153,6 +167,22 @@ export async function createChallenge(_: unknown, form: FormData): Promise<Actio
   revalidatePath('/', 'layout');
   redirect({ href: `/retos/${data as string}`, locale: await getLocale() });
   return { ok: true, data: { id: data as string } };
+}
+
+/** Sugerencias de rival: alias que empiezan por `q` (datos públicos, máx. 8). */
+export async function searchPlayers(q: string, exclude: string[] = []): Promise<PlayerOption[]> {
+  const term = z.string().trim().min(1).max(20).safeParse(parseHandle(String(q ?? '')).alias);
+  if (!term.success) return [];
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    const ok = await supabaseAdmin().rpc('throttle_hit', { p_key: hashKey('search', await clientIp()), p_max: 120, p_window: '1 minute' });
+    if (ok.data === false) return [];
+  }
+  const skip = exclude.filter((x) => uuid.safeParse(x).success).slice(0, 6);
+  const sb = await supabaseServer();
+  let query = sb.from('public_profiles').select('id, alias, tag, avatar_color').ilike('alias', `${escapeLike(term.data)}%`);
+  if (skip.length) query = query.not('id', 'in', `(${skip.join(',')})`);
+  const { data } = await query.order('games_single', { ascending: false }).order('alias').limit(8);
+  return (data ?? []).map((r) => ({ id: r.id as string, alias: r.alias as string, tag: r.tag as string, color: (r.avatar_color as number | null) ?? null }));
 }
 
 export async function respondChallenge(id: string, accept: boolean): Promise<ActionResult> {
@@ -279,4 +309,22 @@ export async function adminReviewFlag(id: number, status: 'reviewed' | 'dismisse
   if (error) return fail(error.message);
   revalidatePath('/', 'layout');
   return { ok: true };
+}
+
+// Paso final del enlace mágico: el token se consume al pulsar el botón, no al abrir el enlace.
+export async function confirmLogin(form: FormData) {
+  const locale = await getLocale();
+  const tokenHash = z.string().min(8).max(200).safeParse(form.get('token_hash'));
+  const type = z.enum(['email', 'magiclink', 'signup']).safeParse(form.get('type'));
+  const rawNext = String(form.get('next') ?? '/');
+  const next = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/';
+  if (!tokenHash.success || !type.success) redirect({ href: '/entrar?error=link', locale });
+  else {
+    const sb = await supabaseServer();
+    const { error } = await sb.auth.verifyOtp({ type: type.data, token_hash: tokenHash.data });
+    if (error) redirect({ href: '/entrar?error=link', locale });
+    const { data: u } = await sb.auth.getUser();
+    const { data: p } = u.user ? await sb.from('profiles').select('id').eq('id', u.user.id).maybeSingle() : { data: null };
+    redirect({ href: p ? next : `/bienvenida?next=${encodeURIComponent(next)}`, locale });
+  }
 }
