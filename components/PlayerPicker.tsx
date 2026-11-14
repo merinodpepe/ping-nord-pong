@@ -21,27 +21,27 @@ export function PlayerPicker({ label, value, onChange, name, exclude = [], requi
   const uid = useId();
   const listId = `${uid}-list`;
   const [text, setText] = useState(value ? value.alias : '');
-  const [options, setOptions] = useState<PlayerOption[]>([]);
+  const [result, setResult] = useState<{ q: string; list: PlayerOption[] }>({ q: '', list: [] });
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
-  const [loading, setLoading] = useState(false);
-  const [searched, setSearched] = useState(false);
   const seq = useRef(0);
   const box = useRef<HTMLDivElement>(null);
   const excludeKey = exclude.join(',');
+  const q = text.trim();
+  // Solo se muestran resultados que corresponden al texto actual
+  const searched = !value && q !== '' && result.q === q;
+  const options = searched ? result.list : [];
 
   useEffect(() => {
-    const q = text.trim();
-    if (value || !q) { setOptions([]); setSearched(false); return; }
+    if (value || !q) return;
     const n = ++seq.current;
-    setLoading(true);
     const id = setTimeout(async () => {
       const res = await searchPlayers(q, excludeKey ? excludeKey.split(',') : []);
       if (n !== seq.current) return;
-      setOptions(res); setActive(res.length ? 0 : -1); setSearched(true); setLoading(false); setOpen(true);
+      setResult({ q, list: res }); setActive(res.length ? 0 : -1); setOpen(true);
     }, 200);
     return () => clearTimeout(id);
-  }, [text, value, excludeKey]);
+  }, [q, value, excludeKey]);
 
   useEffect(() => {
     const close = (e: MouseEvent) => { if (!box.current?.contains(e.target as Node)) setOpen(false); };
@@ -50,7 +50,7 @@ export function PlayerPicker({ label, value, onChange, name, exclude = [], requi
   }, []);
 
   function pick(p: PlayerOption) {
-    onChange(p); setText(p.alias); setOpen(false); setOptions([]);
+    onChange(p); setText(p.alias); setOpen(false);
   }
   function onKey(e: React.KeyboardEvent) {
     if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); setActive((a) => Math.min(a + 1, options.length - 1)); }
@@ -59,7 +59,7 @@ export function PlayerPicker({ label, value, onChange, name, exclude = [], requi
     else if (e.key === 'Escape') setOpen(false);
   }
 
-  const showList = open && !value && text.trim() !== '';
+  const showList = open && !value && q !== '';
   return (
     <div ref={box} style={{ position: 'relative', display: 'grid', gap: 6 }}>
       <label htmlFor={`${uid}-in`} style={{ fontWeight: 600 }}>{label}</label>
@@ -91,7 +91,7 @@ export function PlayerPicker({ label, value, onChange, name, exclude = [], requi
               <span className="pf-mono" style={{ color: 'var(--pf-faint)' }}>#{o.tag}</span>
             </li>
           ))}
-          {!options.length && searched && !loading ? <li role="presentation" style={{ padding: '12px 10px', color: 'var(--pf-muted)' }}>{t('noResults')}</li> : null}
+          {!options.length && searched ? <li role="presentation" style={{ padding: '12px 10px', color: 'var(--pf-muted)' }}>{t('noResults')}</li> : null}
         </ul>
       ) : null}
       <span className="sr-only-focusable" role="status" aria-live="polite">{showList && searched ? t('count', { n: options.length }) : ''}</span>
