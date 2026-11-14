@@ -1,5 +1,6 @@
 import { getFormatter, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { handleSlug } from '@/lib/alias';
 import type { MatchPlayer, MatchRow } from '@/lib/data';
 
 /** Últimos partidos. Desde `perspective` se muestra el delta y "por qué subí 9 y no 18" (K · w · m). */
@@ -13,19 +14,19 @@ export async function MatchList({ matches, players, perspective }: { matches: Ma
         const ps = players.filter((p) => p.match_id === m.id);
         const me = ps.find((p) => p.profile_id === perspective);
         const side = (team: 'A' | 'B') =>
-          ps.filter((p) => p.team === team).map((p) => p.alias ?? t('deletedPlayer'));
+          ps.filter((p) => p.team === team).sort((x, y) => x.slot - y.slot);
         const won = me ? me.team === m.winner_team : null;
         return (
           <li key={m.id} className="pf-card" style={{ padding: '14px 16px' }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 14px', alignItems: 'center' }}>
               <span className="pf-mono" style={{ color: 'var(--pf-faint)', fontSize: 12 }}>{f.dateTime(new Date(m.confirmed_at), { day: 'numeric', month: 'short' })}</span>
               <span style={{ fontWeight: 700 }}>
-                {side('A').map((a, i) => (
-                  <span key={i}>{i ? ' + ' : ''}{ps.find((p) => p.alias === a)?.alias ? <Link href={`/jugador/${a}`}>{a}</Link> : a}</span>
+                {side('A').map((p, i) => (
+                  <span key={i}>{i ? ' + ' : ''}{p.alias ? <Link href={`/jugador/${handleSlug(p.alias, p.tag)}`}>{p.alias}{p.tag ? <span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>#{p.tag}</span> : null}</Link> : t('deletedPlayer')}</span>
                 ))}
                 <span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}> {t('vs')} </span>
-                {side('B').map((a, i) => (
-                  <span key={i}>{i ? ' + ' : ''}{ps.find((p) => p.alias === a)?.alias ? <Link href={`/jugador/${a}`}>{a}</Link> : a}</span>
+                {side('B').map((p, i) => (
+                  <span key={i}>{i ? ' + ' : ''}{p.alias ? <Link href={`/jugador/${handleSlug(p.alias, p.tag)}`}>{p.alias}{p.tag ? <span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>#{p.tag}</span> : null}</Link> : t('deletedPlayer')}</span>
                 ))}
               </span>
               <span className="pf-mono" style={{ marginLeft: 'auto', display: 'inline-flex', gap: 6 }}>

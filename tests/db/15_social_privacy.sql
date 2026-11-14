@@ -15,8 +15,14 @@ begin
   perform t.ok(p.terms_accepted_at is not null, 'guarda aceptación de términos');
   perform t.fails($q$select complete_onboarding('Otra', 'es', '2026-11-01')$q$, 'already_onboarded', 'solo una vez');
   perform t.su(); perform t.as_user(u2);
-  perform t.fails($q$select complete_onboarding('ana.99', 'es', '2026-11-01')$q$, 'alias_taken', 'alias único sin mayúsculas');
+  -- el alias ya no es único: lo es el par alias#tag (el tag lo pone el servidor)
+  p := complete_onboarding('ANA.99', 'es', '2026-11-01');
+  perform t.ok(p.tag ~ '^[a-z0-9]{4}$', 'tag asignado por el servidor (4 caracteres)');
   perform t.su();
+  perform t.ok(p.tag <> (select tag from profiles where id = u), 'homónimos con tag distinto');
+  perform t.ok((select count(*) from public_profiles where alias ilike 'ana.99') = 2 and (select count(distinct tag) from public_profiles where alias ilike 'ana.99') = 2, 'public_profiles expone tag');
+  perform t.fails($q$insert into profiles (id, alias, tag, terms_version, terms_accepted_at) select gen_random_uuid(), alias, tag, '2026-11-01', now() from profiles where alias = 'ana.99' limit 1$q$, 'unique', 'par alias#tag único');
+  perform t.fails($q$update profiles set tag = 'ABCD!' where alias = 'ana.99'$q$, 'check', 'formato de tag');
   perform t.as_user(u);
   p := update_profile(p_avatar_color => 3, p_locale => 'de');
   perform t.ok(p.avatar_color = 3 and p.locale = 'de', 'update_profile');

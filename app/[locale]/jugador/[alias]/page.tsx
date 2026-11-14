@@ -6,12 +6,13 @@ import { EloChart } from '@/components/EloChart';
 import { EmblemMini } from '@/components/EmblemMini';
 import { MatchList } from '@/components/MatchList';
 import { getEloHistory, getHeadToHead, getProfileByAlias, getProfileStats, getRecentMatches, getRivalriesOf, labelsFor } from '@/lib/data';
+import { formatHandle, handleSlug } from '@/lib/alias';
 import { getSession } from '@/lib/session';
 import { ReportButton } from '@/components/ReportButton';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; alias: string }> }) {
   const { alias } = await params;
-  return { title: decodeURIComponent(alias) };
+  return { title: decodeURIComponent(alias).replace('~', '#') };
 }
 
 export default async function PlayerPage({ params }: { params: Promise<{ locale: string; alias: string }> }) {
@@ -31,7 +32,7 @@ export default async function PlayerPage({ params }: { params: Promise<{ locale:
   const labels = labelsFor(h2h);
   const rivals = h2h.length;
   const names = new Map<string, string>();
-  rivalries.forEach((r) => { names.set(r.player_low, r.alias_low); names.set(r.player_high, r.alias_high); });
+  rivalries.forEach((r) => { names.set(r.player_low, formatHandle(r.alias_low, r.tag_low)); names.set(r.player_high, formatHandle(r.alias_high, r.tag_high)); });
   const aliasOf = async (id: string) => names.get(id) ?? (await allAliasById(id));
   const isMe = me?.id === p.id;
   const cell = (label: string, value: string | number) => (
@@ -47,7 +48,7 @@ export default async function PlayerPage({ params }: { params: Promise<{ locale:
       <header style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
         <Avatar id={p.id} alias={p.alias} color={p.avatar_color} size={72} />
         <div>
-          <h1 className="pf-display" style={{ fontSize: 'clamp(34px,5vw,56px)' }}>{p.alias}</h1>
+          <h1 className="pf-display" style={{ fontSize: 'clamp(34px,5vw,56px)' }}>{p.alias}<span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>#{p.tag}</span></h1>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 8 }}>
             {p.is_provisional_single ? <span className="pf-chip">{t('provisional')}</span> : null}
             {nemesisAlias ? <span className="pf-chip pf-chip-nemesis">{t('nemesisOf', { alias: nemesisAlias })}</span> : null}
@@ -56,7 +57,7 @@ export default async function PlayerPage({ params }: { params: Promise<{ locale:
           </div>
         </div>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          {!isMe ? <Link href={`/retos/nuevo?a=${encodeURIComponent(p.alias)}`} className="pf-btn pf-btn-primary">{t('challenge')}</Link> : null}
+          {!isMe ? <Link href={`/retos/nuevo?a=${encodeURIComponent(handleSlug(p.alias, p.tag))}`} className="pf-btn pf-btn-primary">{t('challenge')}</Link> : null}
           {me && !isMe ? <ReportButton targetProfile={p.id} /> : null}
         </div>
       </header>
@@ -81,13 +82,14 @@ export default async function PlayerPage({ params }: { params: Promise<{ locale:
         {rivalries.length ? (
           <ul style={{ display: 'grid', gap: 10, gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))' }}>
             {rivalries.map((r) => {
-              const otherAlias = r.player_low === p.id ? r.alias_high : r.alias_low;
+              const otherAlias = r.player_low === p.id ? formatHandle(r.alias_high, r.tag_high) : formatHandle(r.alias_low, r.tag_low);
+              const otherSlug = r.player_low === p.id ? handleSlug(r.alias_high, r.tag_high) : handleSlug(r.alias_low, r.tag_low);
               const myWins = r.player_low === p.id ? r.wins_low : r.wins_high;
               const theirWins = r.player_low === p.id ? r.wins_high : r.wins_low;
               const myRole = r.crow_id === p.id ? 'crow' : 'snake';
               return (
                 <li key={r.player_low + r.player_high}>
-                  <Link href={`/rivalidad/${p.alias}/${otherAlias}`} className="pf-card" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 14, textDecoration: 'none', minHeight: 64 }}>
+                  <Link href={`/rivalidad/${handleSlug(p.alias, p.tag)}/${otherSlug}`} className="pf-card" style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 14, textDecoration: 'none', minHeight: 64 }}>
                     <EmblemMini role={myRole} seed={r.seed} label={t(myRole === 'crow' ? 'roleCrow' : 'roleSnake')} />
                     <span style={{ fontWeight: 700 }}>{otherAlias}</span>
                     <span className="pf-mono" style={{ marginLeft: 'auto', fontWeight: 700 }}>{myWins}–{theirWins}</span>

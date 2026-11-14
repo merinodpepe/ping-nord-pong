@@ -1,21 +1,22 @@
 import 'server-only';
 import { hasSupabase } from '@/lib/env';
+import { escapeLike, parseHandle } from '@/lib/alias';
 import { supabaseServer } from '@/lib/supabase/server';
 
 export type Mode = '1v1' | '2v2';
 
 export type RankRow = {
-  profile_id: string; alias: string; avatar_color: number; elo: number; games: number; wins: number; losses: number;
+  profile_id: string; alias: string; tag: string; avatar_color: number; elo: number; games: number; wins: number; losses: number;
   streak: number; delta7: number; is_provisional: boolean; is_active: boolean;
 };
 export type Rivalry = {
-  player_low: string; player_high: string; alias_low: string; alias_high: string; wins_low: number; wins_high: number;
+  player_low: string; player_high: string; alias_low: string; alias_high: string; tag_low: string; tag_high: string; wins_low: number; wins_high: number;
   total: number; crow_id: string; snake_id: string; seed: number; crow_wins: number; snake_wins: number;
   emblem_state: number; prev_state: number | null; last_match_at: string; matches_7d: number;
   streak_owner: string | null; streak_len: number | null; by_format: Record<string, { low: number; high: number }>;
 };
 export type PublicProfile = {
-  id: string; alias: string; avatar_color: number; elo_single: number; elo_double: number; games_single: number;
+  id: string; alias: string; tag: string; avatar_color: number; elo_single: number; elo_double: number; games_single: number;
   games_double: number; is_provisional_single: boolean; is_provisional_double: boolean; is_active: boolean; last_played_at: string | null;
 };
 export type MatchRow = {
@@ -23,7 +24,7 @@ export type MatchRow = {
   confirmed_at: string; sets: [number, number][];
 };
 export type MatchPlayer = {
-  match_id: string; team: 'A' | 'B'; slot: number; profile_id: string | null; alias: string | null; avatar_color: number | null;
+  match_id: string; team: 'A' | 'B'; slot: number; profile_id: string | null; alias: string | null; tag: string | null; avatar_color: number | null;
   elo_before: number | null; elo_after: number | null; delta: number | null; weight_w: number | null; weight_m: number | null; k: number | null;
 };
 export type Home = {
@@ -42,7 +43,7 @@ export async function getRanking(mode: Mode, scope: 'active' | 'all', q?: string
   if (!sb) return [];
   let query = sb.from('player_mode_stats').select('*').eq('mode', mode).gt('games', 0);
   if (scope === 'active') query = query.eq('is_active', true).eq('is_provisional', false);
-  if (q) query = query.ilike('alias', `%${q.replace(/[%_\\]/g, '')}%`);
+  if (q) query = query.ilike('alias', `%${escapeLike(q)}%`);
   const { data } = await query.order('elo', { ascending: false }).order('games', { ascending: false }).limit(200);
   return (data ?? []) as RankRow[];
 }
@@ -69,11 +70,16 @@ export async function getHome(): Promise<Home> {
   };
 }
 
-export async function getProfileByAlias(alias: string): Promise<PublicProfile | null> {
+/** Resuelve `alias~tag` (o un alias suelto: el primero por actividad). */
+export async function getProfileByAlias(handle: string): Promise<PublicProfile | null> {
   const sb = await db();
   if (!sb) return null;
-  const { data } = await sb.from('public_profiles').select('*').ilike('alias', alias.replace(/[%_\\]/g, '')).maybeSingle();
-  return (data as PublicProfile | null) ?? null;
+  const { alias, tag } = parseHandle(handle);
+  if (!alias) return null;
+  let q = sb.from('public_profiles').select('*').ilike('alias', escapeLike(alias));
+  if (tag) q = q.eq('tag', tag);
+  const { data } = await q.order('games_single', { ascending: false }).limit(1);
+  return ((data ?? [])[0] as PublicProfile | undefined) ?? null;
 }
 
 export async function getProfileStats(id: string) {
@@ -134,6 +140,16 @@ export async function getRivalry(aliasA: string, aliasB: string) {
     ? await sb.from('public_matches').select('*').in('id', shared).eq('mode', '1v1').order('confirmed_at', { ascending: false }).limit(10)
     : { data: [] };
   return { rivalry: data as Rivalry, a, b, matches: (matches ?? []) as MatchRow[] };
+}
+
+export async function getPublicMatches(limit = 50) {
+  const sb = await db();
+  if (!sb) return { matches: [] as MatchRow[], players: [] as MatchPlayer[] };
+  const { data: matches } = await sb.from('public_matches').select('*').order('confirmed_at', { ascending: false }).limit(limit);
+  const list = (matches ?? []) as MatchRow[];
+  if (!list.length) return { matches: list, players: [] as MatchPlayer[] };
+  const { data: players } = await sb.from('public_match_players').select('*').in('match_id', list.map((m) => m.id));
+  return { matches: list, players: (players ?? []) as MatchPlayer[] };
 }
 
 export async function getRivalries(limit = 30) {

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { MatchList } from '@/components/MatchList';
 import { RivalryEmblem } from '@/components/RivalryEmblem';
+import { formatHandle, handleSlug } from '@/lib/alias';
 import { getRecentMatches, getRivalry } from '@/lib/data';
 import { initials } from '@/lib/avatar';
 import { getSession } from '@/lib/session';
@@ -45,9 +46,9 @@ export default async function RivalryPage({ params }: { params: Promise<{ locale
         <span style={{ color: 'var(--pf-red-text)' }}>{winsA}</span><span style={{ color: '#4A5B78' }}> – </span><span style={{ color: 'var(--pf-blue-text)' }}>{winsB}</span>
       </p>
       <p style={{ textAlign: 'center', marginTop: 8, fontWeight: 700 }}>
-        <Link href={`/jugador/${pa.alias}`}>{pa.alias}</Link> <span className="pf-mono" style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{pa.elo_single}</span>
+        <Link href={`/jugador/${handleSlug(pa.alias, pa.tag)}`}>{formatHandle(pa.alias, pa.tag)}</Link> <span className="pf-mono" style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{pa.elo_single}</span>
         <span style={{ color: 'var(--pf-faint)' }}> · </span>
-        <Link href={`/jugador/${pb.alias}`}>{pb.alias}</Link> <span className="pf-mono" style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{pb.elo_single}</span>
+        <Link href={`/jugador/${handleSlug(pb.alias, pb.tag)}`}>{formatHandle(pb.alias, pb.tag)}</Link> <span className="pf-mono" style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>{pb.elo_single}</span>
       </p>
       <div style={{ display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap', margin: '16px 0 28px' }}>
         <span className="pf-chip">{t('headToHead', { total: r.total })}</span>
@@ -79,7 +80,7 @@ export default async function RivalryPage({ params }: { params: Promise<{ locale
       </section>
       {asking ? (
         <div style={{ position: 'sticky', bottom: 0, padding: '16px 0', background: 'linear-gradient(transparent, var(--pf-bg) 40%)' }}>
-          <Link href={`/apuntar?rival=${encodeURIComponent(asking.alias)}`} className="pf-btn pf-btn-primary" style={{ width: '100%' }}>{t('rematch', { alias: asking.alias })}</Link>
+          <Link href={`/apuntar?rival=${encodeURIComponent(handleSlug(asking.alias, asking.tag))}`} className="pf-btn pf-btn-primary" style={{ width: '100%' }}>{t('rematch', { alias: formatHandle(asking.alias, asking.tag) })}</Link>
         </div>
       ) : null}
     </div>

@@ -1,5 +1,5 @@
 'use client';
-import { useActionState } from 'react';
+import { useActionState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { requestMagicLink } from '@/app/actions';
 import { FormError } from './FormMessage';
@@ -9,6 +9,7 @@ import type { ActionResult } from '@/lib/errors';
 export function MagicLinkForm({ next }: { next?: string }) {
   const t = useTranslations('auth');
   const [state, action, pending] = useActionState<ActionResult | null, FormData>(requestMagicLink, null);
+  const sent = useRef(false);
   if (state?.ok) {
     return (
       <div className="pf-card" role="status" style={{ padding: 24 }}>
@@ -18,7 +19,16 @@ export function MagicLinkForm({ next }: { next?: string }) {
     );
   }
   return (
-    <form action={action} style={{ display: 'grid', gap: 14 }}>
+    <form
+      action={action}
+      onSubmit={(e) => {
+        // evita el doble envío (doble clic / Enter repetido) mientras la petición está en curso
+        if (sent.current) { e.preventDefault(); return; }
+        sent.current = true;
+        setTimeout(() => { sent.current = false; }, 4000);
+      }}
+      style={{ display: 'grid', gap: 14 }}
+    >
       <input type="hidden" name="next" value={next ?? '/'} />
       <label style={{ display: 'grid', gap: 6, fontWeight: 600 }}>
         {t('email')}

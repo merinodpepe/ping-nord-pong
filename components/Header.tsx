@@ -19,6 +19,7 @@ export async function Header() {
   }
   const links = [
     { href: '/ranking', label: t('ranking') },
+    { href: '/partidos', label: t('matches') },
     { href: '/rivalidades', label: t('rivalries') },
     { href: '/retos', label: t('challenges'), badge: inbox.new_challenges },
     { href: '/normativa', label: t('rules') },

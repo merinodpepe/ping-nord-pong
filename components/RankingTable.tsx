@@ -1,5 +1,6 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { handleSlug } from '@/lib/alias';
 import type { RankRow } from '@/lib/data';
 import { Avatar } from './Avatar';
 
@@ -31,9 +32,9 @@ export async function RankingTable({ rows, showRetar = true }: { rows: RankRow[]
               <tr key={r.profile_id}>
                 <td className="pf-mono" style={{ fontWeight: 700, color: rank && rank <= 3 ? MEDALS[rank - 1] : 'var(--pf-muted)' }}>{rank ?? '–'}</td>
                 <td>
-                  <Link href={`/jugador/${r.alias}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', minHeight: 44 }}>
+                  <Link href={`/jugador/${handleSlug(r.alias, r.tag)}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', minHeight: 44 }}>
                     <Avatar id={r.profile_id} alias={r.alias} color={r.avatar_color} />
-                    <span style={{ fontWeight: 700 }}>{r.alias}</span>
+                    <span style={{ fontWeight: 700 }}>{r.alias}<span style={{ color: 'var(--pf-faint)', fontWeight: 500 }}>#{r.tag}</span></span>
                     {r.is_provisional ? <span className="pf-chip">{t('provisional')}</span> : null}
                   </Link>
                 </td>
@@ -44,7 +45,7 @@ export async function RankingTable({ rows, showRetar = true }: { rows: RankRow[]
                   {r.streak === 0 ? '–' : `${r.streak > 0 ? 'W' : 'L'}${Math.abs(r.streak)}`}
                 </td>
                 <td style={{ textAlign: 'right' }}>
-                  {showRetar ? <Link href={`/retos/nuevo?a=${encodeURIComponent(r.alias)}`} className="pf-btn pf-btn-secondary pf-btn-sm">{t('challenge')}</Link> : null}
+                  {showRetar ? <Link href={`/retos/nuevo?a=${encodeURIComponent(handleSlug(r.alias, r.tag))}`} className="pf-btn pf-btn-secondary pf-btn-sm">{t('challenge')}</Link> : null}
                 </td>
               </tr>
             );
