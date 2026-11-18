@@ -7,7 +7,7 @@ import { redirect } from '@/i18n/navigation';
 import { errorKey, type ActionResult } from '@/lib/errors';
 import { SITE_URL, TERMS_VERSION } from '@/lib/env';
 import { hashKey } from '@/lib/hash';
-import { escapeLike, parseHandle, type PlayerOption } from '@/lib/alias';
+import { escapeLike, formatHandle, parseHandle, type PlayerOption } from '@/lib/alias';
 import { aliasSchema, createMatchSchema } from '@/lib/match-validation';
 import { supabaseAdmin, supabaseServer } from '@/lib/supabase/server';
 import { verifyTurnstile } from '@/lib/turnstile';
@@ -50,6 +50,59 @@ export async function requestMagicLink(_: unknown, form: FormData): Promise<Acti
   });
   // Respuesta neutra: no se revela si la cuenta existe ni errores de envío concretos
   if (error && /rate|only request this after|seconds/i.test(error.message)) return { ok: false, error: 'rate_limited' };
+  return { ok: true };
+}
+
+// Acceso con alias#código + contraseña. Supabase exige email: se usa uno interno que nunca recibe correo.
+const INTERNAL_EMAIL = (id: string) => `${id}@users.invalid`;
+
+export async function registerWithPassword(_: unknown, form: FormData): Promise<ActionResult<{ handle: string }>> {
+  const alias = aliasSchema.safeParse(String(form.get('alias') ?? ''));
+  if (!alias.success) return { ok: false, error: 'alias_format' };
+  const password = z.string().min(8).max(72).safeParse(String(form.get('password') ?? ''));
+  if (!password.success) return { ok: false, error: 'password_length' };
+  if (form.get('terms') !== 'on' || form.get('age') !== 'on') return { ok: false, error: 'terms_required' };
+  const ip = await clientIp();
+  if (!(await verifyTurnstile(String(form.get('cf-turnstile-response') ?? ''), ip))) return { ok: false, error: 'turnstile' };
+  const admin = supabaseAdmin();
+  if ((await admin.rpc('throttle_hit', { p_key: hashKey('register', ip), p_max: 5, p_window: '1 hour' })).data === false) return { ok: false, error: 'rate_limited' };
+
+  const id = crypto.randomUUID();
+  const { data: created, error: createErr } = await admin.auth.admin.createUser({ email: INTERNAL_EMAIL(id), password: password.data, email_confirm: true });
+  if (createErr || !created.user) return fail(createErr?.message);
+  const userId = created.user.id;
+  const sb = await supabaseServer();
+  const { error: signErr } = await sb.auth.signInWithPassword({ email: INTERNAL_EMAIL(id), password: password.data });
+  if (signErr) { await admin.auth.admin.deleteUser(userId); return fail(signErr.message); }
+  const { data, error } = await sb.rpc('complete_onboarding', { p_alias: alias.data, p_locale: await getLocale(), p_terms_version: TERMS_VERSION });
+  // Si el alias no vale, no dejamos una cuenta sin perfil
+  if (error) { await admin.auth.admin.deleteUser(userId); return fail(error.message); }
+  const p = data as unknown as { alias: string; tag: string };
+  return { ok: true, data: { handle: formatHandle(p.alias, p.tag) } };
+}
+
+export async function loginWithPassword(_: unknown, form: FormData): Promise<ActionResult> {
+  const { alias, tag } = parseHandle(String(form.get('handle') ?? ''));
+  const password = String(form.get('password') ?? '');
+  if (!alias || password.length < 8 || password.length > 72) return { ok: false, error: 'login_failed' };
+  const ip = await clientIp();
+  if (!(await verifyTurnstile(String(form.get('cf-turnstile-response') ?? ''), ip))) return { ok: false, error: 'turnstile' };
+  const admin = supabaseAdmin();
+  if ((await admin.rpc('throttle_hit', { p_key: hashKey('login', ip), p_max: 20, p_window: '1 hour' })).data === false) return { ok: false, error: 'rate_limited' };
+
+  let q = admin.from('profiles').select('id').eq('alias', alias).limit(2);
+  if (tag) q = q.eq('tag', tag);
+  const { data: rows } = await q;
+  if (rows?.length !== 1) return { ok: false, error: 'login_failed' };
+  const { data: u } = await admin.auth.admin.getUserById(rows[0]!.id);
+  if (!u.user?.email) return { ok: false, error: 'login_failed' };
+
+  const sb = await supabaseServer();
+  const { error } = await sb.auth.signInWithPassword({ email: u.user.email, password });
+  if (error) return { ok: false, error: 'login_failed' };
+  // Admin y moderación entran solo con enlace por email. Se comprueba tras validar la contraseña para no revelar cuentas.
+  const { data: p } = await admin.from('profiles').select('role').eq('id', rows[0]!.id).single();
+  if (p?.role !== 'user') { await sb.auth.signOut({ scope: 'local' }); return { ok: false, error: 'use_email_link' }; }
   return { ok: true };
 }
 

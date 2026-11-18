@@ -148,7 +148,7 @@
   "auth": {
     "label": "Access",
     "title": "Sign in with your email",
-    "lead": "No passwords: we send a link to whichever email you like. Any email works.",
+    "lead": "Sign in with your alias and a password. No email needed.",
     "email": "Your email",
     "emailPlaceholder": "you@email.com",
     "send": "Send me the link",
@@ -160,7 +160,19 @@
     "finish": "Finish signup",
     "confirmTitle": "Signing you in…",
     "confirmBody": "One moment. If nothing happens, press the button.",
-    "confirmButton": "Sign in"
+    "confirmButton": "Sign in",
+    "modeLogin": "I have an account",
+    "modeRegister": "Create account",
+    "handle": "Alias#code",
+    "handlePlaceholder": "Furu#xyzj",
+    "password": "Password",
+    "passwordHelp": "At least 8 characters. There is no email recovery: keep it safe.",
+    "submitLogin": "Sign in",
+    "submitRegister": "Create account",
+    "welcomeTitle": "Account created",
+    "handleSaveBody": "Save your username to sign in again:",
+    "continue": "Continue",
+    "adminLink": "I'm an admin: sign in with an email link"
   },
   "onboarding": {
     "label": "Welcome",
@@ -550,7 +562,10 @@
     "reason_required": "Write the reason.",
     "bad_message": "The message must be between 1 and 500 characters.",
     "invalid_players": "Check the players: they must be different and exist.",
-    "confirm_required": "Tick the box to confirm."
+    "confirm_required": "Tick the box to confirm.",
+    "login_failed": "Wrong alias or password.",
+    "password_length": "The password must be 8 to 72 characters.",
+    "use_email_link": "This account signs in with an email link."
   },
   "matchesPage": {
     "label": "All matches",

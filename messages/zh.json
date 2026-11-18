@@ -148,7 +148,7 @@
   "auth": {
     "label": "登录",
     "title": "用邮箱登录",
-    "lead": "不用密码：我们把链接发到你想用的邮箱。任何邮箱都可以。",
+    "lead": "用你的昵称和密码登录，无需邮箱。",
     "email": "你的邮箱",
     "emailPlaceholder": "you@email.com",
     "send": "发给我链接",
@@ -160,7 +160,19 @@
     "finish": "完成注册",
     "confirmTitle": "正在登录…",
     "confirmBody": "请稍候。如果没有反应，请点击按钮。",
-    "confirmButton": "登录"
+    "confirmButton": "登录",
+    "modeLogin": "我已有账号",
+    "modeRegister": "创建账号",
+    "handle": "昵称#代码",
+    "handlePlaceholder": "Furu#xyzj",
+    "password": "密码",
+    "passwordHelp": "至少 8 个字符。没有邮箱无法找回，请妥善保存。",
+    "submitLogin": "登录",
+    "submitRegister": "创建账号",
+    "welcomeTitle": "账号已创建",
+    "handleSaveBody": "请保存你的用户名，以便再次登录：",
+    "continue": "继续",
+    "adminLink": "我是管理员：使用邮件链接登录"
   },
   "onboarding": {
     "label": "欢迎",
@@ -550,7 +562,10 @@
     "reason_required": "请填写原因。",
     "bad_message": "消息长度必须在 1 到 500 个字符之间。",
     "invalid_players": "请检查玩家：必须互不相同且真实存在。",
-    "confirm_required": "请勾选以确认。"
+    "confirm_required": "请勾选以确认。",
+    "login_failed": "昵称或密码错误。",
+    "password_length": "密码长度须为 8 到 72 个字符。",
+    "use_email_link": "该账号请使用邮件链接登录。"
   },
   "matchesPage": {
     "label": "所有比赛",

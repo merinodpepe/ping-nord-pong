@@ -148,7 +148,7 @@
   "auth": {
     "label": "Accés",
     "title": "Entra amb el teu email",
-    "lead": "Sense contrasenyes: t'enviem un enllaç a l'email que vulguis. Serveix qualsevol email.",
+    "lead": "Entra amb el teu àlies i una contrasenya. No cal email.",
     "email": "El teu email",
     "emailPlaceholder": "tu@email.com",
     "send": "Envia'm l'enllaç",
@@ -160,7 +160,19 @@
     "finish": "Acabar el registre",
     "confirmTitle": "Entrant…",
     "confirmBody": "Un moment, t’estem deixant entrar. Si no passa res, prem el botó.",
-    "confirmButton": "Entrar"
+    "confirmButton": "Entrar",
+    "modeLogin": "Ja tinc compte",
+    "modeRegister": "Crear compte",
+    "handle": "Àlies#codi",
+    "handlePlaceholder": "Furu#xyzj",
+    "password": "Contrasenya",
+    "passwordHelp": "Mínim 8 caràcters. Sense email no hi ha recuperació: guarda-la bé.",
+    "submitLogin": "Entrar",
+    "submitRegister": "Crear compte",
+    "welcomeTitle": "Compte creat",
+    "handleSaveBody": "Guarda el teu usuari per entrar un altre cop:",
+    "continue": "Continuar",
+    "adminLink": "Sóc admin: entrar amb enllaç per email"
   },
   "onboarding": {
     "label": "Benvinguda",
@@ -550,7 +562,10 @@
     "reason_required": "Escriu el motiu.",
     "bad_message": "El missatge ha de tenir entre 1 i 500 caràcters.",
     "invalid_players": "Revisa els jugadors: han de ser diferents i existir.",
-    "confirm_required": "Marca la casella per confirmar."
+    "confirm_required": "Marca la casella per confirmar.",
+    "login_failed": "Àlies o contrasenya incorrectes.",
+    "password_length": "La contrasenya ha de tenir entre 8 i 72 caràcters.",
+    "use_email_link": "Aquest compte entra amb enllaç per email."
   },
   "matchesPage": {
     "label": "Tots els partits",

@@ -148,7 +148,7 @@
   "auth": {
     "label": "Zugang",
     "title": "Mit deiner E-Mail anmelden",
-    "lead": "Ohne Passwörter: Wir schicken einen Link an die E-Mail deiner Wahl. Jede E-Mail funktioniert.",
+    "lead": "Melde dich mit Alias und Passwort an. Keine E-Mail nötig.",
     "email": "Deine E-Mail",
     "emailPlaceholder": "du@email.com",
     "send": "Link schicken",
@@ -160,7 +160,19 @@
     "finish": "Registrierung abschließen",
     "confirmTitle": "Du wirst angemeldet…",
     "confirmBody": "Einen Moment. Wenn nichts passiert, tippe auf den Button.",
-    "confirmButton": "Anmelden"
+    "confirmButton": "Anmelden",
+    "modeLogin": "Ich habe ein Konto",
+    "modeRegister": "Konto erstellen",
+    "handle": "Alias#Code",
+    "handlePlaceholder": "Furu#xyzj",
+    "password": "Passwort",
+    "passwordHelp": "Mindestens 8 Zeichen. Ohne E-Mail gibt es keine Wiederherstellung: bewahre es gut auf.",
+    "submitLogin": "Anmelden",
+    "submitRegister": "Konto erstellen",
+    "welcomeTitle": "Konto erstellt",
+    "handleSaveBody": "Speichere deinen Benutzernamen, um dich wieder anzumelden:",
+    "continue": "Weiter",
+    "adminLink": "Ich bin Admin: Anmeldung per E-Mail-Link"
   },
   "onboarding": {
     "label": "Willkommen",
@@ -550,7 +562,10 @@
     "reason_required": "Gib den Grund an.",
     "bad_message": "Die Nachricht muss zwischen 1 und 500 Zeichen lang sein.",
     "invalid_players": "Prüf die Spieler: Sie müssen verschieden sein und existieren.",
-    "confirm_required": "Setz den Haken zur Bestätigung."
+    "confirm_required": "Setz den Haken zur Bestätigung.",
+    "login_failed": "Falscher Alias oder Passwort.",
+    "password_length": "Das Passwort muss 8 bis 72 Zeichen lang sein.",
+    "use_email_link": "Dieses Konto meldet sich per E-Mail-Link an."
   },
   "matchesPage": {
     "label": "Alle Spiele",
